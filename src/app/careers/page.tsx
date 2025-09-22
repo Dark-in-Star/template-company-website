@@ -10,17 +10,14 @@ export const metadata = {
 export default function CareersPage() {
   return (
     <>
-      <section className="bg-secondary">
-        <div className="container mx-auto py-16 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Join Our Team</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            We are always looking for passionate, innovative, and dedicated individuals to join our mission.
-          </p>
-        </div>
-      </section>
-
       <section>
         <div className="container mx-auto">
+            <div className="text-center mb-12">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Join Our Team</h1>
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                    We are always looking for passionate, innovative, and dedicated individuals to join our mission.
+                </p>
+            </div>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-bold tracking-tighter">Why Work With Us?</h2>

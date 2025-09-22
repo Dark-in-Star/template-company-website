@@ -4,16 +4,14 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-primary/5">
-        <div className="container mx-auto py-16 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Contact Us</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            We're here to help and answer any question you might have. We look forward to hearing from you.
-          </p>
-        </div>
-      </section>
       <section>
         <div className="container mx-auto">
+            <div className="text-center mb-12">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Contact Us</h1>
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                    We're here to help and answer any question you might have. We look forward to hearing from you.
+                </p>
+            </div>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             <div className="space-y-8 lg:col-span-1">
                 <div>
