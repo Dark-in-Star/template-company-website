@@ -1,5 +1,4 @@
 
-
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -42,7 +41,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
                         height={testimonial.image.height}
                         className="mb-4 h-20 w-20 rounded-full object-cover"
                       />
-                      <p className="flex-1 font-serif text-lg italic text-foreground">
+                      <p className="flex-1 text-lg text-foreground">
                         "{testimonial.comment}"
                       </p>
                       <div className="mt-4">
