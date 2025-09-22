@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Roboto, Montserrat } from 'next/font/google';
 import './globals.css';
@@ -6,6 +7,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { organizationSchema } from '@/lib/schema';
+import { LeadPopup } from '@/components/shared/LeadPopup';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -75,6 +77,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <LeadPopup />
       </body>
     </html>
   );
