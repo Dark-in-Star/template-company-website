@@ -2,7 +2,7 @@
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Briefcase, Award } from 'lucide-react';
+import { Users, Briefcase, TrendingUp } from 'lucide-react';
 
 const stats = [
   {
@@ -16,9 +16,9 @@ const stats = [
     label: 'Projects Completed',
   },
   {
-    icon: <Award className="h-8 w-8 text-primary" />,
-    value: '15+',
-    label: 'Awards Won',
+    icon: <TrendingUp className="h-8 w-8 text-primary" />,
+    value: '10+',
+    label: 'Years of Experience',
   },
 ];
 
