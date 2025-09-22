@@ -27,8 +27,7 @@ const formSchema = z.object({
     countryCode: z.string().optional(),
     number: z.string().optional(),
   }).optional(),
-  subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+  message: z.string().optional(),
 });
 
 export function ContactForm() {
@@ -42,7 +41,6 @@ export function ContactForm() {
         countryCode: '+1',
         number: ''
       },
-      subject: '',
       message: '',
     },
   });
@@ -139,23 +137,10 @@ export function ContactForm() {
                 </FormItem>
                 <FormField
                 control={form.control}
-                name="subject"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Regarding your services..." {...field} />
-                    </FormControl>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
-                <FormField
-                control={form.control}
                 name="message"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Message (Optional)</FormLabel>
                     <FormControl>
                         <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
                     </FormControl>
