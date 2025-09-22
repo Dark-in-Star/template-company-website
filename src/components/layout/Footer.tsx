@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -19,7 +20,7 @@ export function Footer() {
         return null;
     }
   return (
-    <footer className="w-full border-t bg-background">
+    <footer className="w-full border-t bg-secondary">
       <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-3 md:px-8">
         <div className="flex flex-col items-start gap-4">
           <Logo />
