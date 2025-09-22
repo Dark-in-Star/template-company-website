@@ -6,7 +6,7 @@ import { teamMembers, timelineEvents, faqs } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import type { TeamMember } from '@/lib/types';
 import Link from 'next/link';
 import {
@@ -53,7 +53,7 @@ function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember[
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
   return (
-    <div className={`flex flex-col items-center gap-8 md:flex-row md:items-start ${isFounder ? 'md:text-left text-center' : ''}`}>
+    <div className={`flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left`}>
       <div className={`relative group flex justify-center`}>
         <Image
           src={member.image.src}
@@ -133,7 +133,7 @@ export default function AboutPage() {
                       {/* Desktop View */}
                       <div className={`hidden md:block ${isLeft ? 'text-right' : 'text-left'}`}>
                         {isLeft && (
-                           <Card className="inline-block p-6 text-left shadow-xl">
+                           <Card className="inline-block p-6 text-left shadow-xl max-w-md">
                             <p className="mb-2 text-sm text-primary">{event.date}</p>
                             <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
                             <p className="text-sm text-muted-foreground">{event.description}</p>
@@ -149,7 +149,7 @@ export default function AboutPage() {
 
                       <div className={`hidden md:block ${!isLeft ? 'text-left' : 'text-right'}`}>
                         {!isLeft && (
-                          <Card className="inline-block p-6 text-left shadow-xl">
+                          <Card className="inline-block p-6 text-left shadow-xl max-w-md">
                             <p className="mb-2 text-sm text-primary">{event.date}</p>
                             <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
                             <p className="text-sm text-muted-foreground">{event.description}</p>
@@ -245,23 +245,31 @@ export default function AboutPage() {
                           </AccordionItem>
                       ))}
                   </Accordion>
-                  {faqs.length > 3 && (
-                    <div className="mt-8 text-center">
-                        <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
-                            {showAllFaqs ? (
-                                <>
-                                    <ChevronUp className="mr-2 h-4 w-4" />
-                                    Show Less
-                                </>
-                            ) : (
-                                <>
-                                    <ChevronDown className="mr-2 h-4 w-4" />
-                                    Show More
-                                </>
-                            )}
-                        </Button>
-                    </div>
-                  )}
+                  <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                      {faqs.length > 3 && (
+                          <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
+                              {showAllFaqs ? (
+                                  <>
+                                      <ChevronUp className="mr-2 h-4 w-4" />
+                                      Show Less
+                                  </>
+                              ) : (
+                                  <>
+                                      <ChevronDown className="mr-2 h-4 w-4" />
+                                      Show More
+                                  </>
+                              )}
+                          </Button>
+                      )}
+                      {showAllFaqs && (
+                           <Link href="/contact">
+                                <Button>
+                                    Still have questions? Contact Us
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
+                      )}
+                  </div>
               </div>
           </div>
         </div>
@@ -269,5 +277,3 @@ export default function AboutPage() {
     </>
   );
 }
-
-    
