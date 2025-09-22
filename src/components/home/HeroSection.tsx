@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import type { Image as ImageType } from '@/lib/types';
-import { StatsSection } from './StatsSection';
 
 export function HeroSection({ heroImage }: { heroImage: ImageType }) {
   return (
@@ -20,7 +19,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
-      <div className="container relative mx-auto flex min-h-[80dvh] flex-col items-center justify-center text-center lg:min-h-[90dvh]">
+      <div className="container relative mx-auto flex min-h-[70dvh] flex-col items-center justify-center text-center">
         <div className="space-y-4">
           <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Innovating the Future of Business

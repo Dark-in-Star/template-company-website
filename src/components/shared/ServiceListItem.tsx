@@ -35,7 +35,7 @@ export function ServiceListItem({ service, align }: ServiceListItemProps) {
             <Icon className="h-6 w-6" />
           </div>
           <h3 className="font-heading mt-4 text-2xl font-bold">{service.title}</h3>
-          <p className="mt-2 text-muted-foreground">{service.shortDescription}</p>
+          <p className="mt-2 text-muted-foreground">{service.longDescription}</p>
           <div className="mt-6">
             <Link href={`/services/${service.slug}`}>
               <Button>

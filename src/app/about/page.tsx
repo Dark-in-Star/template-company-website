@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import Image from 'next/image';
@@ -173,8 +172,8 @@ export default function AboutPage() {
                   </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
               </Carousel>
           </div>
 

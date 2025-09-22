@@ -9,6 +9,7 @@ import { BlogSection } from '@/components/home/BlogSection';
 import { services, blogPosts, testimonials, features } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image } from '@/lib/types';
+import { StatsSection } from '@/components/home/StatsSection';
 
 export default function Home() {
   const aboutImage = placeholderImages.about as Image;
@@ -17,6 +18,11 @@ export default function Home() {
   return (
     <>
       <HeroSection heroImage={heroImage} />
+       <div className="relative">
+        <div className="container -mt-24 pb-12">
+          <StatsSection />
+        </div>
+      </div>
       <AboutSection aboutImage={aboutImage} />
       <ServicesSection services={services.slice(0, 4)} />
       <WhyChooseUsSection features={features} />
