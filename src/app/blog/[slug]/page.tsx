@@ -27,7 +27,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <>
       <section className="bg-primary/5">
         <div className="container mx-auto max-w-4xl py-16 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">{post.title}</h1>
+            <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
             <div className="mt-6 flex items-center justify-center gap-4">
                 <Avatar>
                     <AvatarImage src={authorImage.src} alt={post.author} data-ai-hint={authorImage.hint}/>

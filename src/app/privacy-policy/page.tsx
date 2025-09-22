@@ -1,7 +1,8 @@
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="container mx-auto py-16">
-      <h1 className="mb-8 text-4xl font-bold font-heading">Privacy Policy</h1>
+      <h1 className="font-heading mb-8 text-4xl font-bold">Privacy Policy</h1>
       <div className="prose dark:prose-invert max-w-none">
         <p>
           Your privacy is important to us. It is Procellence Technology's policy to respect

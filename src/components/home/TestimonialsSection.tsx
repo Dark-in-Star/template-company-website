@@ -16,7 +16,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
     <section className="bg-primary/5">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">What Our Clients Say</h2>
+          <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">What Our Clients Say</h2>
           <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
             We are proud to have partnered with amazing businesses. Here's what they think about us.
           </p>
@@ -30,7 +30,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="h-full basis-full md:basis-1/2 lg:basis-1/3">
                 <div className="p-4 h-full">
                   <Card className="h-full">
                     <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">

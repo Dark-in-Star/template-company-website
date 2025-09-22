@@ -18,15 +18,15 @@ export default function CareersPage() {
     <>
       <section>
         <div className="container mx-auto">
-            <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">Join Our Team</h1>
+            <div className="mb-12 text-center">
+                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Join Our Team</h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                     We are always looking for passionate, innovative, and dedicated individuals to join our mission.
                 </p>
             </div>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tighter font-heading">Why Work With Us?</h2>
+              <h2 className="font-heading text-3xl font-bold tracking-tighter">Why Work With Us?</h2>
               <p className="mt-4 text-muted-foreground">
                 At Procellence Technology, you'll be part of a dynamic team that values collaboration, creativity, and continuous learning. We tackle challenging projects that make a real-world impact and provide our team members with the resources and support they need to grow both professionally and personally.
               </p>
@@ -49,7 +49,7 @@ export default function CareersPage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="overflow-hidden rounded-lg">
               <Image
                 src={careers.src}
                 alt="Our team collaborating"

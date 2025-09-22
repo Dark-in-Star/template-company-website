@@ -1,7 +1,8 @@
+
 export default function TermsOfServicePage() {
   return (
     <div className="container mx-auto py-16">
-      <h1 className="mb-8 text-4xl font-bold font-heading">Terms of Service</h1>
+      <h1 className="font-heading mb-8 text-4xl font-bold">Terms of Service</h1>
       <div className="prose dark:prose-invert max-w-none">
         <h2 className="font-heading text-3xl">1. Terms</h2>
         <p>
@@ -73,7 +74,7 @@ export default function TermsOfServicePage() {
           These terms and conditions are governed by and construed in accordance with the
           laws of our state and you irrevocably submit to the exclusive jurisdiction of
           the courts in that State or location.
-        p>
+        </p>
       </div>
     </div>
   );

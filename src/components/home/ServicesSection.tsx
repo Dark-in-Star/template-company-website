@@ -11,7 +11,7 @@ export function ServicesSection({ services }: { services: Service[] }) {
     <section className="bg-primary/5">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-heading">Our Services</h2>
+          <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Our Services</h2>
           <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
             We provide a wide range of technology solutions to power your success.
           </p>

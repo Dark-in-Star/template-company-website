@@ -55,7 +55,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
         )}
       </div>
       <div className="flex-1">
-        <h3 className="text-2xl font-bold font-heading">{member.name}</h3>
+        <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
         <p className="text-lg font-medium text-primary">{member.role}</p>
         <p className="mt-4 text-muted-foreground">{member.bio}</p>
       </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
       <section>
         <div className="container mx-auto space-y-16">
           <div>
-            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter font-heading">Our Story</h2>
+            <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
             <div className="relative">
               {/* Vertical line for desktop */}
               <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true" />
@@ -103,9 +103,9 @@ export default function AboutPage() {
                       {/* Desktop View */}
                       <div className={`hidden md:block ${isLeft ? 'text-right' : 'text-left'}`}>
                         {isLeft && (
-                           <Card className="inline-block p-6 text-left shadow-xl max-w-md">
+                           <Card className="inline-block max-w-md p-6 text-left shadow-xl">
                             <p className="mb-2 text-sm text-primary">{event.date}</p>
-                            <h3 className="mb-2 text-xl font-bold font-heading">{event.title}</h3>
+                            <h3 className="font-heading mb-2 text-xl font-bold">{event.title}</h3>
                             <p className="text-sm text-muted-foreground">{event.description}</p>
                           </Card>
                         )}
@@ -119,9 +119,9 @@ export default function AboutPage() {
 
                       <div className={`hidden md:block ${!isLeft ? 'text-left' : 'text-right'}`}>
                         {!isLeft && (
-                          <Card className="inline-block p-6 text-left shadow-xl max-w-md">
+                          <Card className="inline-block max-w-md p-6 text-left shadow-xl">
                             <p className="mb-2 text-sm text-primary">{event.date}</p>
-                            <h3 className="mb-2 text-xl font-bold font-heading">{event.title}</h3>
+                            <h3 className="font-heading mb-2 text-xl font-bold">{event.title}</h3>
                             <p className="text-sm text-muted-foreground">{event.description}</p>
                           </Card>
                         )}
@@ -134,7 +134,7 @@ export default function AboutPage() {
                         </div>
                         <Card className="flex-1 p-4 shadow-xl">
                           <p className="mb-1 text-sm text-primary">{event.date}</p>
-                          <h3 className="mb-1 text-lg font-bold font-heading">{event.title}</h3>
+                          <h3 className="font-heading mb-1 text-lg font-bold">{event.title}</h3>
                           <p className="text-sm text-muted-foreground">{event.description}</p>
                         </Card>
                       </div>
@@ -148,14 +148,14 @@ export default function AboutPage() {
           <Separator />
 
           <div>
-              <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter font-heading">Meet the Founder</h2>
+              <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
               <TeamMemberCard member={founder} isFounder />
           </div>
 
           <Separator />
 
           <div>
-              <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter font-heading">Meet the Team</h2>
+              <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
               <Carousel
                   plugins={[plugin.current]}
                   className="w-full"
@@ -179,7 +179,7 @@ export default function AboutPage() {
                       />
                       <div className={`absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                           <div className="text-center text-white">
-                          <h3 className="text-2xl font-bold font-heading">{member.name}</h3>
+                          <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
                           <p className="text-lg font-medium text-primary">{member.role}</p>
                           </div>
                           {member.socials && (
@@ -202,12 +202,12 @@ export default function AboutPage() {
           <Separator />
 
           <div>
-              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter font-heading">Frequently Asked Questions</h2>
+              <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
               <div className="mx-auto max-w-3xl">
                   <Accordion type="single" collapsible className="w-full">
                       {displayedFaqs.map((faq, index) => (
                           <AccordionItem key={index} value={`item-${index}`}>
-                              <AccordionTrigger className="text-lg text-left font-heading">{faq.question}</AccordionTrigger>
+                              <AccordionTrigger className="font-heading text-left text-lg">{faq.question}</AccordionTrigger>
 
                               <AccordionContent className="text-base text-muted-foreground">
                                   {faq.answer}

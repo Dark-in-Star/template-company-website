@@ -1,3 +1,4 @@
+
 import { ContactForm } from '@/components/shared/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -6,8 +7,8 @@ export default function ContactPage() {
     <>
       <section>
         <div className="container mx-auto">
-            <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">Contact Us</h1>
+            <div className="mb-12 text-center">
+                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Contact Us</h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                     We're here to help and answer any question you might have. We look forward to hearing from you.
                 </p>
@@ -15,7 +16,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             <div className="space-y-8 lg:col-span-1">
                 <div>
-                    <h2 className="text-2xl font-bold font-heading">Get in Touch</h2>
+                    <h2 className="font-heading text-2xl font-bold">Get in Touch</h2>
                     <p className="mt-2 text-muted-foreground">
                         Have a project in mind or just want to say hello? You can reach us through the following channels.
                     </p>
@@ -26,7 +27,7 @@ export default function ContactPage() {
                             <Mail className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold font-heading">Email</h3>
+                            <h3 className="font-heading font-semibold">Email</h3>
                             <a href="mailto:contact@procellencetechnology.com" className="text-muted-foreground hover:text-primary">
                                 contact@procellencetechnology.com
                             </a>
@@ -37,7 +38,7 @@ export default function ContactPage() {
                             <Phone className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold font-heading">Phone</h3>
+                            <h3 className="font-heading font-semibold">Phone</h3>
                             <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
                                 (123) 456-7890
                             </a>
@@ -48,7 +49,7 @@ export default function ContactPage() {
                             <MapPin className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold font-heading">Office</h3>
+                            <h3 className="font-heading font-semibold">Office</h3>
                             <p className="text-muted-foreground">
                                 123 Innovation Drive<br/>
                                 Tech City, TX 12345

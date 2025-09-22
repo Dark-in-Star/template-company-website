@@ -22,7 +22,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
       </div>
       <div className="container relative mx-auto flex min-h-[80dvh] flex-col items-center justify-center text-center lg:min-h-[90dvh]">
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-heading">
+          <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Innovating the Future of Business
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">

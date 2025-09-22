@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Bot, Lightbulb } from 'lucide-react';
@@ -13,10 +14,10 @@ export function BrochureSummarizerSection() {
                     <Bot className="hidden h-20 w-20 sm:block" />
                 </div>
                 <div className="md:col-span-2">
-                    <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl font-heading">
+                    <h2 className="font-heading text-2xl font-bold tracking-tighter sm:text-3xl">
                         Discover Our AI-Powered Brochure Summarizer
                     </h2>
-                    <p className="mt-4 max-w-[600px] opacity-90 md:mx-0 mx-auto">
+                    <p className="mx-auto mt-4 max-w-[600px] opacity-90 md:mx-0">
                         Have a brochure you want to quickly understand? Paste its URL into our smart tool and get a concise summary of key services and offerings in seconds.
                     </p>
                     <Link href="/summarize-brochure" className="mt-6 inline-block">

@@ -9,8 +9,8 @@ export default function GalleryPage() {
     <>
       <section>
         <div className="container mx-auto">
-            <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">Our Gallery</h1>
+            <div className="mb-12 text-center">
+                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Our Gallery</h1>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                     A glimpse into our world. See our team, our projects, and our culture in action.
                 </p>
