@@ -18,9 +18,11 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
             <p className="text-muted-foreground md:text-lg">
               With a foundation built on integrity, expertise, and a commitment to excellence, we forge long-lasting partnerships to ensure sustainable growth and success.
             </p>
-            <Link href="/about">
-              <Button>Learn More About Us</Button>
-            </Link>
+            <div className="pt-2">
+              <Link href="/about">
+                <Button>Learn More About Us</Button>
+              </Link>
+            </div>
           </div>
           <div className="order-1 flex justify-center md:order-2">
              <Card>

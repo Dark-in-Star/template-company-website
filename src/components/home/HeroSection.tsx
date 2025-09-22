@@ -20,7 +20,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
       <div className="container relative mx-auto flex min-h-[80dvh] flex-col items-center justify-center text-center lg:min-h-[90dvh]">
-        <div className="space-y-6">
+        <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-heading">
             Innovating the Future of Business
           </h1>
@@ -28,7 +28,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
             Procellence Technology delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business. Let us be your partner in digital excellence.
           </p>
         </div>
-        <div className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+        <div className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
           <Link href="/services" className="w-full sm:w-auto">
             <Button size="lg" className="w-full">
               Explore Our Services
