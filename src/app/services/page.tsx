@@ -6,7 +6,6 @@ import type { Image as ImageType } from '@/lib/types';
 import { ServiceListItem } from '@/components/shared/ServiceListItem';
 import { PageHero } from '@/components/shared/PageHero';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
-import { ServicesChart } from '@/components/shared/ServicesChart';
 
 export default function ServicesPage() {
   const servicesHero = placeholderImages.servicesHero as ImageType;
@@ -18,7 +17,6 @@ export default function ServicesPage() {
           description="We offer a comprehensive suite of technology services designed to elevate your business, from strategic planning to custom software and cloud infrastructure."
           image={servicesHero}
           />
-      <ServicesChart />
       <section>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-12">
