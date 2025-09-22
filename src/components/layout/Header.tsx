@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -42,7 +43,7 @@ export function Header() {
                     <Link href="/contact" className="hidden sm:block">
                         <Button>Contact Us</Button>
                     </Link>
-                     <div className="lg:hidden h-6 w-6" />
+                     <div className="lg:hidden h-8 w-8" />
                 </div>
             </div>
         </header>
@@ -79,7 +80,7 @@ export function Header() {
                 className="lg:hidden"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
                 <span className="sr-only">Toggle Menu</span>
             </Button>
         </div>
