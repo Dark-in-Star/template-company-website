@@ -10,7 +10,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import { readBrochure } from '@/src/services/readBrochure';
+import { readBrochure } from '@/services/readBrochure';
 
 const SummarizeBrochureInputSchema = z.object({
   brochureUrl: z
@@ -30,7 +30,7 @@ export async function summarizeBrochure(input: SummarizeBrochureInput): Promise<
 
 const prompt = ai.definePrompt({
   name: 'summarizeBrochurePrompt',
-  input: {schema: SummarizeBrochureInputSchema},
+  input: {schema: z.object({ brochureContent: z.string() })},
   output: {schema: SummarizeBrochureOutputSchema},
   prompt: `You are an expert marketing assistant. Your task is to summarize the content of a brochure, highlighting key services offered.  The brochure content will be passed to you in raw text form.
 
