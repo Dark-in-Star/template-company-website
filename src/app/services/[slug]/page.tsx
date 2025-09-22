@@ -1,11 +1,10 @@
 
-import { services, testimonials } from '@/lib/data';
+import { services } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { ContactForm } from '@/components/shared/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -101,8 +100,6 @@ export default function ServiceDetailPage({ params }: { params: { slug:string } 
           </div>
         </div>
       </section>
-
-      <TestimonialsSection testimonials={testimonials} />
     </>
   );
 }

@@ -1,10 +1,11 @@
 
 
-import { services } from '@/lib/data';
+import { services, testimonials } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { ServiceListItem } from '@/components/shared/ServiceListItem';
 import { PageHero } from '@/components/shared/PageHero';
+import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 
 export default function ServicesPage() {
   const servicesHero = placeholderImages.servicesHero as ImageType;
@@ -26,6 +27,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <TestimonialsSection testimonials={testimonials} />
     </>
   );
 }
