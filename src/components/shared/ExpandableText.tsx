@@ -9,7 +9,9 @@ interface ExpandableTextProps {
   maxLength?: number;
 }
 
-export function ExpandableText({ text, maxLength = 100 }: ExpandableTextProps) {
+const DEFAULT_MAX_LENGTH = 100;
+
+export function ExpandableText({ text, maxLength = DEFAULT_MAX_LENGTH }: ExpandableTextProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Only show "Read More" if the text is longer than maxLength + 10 characters
