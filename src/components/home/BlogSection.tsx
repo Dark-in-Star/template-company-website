@@ -31,8 +31,8 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
         >
           <CarouselContent>
             {posts.map((post) => (
-              <CarouselItem key={post.slug} className="h-full md:basis-1/2 lg:basis-1/3">
-                 <div className="p-1 h-full">
+              <CarouselItem key={post.slug} className="basis-full p-1 sm:basis-1/2 lg:basis-1/3">
+                 <div className="h-full">
                     <BlogCard post={post} />
                  </div>
               </CarouselItem>
