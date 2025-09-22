@@ -112,138 +112,141 @@ export default function AboutPage() {
 
       <section>
         <div className="container mx-auto space-y-16">
-            <div>
-                <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-                <div className="relative">
-                    <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true"></div>
-                    <div className="space-y-12 md:space-y-0">
-                        {timelineEvents.map((event, index) => {
-                            const Icon = LucideIcons[event.icon] as React.ElementType;
-                            const isEven = index % 2 === 0;
-                            return (
-                                <div key={index} className="md:grid md:grid-cols-2 md:gap-x-16">
-                                    {/* Desktop: Right Side */}
-                                    <div className={`hidden md:block ${!isEven ? 'col-start-1 row-start-1' : ''}`}>
-                                        {!isEven && (
-                                            <div className="w-full text-right">
-                                                <div className="inline-block rounded-lg bg-card p-6 shadow-xl text-left">
-                                                    <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                                    <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                                    <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                                        {event.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
+          <div>
+            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true" />
+              <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 md:hidden" aria-hidden="true" />
 
-                                    {/* Mobile and Desktop: Icon */}
-                                    <div className="relative flex justify-center md:col-start-2 md:row-start-1 md:justify-start">
-                                        {/* Mobile timeline */}
-                                        <div className="absolute left-0 top-0 h-full w-0.5 translate-x-[calc(-50%-20px)] bg-primary/20 md:hidden" aria-hidden="true"></div>
+              <div className="space-y-12">
+                {timelineEvents.map((event, index) => {
+                  const Icon = LucideIcons[event.icon as keyof typeof LucideIcons] as React.ElementType;
+                  const isLeft = index % 2 === 0;
 
-                                        <div className="relative z-10">
-                                            <div className="absolute left-1/2 top-1/2 hidden h-16 w-16 -translate-x-1/2 -translate-y-1/2 md:block">
-                                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl">
-                                                    <Icon className="h-8 w-8 text-primary-foreground" />
-                                                </div>
-                                            </div>
-                                            {/* Mobile Icon */}
-                                            <div className="absolute left-0 top-0 flex h-16 w-16 -translate-x-[calc(50%+20px)] items-center justify-center rounded-full bg-primary shadow-xl md:hidden">
-                                                 <Icon className="h-8 w-8 text-primary-foreground" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Mobile & Desktop Left Side */}
-                                    <div className={`md:py-8 ${isEven ? 'md:col-start-2' : ''}`}>
-                                        <div className={`w-full rounded-lg bg-card p-6 shadow-xl md:ml-0 ${isMobile ? 'ml-12' : ''}`}>
-                                            <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                            <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                            <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                                {event.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </div>
-
-            <Separator />
-
-            <div>
-                <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
-                <TeamMemberCard member={founder} isFounder />
-            </div>
-
-            <Separator />
-
-            <div>
-                <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
-                <Carousel
-                    plugins={[plugin.current]}
-                    className="w-full"
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                    opts={{
-                        align: 'start',
-                        loop: true,
-                    }}
-                >
-                <CarouselContent className="-ml-4">
-                    {otherTeamMembers.map((member) => (
-                    <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
-                        <Card className="group relative w-full overflow-hidden pt-[133.33%]">
-                        <Image
-                            src={member.image.src}
-                            alt={member.name}
-                            data-ai-hint={member.image.hint}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        />
-                        <div className={`absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                            <div className="text-center text-white">
-                            <h3 className="text-2xl font-bold">{member.name}</h3>
-                            <p className="text-lg font-medium text-primary">{member.role}</p>
+                  return (
+                    <div key={index} className="relative">
+                      {/* Desktop view */}
+                      <div className="hidden md:grid md:grid-cols-2 md:gap-x-12">
+                        {isLeft ? (
+                          <>
+                            <div className="text-right">
+                              <Card className="inline-block p-6 text-left shadow-xl">
+                                <p className="mb-2 text-sm text-primary">{event.date}</p>
+                                <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                                <p className="text-sm text-muted-foreground">{event.description}</p>
+                              </Card>
                             </div>
-                            {member.socials && (
-                            <div className="mt-4 flex gap-2">
-                                <SocialLink platform="linkedin" url={member.socials.linkedin} />
-                                <SocialLink platform="twitter" url={member.socials.twitter} />
-                                <SocialLink platform="github" url={member.socials.github} />
+                            <div></div>
+                          </>
+                        ) : (
+                          <>
+                            <div></div>
+                            <div>
+                              <Card className="inline-block p-6 text-left shadow-xl">
+                                <p className="mb-2 text-sm text-primary">{event.date}</p>
+                                <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                                <p className="text-sm text-muted-foreground">{event.description}</p>
+                              </Card>
                             </div>
-                            )}
+                          </>
+                        )}
+                      </div>
+                      <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform md:block">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
+                          <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
+                      </div>
+                      {/* Mobile view */}
+                      <div className="flex items-center gap-6 md:hidden">
+                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl">
+                          <Icon className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <Card className="flex-1 p-4 shadow-xl">
+                            <p className="mb-1 text-sm text-primary">{event.date}</p>
+                            <h3 className="mb-1 text-lg font-bold">{event.title}</h3>
+                            <p className="text-sm text-muted-foreground">{event.description}</p>
                         </Card>
-                    </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
-                </Carousel>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+          </div>
 
-            <Separator />
+          <Separator />
 
-            <div>
-                <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
-                <div className="mx-auto max-w-3xl">
-                    <Accordion type="single" collapsible className="w-full">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`}>
-                                <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
+          <div>
+              <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
+              <TeamMemberCard member={founder} isFounder />
+          </div>
 
-                                <AccordionContent className="text-base text-muted-foreground">
-                                    {faq.answer}
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </div>
+          <Separator />
+
+          <div>
+              <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
+              <Carousel
+                  plugins={[plugin.current]}
+                  className="w-full"
+                  onMouseEnter={plugin.current.stop}
+                  onMouseLeave={plugin.current.reset}
+                  opts={{
+                      align: 'start',
+                      loop: true,
+                  }}
+              >
+              <CarouselContent className="-ml-4">
+                  {otherTeamMembers.map((member) => (
+                  <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
+                      <Card className="group relative w-full overflow-hidden pt-[133.33%]">
+                      <Image
+                          src={member.image.src}
+                          alt={member.name}
+                          data-ai-hint={member.image.hint}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className={`absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                          <div className="text-center text-white">
+                          <h3 className="text-2xl font-bold">{member.name}</h3>
+                          <p className="text-lg font-medium text-primary">{member.role}</p>
+                          </div>
+                          {member.socials && (
+                          <div className="mt-4 flex gap-2">
+                              <SocialLink platform="linkedin" url={member.socials.linkedin} />
+                              <SocialLink platform="twitter" url={member.socials.twitter} />
+                              <SocialLink platform="github" url={member.socials.github} />
+                          </div>
+                          )}
+                      </div>
+                      </Card>
+                  </CarouselItem>
+                  ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+              </Carousel>
+          </div>
+
+          <Separator />
+
+          <div>
+              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
+              <div className="mx-auto max-w-3xl">
+                  <Accordion type="single" collapsible className="w-full">
+                      {faqs.map((faq, index) => (
+                          <AccordionItem key={index} value={`item-${index}`}>
+                              <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
+
+                              <AccordionContent className="text-base text-muted-foreground">
+                                  {faq.answer}
+                              </AccordionContent>
+                          </AccordionItem>
+                      ))}
+                  </Accordion>
+              </div>
+          </div>
         </div>
       </section>
     </>
