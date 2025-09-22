@@ -137,8 +137,8 @@ export default function AboutPage() {
             >
               <CarouselContent className="-ml-4">
                 {otherTeamMembers.map((member) => (
-                  <CarouselItem key={member.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="group relative h-96 w-full overflow-hidden">
+                  <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
+                    <Card className="group relative w-full overflow-hidden pt-[133.33%]">
                       <Image
                         src={member.image.src}
                         alt={member.name}
