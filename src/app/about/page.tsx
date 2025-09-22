@@ -87,7 +87,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="relative h-96 bg-secondary">
+      <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
          <div className="absolute inset-0">
           <Image
             src="https://picsum.photos/seed/about-hero/1920/400"

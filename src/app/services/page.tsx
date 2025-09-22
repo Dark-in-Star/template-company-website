@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative h-96 bg-secondary">
+      <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
          <div className="absolute inset-0">
           <Image
             src="https://picsum.photos/seed/services-hero/1920/400"
