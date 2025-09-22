@@ -20,13 +20,13 @@ export function ServiceListItem({ service, align }: ServiceListItemProps) {
 
   return (
     <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
-      <div className={cn('group relative h-80 w-full overflow-hidden rounded-lg bg-primary/5 p-8', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
+      <div className={cn('group relative h-80 w-full overflow-hidden rounded-lg p-8 transition-all duration-300 hover:bg-primary/5 hover:shadow-lg', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
          <Image 
             src={service.image.src}
             alt={service.image.hint}
             data-ai-hint={service.image.hint}
             fill
-            className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
+            className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:opacity-80"
          />
       </div>
       <div className={cn('flex flex-col justify-center space-y-4 rounded-lg', isLeftAligned ? 'md:order-1' : 'md:order-2')}>
