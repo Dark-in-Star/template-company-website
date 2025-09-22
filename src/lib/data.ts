@@ -6,6 +6,7 @@ export const navLinks: NavLink[] = [
   { href: '/services', label: 'Services' },
   { href: '/blog', label: 'Blog' },
   { href: '/products', label: 'Products' },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/careers', label: 'Careers' },
   { href: '/contact', label: 'Contact' },
   { href: '/summarize-brochure', label: 'AI Tool' },
@@ -59,24 +60,44 @@ export const teamMembers: TeamMember[] = [
     role: 'Founder & CEO',
     image: { src: 'https://picsum.photos/seed/founder/400/400', width: 400, height: 400, hint: 'professional woman' },
     bio: 'With over 20 years of experience in the tech industry, Eleanor founded Procellence Technology with a vision to merge innovation with integrity. Her leadership drives the company\'s commitment to excellence and client success.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      github: 'https://github.com',
+    },
   },
   {
     name: 'Marcus Thorne',
     role: 'Chief Technology Officer',
     image: { src: 'https://picsum.photos/seed/cto/400/400', width: 400, height: 400, hint: 'professional man' },
     bio: 'Marcus is the architectural mastermind behind our technology solutions. He has a passion for solving complex problems and a deep expertise in cloud computing and AI systems.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      github: 'https://github.com',
+    },
   },
   {
     name: 'Aria Chen',
     role: 'Head of Product',
     image: { src: 'https://picsum.photos/seed/product/400/400', width: 400, height: 400, hint: 'smiling woman' },
     bio: 'Aria leads our product development teams with a user-centric approach. She ensures that every solution we deliver is not only powerful but also intuitive and valuable to our clients.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      github: 'https://github.com',
+    },
   },
   {
     name: 'Julian Diaz',
     role: 'Lead Strategist',
     image: { src: 'https://picsum.photos/seed/strategy/400/400', width: 400, height: 400, hint: 'man thinking' },
     bio: 'Julian specializes in crafting data-driven strategies that propel businesses forward. His analytical skills and market insights are key to our clients\' competitive advantage.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      github: 'https://github.com',
+    },
   },
 ];
 

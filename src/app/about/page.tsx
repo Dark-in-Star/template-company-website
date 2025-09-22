@@ -2,19 +2,52 @@ import Image from 'next/image';
 import { teamMembers } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { Github, Linkedin, Twitter, Mail, Facebook, Instagram } from 'lucide-react';
+import type { TeamMember } from '@/lib/types';
+import Link from 'next/link';
 
-function TeamMemberCard({ member, isFounder = false }: { member: (typeof teamMembers)[0]; isFounder?: boolean }) {
+function SocialLink({ platform, url }: { platform: keyof TeamMember['socials'], url: string | undefined }) {
+  if (!url) return null;
+
+  const icons: { [key in keyof TeamMember['socials']]: React.ReactNode } = {
+    linkedin: <Linkedin className="h-5 w-5" />,
+    twitter: <Twitter className="h-5 w-5" />,
+    github: <Github className="h-5 w-5" />,
+    facebook: <Facebook className="h-5 w-5" />,
+    instagram: <Instagram className="h-5 w-5" />,
+    email: <Mail className="h-5 w-5" />,
+  };
+
+  return (
+    <Link href={url} target="_blank" rel="noopener noreferrer">
+      <Button variant="ghost" size="icon">
+        {icons[platform]}
+        <span className="sr-only">{platform}</span>
+      </Button>
+    </Link>
+  );
+}
+
+function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
   return (
     <div className={`grid grid-cols-1 items-center gap-8 ${isFounder ? 'md:grid-cols-3' : ''}`}>
-      <div className={`flex justify-center ${isFounder ? 'md:col-span-1' : ''}`}>
+      <div className={`relative group flex justify-center ${isFounder ? 'md:col-span-1' : ''}`}>
         <Image
           src={member.image.src}
           alt={member.name}
           data-ai-hint={member.image.hint}
           width={member.image.width}
           height={member.image.height}
-          className="h-64 w-64 rounded-full object-cover shadow-lg"
+          className="h-64 w-64 rounded-full object-cover shadow-lg transition-opacity group-hover:opacity-75"
         />
+        {member.socials && (
+          <div className="absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
+            <SocialLink platform="linkedin" url={member.socials.linkedin} />
+            <SocialLink platform="twitter" url={member.socials.twitter} />
+            <SocialLink platform="github" url={member.socials.github} />
+          </div>
+        )}
       </div>
       <div className={isFounder ? 'md:col-span-2' : ''}>
         <h3 className="text-2xl font-bold">{member.name}</h3>
@@ -24,6 +57,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: (typeof teamMem
     </div>
   );
 }
+
 
 export default function AboutPage() {
   const [founder, ...otherTeamMembers] = teamMembers;
@@ -78,15 +112,22 @@ export default function AboutPage() {
             <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
               {otherTeamMembers.map((member) => (
-                <Card key={member.name} className="flex flex-col items-center p-6 text-center">
-                  <Image
+                <Card key={member.name} className="group relative flex flex-col items-center overflow-hidden p-6 text-center">
+                   <Image
                     src={member.image.src}
                     alt={member.name}
                     data-ai-hint={member.image.hint}
                     width={150}
                     height={150}
-                    className="h-32 w-32 rounded-full object-cover"
+                    className="h-32 w-32 rounded-full object-cover transition-opacity group-hover:opacity-75"
                   />
+                  {member.socials && (
+                    <div className="absolute top-[24px] flex h-32 w-32 items-center justify-center gap-1 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
+                      <SocialLink platform="linkedin" url={member.socials.linkedin} />
+                      <SocialLink platform="twitter" url={member.socials.twitter} />
+                      <SocialLink platform="github" url={member.socials.github} />
+                    </div>
+                  )}
                   <h3 className="mt-4 text-xl font-bold">{member.name}</h3>
                   <p className="font-medium text-primary">{member.role}</p>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground">{member.bio}</p>

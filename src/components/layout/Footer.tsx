@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Github, Instagram } from 'lucide-react';
 
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
@@ -30,12 +30,22 @@ export function Footer() {
                     <Facebook className="h-5 w-5" />
                 </a>
             </Button>
+            <Button variant="ghost" size="icon" asChild>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <Instagram className="h-5 w-5" />
+                </a>
+            </Button>
+            <Button variant="ghost" size="icon" asChild>
+                <a href="https://github.com" target="_blank" aria-label="GitHub">
+                    <Github className="h-5 w-5" />
+                </a>
+            </Button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm md:col-span-2 md:grid-cols-3">
           <div>
             <h3 className="font-semibold tracking-wider text-foreground">
-              Navigation
+              Quick Links
             </h3>
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (

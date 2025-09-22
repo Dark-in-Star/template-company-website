@@ -39,6 +39,14 @@ export type TeamMember = {
     hint: string;
   };
   bio: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+    facebook?: string;
+    instagram?: string;
+    email?: string;
+  };
 };
 
 export type Testimonial = {
