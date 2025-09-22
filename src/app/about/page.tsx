@@ -98,9 +98,6 @@ export default function AboutPage() {
                                 <Card className="shadow-lg transition-shadow duration-300 hover:shadow-xl">
                                     <CardContent className="p-6">
                                         <div className="flex items-center gap-4">
-                                             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                                <Icon className="h-6 w-6" />
-                                            </div>
                                             <div>
                                                 <p className="font-heading text-xl font-bold">{event.title}</p>
                                                 <p className="text-sm font-semibold text-primary">{event.date}</p>
@@ -110,7 +107,9 @@ export default function AboutPage() {
                                     </CardContent>
                                 </Card>
                             </div>
-                            <div className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-primary"></div>
+                            <div className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-background bg-primary text-primary-foreground">
+                                <Icon className="h-6 w-6" />
+                            </div>
                         </div>
                     );
                 })}
