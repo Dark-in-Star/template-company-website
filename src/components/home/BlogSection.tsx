@@ -19,7 +19,7 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">From the Blog</h2>
-          <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-3xl text-muted-foreground md:text-lg">
             Explore our latest articles and insights on technology and business.
           </p>
         </div>
