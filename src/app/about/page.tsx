@@ -87,39 +87,33 @@ export default function AboutPage() {
         <div className="container mx-auto space-y-16">
            <div>
             <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-            <div className="space-y-8">
-              {timelineEvents.map((event, index) => {
-                const Icon = LucideIcons[event.icon as keyof typeof LucideIcons] as React.ElementType;
-                const isLeft = index % 2 === 0;
-
-                return (
-                    <Card key={index} className="overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl">
-                        <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className={cn("relative h-64 md:h-auto", isLeft ? 'md:order-1' : 'md:order-2')}>
-                             <Image
-                                src={event.image.src}
-                                alt={event.title}
-                                data-ai-hint={event.image.hint}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className={cn("flex flex-col justify-center p-8", isLeft ? 'md:order-2' : 'md:order-1')}>
-                            <div className="flex items-center gap-4">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                    <Icon className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <p className="font-heading text-2xl font-bold">{event.title}</p>
-                                    <p className="text-sm font-semibold text-primary">{event.date}</p>
-                                </div>
+            <div className="relative">
+                <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
+                {timelineEvents.map((event, index) => {
+                    const Icon = LucideIcons[event.icon as keyof typeof LucideIcons] as React.ElementType;
+                    const isLeft = index % 2 === 0;
+                    return (
+                        <div key={index} className={cn("relative mb-12 flex w-full items-center", isLeft ? 'justify-start' : 'justify-end')}>
+                            <div className={cn("relative w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
+                                <Card className="shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                                    <CardContent className="p-6">
+                                        <div className="flex items-center gap-4">
+                                             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                                <Icon className="h-6 w-6" />
+                                            </div>
+                                            <div>
+                                                <p className="font-heading text-xl font-bold">{event.title}</p>
+                                                <p className="text-sm font-semibold text-primary">{event.date}</p>
+                                            </div>
+                                        </div>
+                                        <p className="mt-4 text-muted-foreground">{event.description}</p>
+                                    </CardContent>
+                                </Card>
                             </div>
-                            <p className="mt-4 text-muted-foreground">{event.description}</p>
+                            <div className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-primary"></div>
                         </div>
-                        </div>
-                    </Card>
-                );
-              })}
+                    );
+                })}
             </div>
           </div>
 
