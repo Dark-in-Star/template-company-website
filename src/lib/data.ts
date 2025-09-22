@@ -1,5 +1,5 @@
 
-import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature } from './types';
+import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature, CountryCode } from './types';
 
 import navLinksData from '@/data/nav-links.json';
 import servicesData from '@/data/services.json';
@@ -10,6 +10,7 @@ import timelineEventsData from '@/data/timeline-events.json';
 import faqsData from '@/data/faqs.json';
 import featuresData from '@/data/features.json';
 import galleryImagesData from '@/data/gallery-images.json';
+import countryCodesData from '@/data/country-codes.json';
 
 
 export const navLinks: NavLink[] = navLinksData;
@@ -21,3 +22,4 @@ export const timelineEvents: TimelineEvent[] = timelineEventsData;
 export const faqs: FAQ[] = faqsData;
 export const features: Feature[] = featuresData;
 export const galleryImages = galleryImagesData;
+export const countryCodes: CountryCode[] = countryCodesData;

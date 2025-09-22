@@ -17,10 +17,16 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { countryCodes } from '@/lib/data';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email.' }),
+  phone: z.object({
+    countryCode: z.string().optional(),
+    number: z.string().optional(),
+  }).optional(),
   subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
@@ -32,6 +38,10 @@ export function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
+      phone: {
+        countryCode: '+1',
+        number: ''
+      },
       subject: '',
       message: '',
     },
@@ -39,7 +49,12 @@ export function ContactForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real app, you would handle form submission here (e.g., send an email, API call).
-    console.log(values);
+    const fullPhoneNumber = `${values.phone?.countryCode || ''}${values.phone?.number || ''}`;
+    const submissionValues = {
+        ...values,
+        phone: fullPhoneNumber,
+    }
+    console.log(submissionValues);
     toast({
       title: 'Message Sent!',
       description: "Thanks for reaching out. We'll get back to you shortly.",
@@ -82,6 +97,45 @@ export function ContactForm() {
                     </FormItem>
                 )}
                 />
+                <FormItem>
+                    <FormLabel>Phone Number (Optional)</FormLabel>
+                    <div className="flex gap-2">
+                        <FormField
+                            control={form.control}
+                            name="phone.countryCode"
+                            render={({ field }) => (
+                                <FormItem className="w-1/3">
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Code" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {countryCodes.map(country => (
+                                                <SelectItem key={country.code} value={country.code}>
+                                                    {country.code} ({country.name})
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="phone.number"
+                            render={({ field }) => (
+                                <FormItem className="flex-1">
+                                    <FormControl>
+                                        <Input type="tel" placeholder="123-456-7890" {...field} />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <FormMessage />
+                </FormItem>
                 <FormField
                 control={form.control}
                 name="subject"
