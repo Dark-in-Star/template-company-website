@@ -2,7 +2,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import type { Service } from '@/lib/types';
@@ -20,16 +19,10 @@ export function ServiceListItem({ service, align }: ServiceListItemProps) {
 
   return (
     <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
-      <div className={cn('relative h-80 w-full overflow-hidden rounded-lg shadow-md', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
-        <Image
-          src={service.image.src}
-          alt={service.title}
-          data-ai-hint={service.image.hint}
-          fill
-          className="object-cover transition-transform duration-300 hover:scale-105"
-        />
+      <div className={cn('relative flex h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-primary/5 p-8', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
+         <Icon className="h-48 w-48 animate-subtle-float text-primary opacity-50" />
       </div>
-      <div className={cn('flex flex-col justify-center space-y-4 rounded-lg bg-secondary/50 p-8', isLeftAligned ? 'md:order-1' : 'md:order-2')}>
+      <div className={cn('flex flex-col justify-center space-y-4 rounded-lg p-8', isLeftAligned ? 'md:order-1' : 'md:order-2')}>
         <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon className="h-6 w-6" />
         </div>
