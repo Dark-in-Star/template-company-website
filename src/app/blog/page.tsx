@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/lib/data';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { ExpandableText } from '@/components/shared/ExpandableText';
 
 export default function BlogPage() {
   return (
@@ -21,7 +22,7 @@ export default function BlogPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
         <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Our Blog</h1>
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">Our Blog</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Insights, news, and stories from the team at Procellence Technology.
           </p>
@@ -51,15 +52,17 @@ export default function BlogPage() {
                         <span>&middot;</span>
                         <span>{post.author}</span>
                     </div>
-                  <CardTitle className="mt-2 text-xl font-bold">
+                  <CardTitle className="mt-2 text-xl">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </CardTitle>
-                  <CardDescription className="mt-2 flex-1">{post.excerpt}</CardDescription>
-                  <Link href={`/blog/${post.slug}`} className="mt-4">
-                    <Button variant="link" className="p-0">
-                      Read More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <ExpandableText text={post.excerpt} maxLength={100} />
+                  <div className="mt-auto pt-4">
+                    <Link href={`/blog/${post.slug}`} className="mt-4">
+                        <Button variant="link" className="p-0">
+                        Read More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}

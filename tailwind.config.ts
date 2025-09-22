@@ -17,7 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
+        sans: ['var(--font-roboto)', 'sans-serif'],
+        heading: ['var(--font-montserrat)', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

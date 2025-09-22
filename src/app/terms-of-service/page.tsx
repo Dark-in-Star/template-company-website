@@ -1,9 +1,9 @@
 export default function TermsOfServicePage() {
   return (
     <div className="container mx-auto py-16">
-      <h1 className="mb-8 text-4xl font-bold">Terms of Service</h1>
+      <h1 className="mb-8 text-4xl font-bold font-heading">Terms of Service</h1>
       <div className="prose dark:prose-invert max-w-none">
-        <h2>1. Terms</h2>
+        <h2 className="font-heading">1. Terms</h2>
         <p>
           By accessing the website at Procellence Technology, you are agreeing to be bound by
           these terms of service, all applicable laws and regulations, and agree that
@@ -13,7 +13,7 @@ export default function TermsOfServicePage() {
           copyright and trademark law.
         </p>
 
-        <h2>2. Use License</h2>
+        <h2 className="font-heading">2. Use License</h2>
         <ol type="a">
           <li>
             Permission is granted to temporarily download one copy of the materials
@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
           </li>
         </ol>
 
-        <h2>3. Disclaimer</h2>
+        <h2 className="font-heading">3. Disclaimer</h2>
         <p>
           The materials on Procellence Technology's website are provided on an 'as is' basis.
           Procellence Technology makes no warranties, expressed or implied, and hereby disclaims
@@ -58,7 +58,7 @@ export default function TermsOfServicePage() {
           or non-infringement of intellectual property or other violation of rights.
         </p>
 
-        <h2>4. Limitations</h2>
+        <h2 className="font-heading">4. Limitations</h2>
         <p>
           In no event shall Procellence Technology or its suppliers be liable for any damages
           (including, without limitation, damages for loss of data or profit, or due to
@@ -68,7 +68,7 @@ export default function TermsOfServicePage() {
           the possibility of such damage.
         </p>
 
-        <h2>5. Governing Law</h2>
+        <h2 className="font-heading">5. Governing Law</h2>
         <p>
           These terms and conditions are governed by and construed in accordance with the
           laws of our state and you irrevocably submit to the exclusive jurisdiction of

@@ -26,7 +26,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <>
       <section className="bg-primary/5">
         <div className="container mx-auto max-w-4xl py-16 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">{post.title}</h1>
             <div className="mt-6 flex items-center justify-center gap-4">
                 <Avatar>
                     <AvatarImage src={authorImage} alt={post.author} data-ai-hint={authorImageHint}/>
@@ -60,7 +60,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <article className="prose prose-lg max-w-none dark:prose-invert">
                 <p>{post.excerpt}</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <h2>A Deeper Dive</h2>
+                <h2 className="font-heading">A Deeper Dive</h2>
                 <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu.</p>
                 <p>Aenean consequat lorem ut felis. Ut at sapien morbi platform. Fusce cursus egestas velit. Mauris tortor felis, interdum in, eleifend ut, commodo vulputate, justo. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
             </article>

@@ -9,7 +9,7 @@ export function AboutSection() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="order-2 space-y-4 text-center md:order-1 md:text-left">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-heading">About Procellence Technology</h2>
             <p className="text-muted-foreground md:text-lg">
               We are a team of passionate innovators, strategists, and engineers dedicated to solving complex business challenges with state-of-the-art technology. Our mission is to empower our clients to achieve their full potential through digital transformation.
             </p>

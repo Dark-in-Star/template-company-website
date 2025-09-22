@@ -2,13 +2,14 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { features } from '@/lib/data';
 import * as LucideIcons from 'lucide-react';
+import { ExpandableText } from '@/components/shared/ExpandableText';
 
 export function WhyChooseUsSection() {
   return (
     <section className="bg-background">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Why Choose Us?</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-heading">Why Choose Us?</h2>
           <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
             We are more than just a vendor; we are your strategic partner in innovation and growth.
           </p>
@@ -24,8 +25,8 @@ export function WhyChooseUsSection() {
                     </div>
                     <CardTitle>{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-1">
-                    <CardDescription>{feature.description}</CardDescription>
+                <CardContent className="flex flex-1 flex-col">
+                    <ExpandableText text={feature.description} maxLength={100} />
                 </CardContent>
                 </Card>
             );

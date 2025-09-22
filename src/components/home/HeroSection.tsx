@@ -19,7 +19,7 @@ export function HeroSection() {
       </div>
       <div className="container relative mx-auto flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center text-center">
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-heading">
             Innovating the Future of Business
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">

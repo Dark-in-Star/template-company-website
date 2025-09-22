@@ -22,7 +22,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
     <>
       <section className="bg-primary/5">
         <div className="container mx-auto py-16 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{service.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">{service.title}</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{service.shortDescription}</p>
         </div>
       </section>
@@ -45,13 +45,13 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               </Card>
 
               <div>
-                <h2 className="text-2xl font-bold">About this Service</h2>
+                <h2 className="text-2xl font-bold font-heading">About this Service</h2>
                 <p className="mt-4 text-muted-foreground">{service.longDescription}</p>
               </div>
 
               {service.projects && service.projects.length > 0 && (
                 <div>
-                  <h2 className="text-2xl font-bold">Sample Project</h2>
+                  <h2 className="text-2xl font-bold font-heading">Sample Project</h2>
                   {service.projects.map((project, index) => (
                     <Card key={index} className="mt-4 overflow-hidden">
                       <div className="grid grid-cols-1 md:grid-cols-3">
@@ -80,7 +80,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               )}
 
               <div>
-                <h2 className="text-2xl font-bold">Industry Experience</h2>
+                <h2 className="text-2xl font-bold font-heading">Industry Experience</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {service.industries.map((industry) => (
                     <Badge key={industry} variant="secondary" className="text-base">

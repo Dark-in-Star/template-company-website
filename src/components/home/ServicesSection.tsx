@@ -5,6 +5,7 @@ import { services } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { ExpandableText } from '@/components/shared/ExpandableText';
 
 export function ServicesSection() {
   const featuredServices = services.slice(0, 4);
@@ -13,7 +14,7 @@ export function ServicesSection() {
     <section className="bg-primary/5">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Services</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-heading">Our Services</h2>
           <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
             We provide a wide range of technology solutions to power your success.
           </p>
@@ -32,13 +33,15 @@ export function ServicesSection() {
                 />
               </CardHeader>
               <CardContent className="flex flex-1 flex-col p-6">
-                <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                <CardDescription className="mt-2 flex-1">{service.shortDescription}</CardDescription>
-                <Link href={`/services/${service.slug}`} className="mt-4">
-                  <Button variant="link" className="p-0">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <ExpandableText text={service.shortDescription} maxLength={100} />
+                <div className="mt-auto pt-4">
+                  <Link href={`/services/${service.slug}`} className="mt-4">
+                    <Button variant="link" className="p-0">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           ))}

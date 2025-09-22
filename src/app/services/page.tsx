@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { services } from '@/lib/data';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { ExpandableText } from '@/components/shared/ExpandableText';
 
 export default function ServicesPage() {
   return (
@@ -21,7 +22,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
         <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Our Services</h1>
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">Our Services</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             We offer a comprehensive suite of technology services designed to elevate your business, from strategic planning to custom software and cloud infrastructure.
           </p>
@@ -44,13 +45,15 @@ export default function ServicesPage() {
                   />
                 </CardHeader>
                 <CardContent className="flex flex-1 flex-col p-6">
-                  <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                  <CardDescription className="mt-2 flex-1">{service.shortDescription}</CardDescription>
-                  <Link href={`/services/${service.slug}`} className="mt-4">
-                    <Button variant="outline" className="w-full">
-                      View Details <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <ExpandableText text={service.shortDescription} maxLength={100} />
+                  <div className="mt-auto pt-4">
+                    <Link href={`/services/${service.slug}`} className="mt-4">
+                        <Button variant="outline" className="w-full">
+                        View Details <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}
