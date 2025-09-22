@@ -23,9 +23,7 @@ export function Footer() {
     <footer className="w-full border-t bg-gray-900 text-gray-200">
       <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-3 md:px-8">
         <div className="flex flex-col items-start gap-4">
-          <Link href="/" className="flex items-center gap-2">
-                <Logo />
-          </Link>
+          <Logo />
           <p className="text-sm text-gray-400">
             Empowering businesses with innovative technology solutions.
           </p>
