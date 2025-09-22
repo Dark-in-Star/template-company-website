@@ -6,7 +6,7 @@ import { teamMembers, timelineEvents, faqs } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Twitter, Mail, Facebook, Instagram } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, ChevronDown, ChevronUp } from 'lucide-react';
 import type { TeamMember } from '@/lib/types';
 import Link from 'next/link';
 import {
@@ -53,7 +53,7 @@ function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember[
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
   return (
-    <div className={`flex flex-col md:flex-row items-center gap-8 ${isFounder ? 'md:text-left text-center' : ''}`}>
+    <div className={`flex flex-col items-center gap-8 md:flex-row md:items-start ${isFounder ? 'md:text-left text-center' : ''}`}>
       <div className={`relative group flex justify-center`}>
         <Image
           src={member.image.src}
@@ -82,11 +82,14 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
 
 export default function AboutPage() {
   const [founder, ...otherTeamMembers] = teamMembers;
+  const [showAllFaqs, setShowAllFaqs] = React.useState(false);
 
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
     const isMobile = useIsMobile();
+
+  const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 3);
 
   return (
     <>
@@ -115,8 +118,9 @@ export default function AboutPage() {
           <div>
             <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
             <div className="relative">
-              {/* Vertical line */}
+              {/* Vertical line for desktop */}
               <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true" />
+              {/* Vertical line for mobile */}
               <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 md:hidden" aria-hidden="true" />
 
               <div className="space-y-12">
@@ -125,47 +129,43 @@ export default function AboutPage() {
                   const isLeft = index % 2 === 0;
 
                   return (
-                    <div key={index} className="relative">
-                      {/* Desktop view */}
-                      <div className="hidden md:grid md:grid-cols-2 md:gap-x-12">
-                        {isLeft ? (
-                          <>
-                            <div className="text-right">
-                              <Card className="inline-block p-6 text-left shadow-xl">
-                                <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                <p className="text-sm text-muted-foreground">{event.description}</p>
-                              </Card>
-                            </div>
-                            <div></div>
-                          </>
-                        ) : (
-                          <>
-                            <div></div>
-                            <div>
-                              <Card className="inline-block p-6 text-left shadow-xl">
-                                <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                <p className="text-sm text-muted-foreground">{event.description}</p>
-                              </Card>
-                            </div>
-                          </>
+                    <div key={index} className="relative md:grid md:grid-cols-2 md:gap-x-12">
+                      {/* Desktop View */}
+                      <div className={`hidden md:block ${isLeft ? 'text-right' : 'text-left'}`}>
+                        {isLeft && (
+                           <Card className="inline-block p-6 text-left shadow-xl">
+                            <p className="mb-2 text-sm text-primary">{event.date}</p>
+                            <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                            <p className="text-sm text-muted-foreground">{event.description}</p>
+                          </Card>
                         )}
                       </div>
+                      
                       <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform md:block">
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                       </div>
-                      {/* Mobile view */}
+
+                      <div className={`hidden md:block ${!isLeft ? 'text-left' : 'text-right'}`}>
+                        {!isLeft && (
+                          <Card className="inline-block p-6 text-left shadow-xl">
+                            <p className="mb-2 text-sm text-primary">{event.date}</p>
+                            <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                            <p className="text-sm text-muted-foreground">{event.description}</p>
+                          </Card>
+                        )}
+                      </div>
+
+                      {/* Mobile View */}
                       <div className="flex items-center gap-6 md:hidden">
                         <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl">
                           <Icon className="h-6 w-6 text-primary-foreground" />
                         </div>
                         <Card className="flex-1 p-4 shadow-xl">
-                            <p className="mb-1 text-sm text-primary">{event.date}</p>
-                            <h3 className="mb-1 text-lg font-bold">{event.title}</h3>
-                            <p className="text-sm text-muted-foreground">{event.description}</p>
+                          <p className="mb-1 text-sm text-primary">{event.date}</p>
+                          <h3 className="mb-1 text-lg font-bold">{event.title}</h3>
+                          <p className="text-sm text-muted-foreground">{event.description}</p>
                         </Card>
                       </div>
                     </div>
@@ -235,7 +235,7 @@ export default function AboutPage() {
               <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
               <div className="mx-auto max-w-3xl">
                   <Accordion type="single" collapsible className="w-full">
-                      {faqs.map((faq, index) => (
+                      {displayedFaqs.map((faq, index) => (
                           <AccordionItem key={index} value={`item-${index}`}>
                               <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
 
@@ -245,6 +245,23 @@ export default function AboutPage() {
                           </AccordionItem>
                       ))}
                   </Accordion>
+                  {faqs.length > 3 && (
+                    <div className="mt-8 text-center">
+                        <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
+                            {showAllFaqs ? (
+                                <>
+                                    <ChevronUp className="mr-2 h-4 w-4" />
+                                    Show Less
+                                </>
+                            ) : (
+                                <>
+                                    <ChevronDown className="mr-2 h-4 w-4" />
+                                    Show More
+                                </>
+                            )}
+                        </Button>
+                    </div>
+                  )}
               </div>
           </div>
         </div>
@@ -252,3 +269,5 @@ export default function AboutPage() {
     </>
   );
 }
+
+    
