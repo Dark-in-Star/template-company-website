@@ -1,8 +1,8 @@
 
+
 'use client';
 
 import Image from 'next/image';
-import { teamMembers, timelineEvents, faqs } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -26,7 +26,9 @@ import Autoplay from "embla-carousel-autoplay";
 import * as React from 'react';
 import * as LucideIcons from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
+import { teamMembers, timelineEvents, faqs } from '@/lib/data';
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
 
 function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember['socials']>, url: string | undefined }) {
   if (!url) return null;
@@ -90,15 +92,16 @@ export default function AboutPage() {
     const isMobile = useIsMobile();
 
   const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 3);
+  const aboutHero = placeholderImages.aboutHero as ImageType;
 
   return (
     <>
       <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
          <div className="absolute inset-0">
           <Image
-            src="https://picsum.photos/seed/about-hero/1920/400"
+            src={aboutHero.src}
             alt="Our team at work"
-            data-ai-hint="team meeting"
+            data-ai-hint={aboutHero.hint}
             fill
             className="object-cover opacity-20"
             priority

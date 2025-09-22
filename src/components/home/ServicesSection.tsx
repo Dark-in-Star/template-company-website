@@ -1,14 +1,14 @@
 
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { services } from '@/lib/data';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { ExpandableText } from '@/components/shared/ExpandableText';
+import type { Service } from '@/lib/types';
 
-export function ServicesSection() {
-  const featuredServices = services.slice(0, 4);
+export function ServicesSection({ services }: { services: Service[] }) {
 
   return (
     <section className="bg-primary/5">
@@ -20,7 +20,7 @@ export function ServicesSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredServices.map((service) => (
+          {services.map((service) => (
             <Card key={service.slug} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
               <CardHeader className="p-0">
                 <Image
@@ -34,7 +34,7 @@ export function ServicesSection() {
               </CardHeader>
               <CardContent className="flex flex-1 flex-col p-6">
                 <CardTitle className="text-xl">{service.title}</CardTitle>
-                <ExpandableText text={service.shortDescription} maxLength={100} />
+                <ExpandableText text={service.shortDescription} />
                 <div className="mt-auto pt-4">
                   <Link href={`/services/${service.slug}`} className="mt-4">
                     <Button variant="link" className="p-0">

@@ -1,16 +1,18 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
+import type { Image as ImageType } from '@/lib/types';
 
-export function HeroSection() {
+export function HeroSection({ heroImage }: { heroImage: ImageType }) {
   return (
     <section className="relative w-full bg-secondary">
        <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="https://picsum.photos/seed/hero-bg-new/1920/1080"
+          src={heroImage.src}
           alt="Abstract background of technology and innovation"
-          data-ai-hint="abstract technology"
+          data-ai-hint={heroImage.hint}
           fill
           className="object-cover opacity-10"
           priority

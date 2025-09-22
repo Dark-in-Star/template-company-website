@@ -1,20 +1,26 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { blogPosts } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { ExpandableText } from '@/components/shared/ExpandableText';
+import { blogPosts } from '@/lib/data';
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
+
 
 export default function BlogPage() {
+  const blogHero = placeholderImages.blogHero as ImageType;
+
   return (
     <>
       <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
          <div className="absolute inset-0">
           <Image
-            src="https://picsum.photos/seed/blog-hero/1920/400"
+            src={blogHero.src}
             alt="Abstract background for blog"
-            data-ai-hint="writing desk"
+            data-ai-hint={blogHero.hint}
             fill
             className="object-cover opacity-20"
             priority
@@ -55,7 +61,7 @@ export default function BlogPage() {
                   <CardTitle className="mt-2 text-xl">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </CardTitle>
-                  <ExpandableText text={post.excerpt} maxLength={100} />
+                  <ExpandableText text={post.excerpt} />
                   <div className="mt-auto pt-4">
                     <Link href={`/blog/${post.slug}`} className="mt-4">
                         <Button variant="link" className="p-0">

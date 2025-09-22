@@ -1,5 +1,6 @@
 
-import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature, CountryCode } from './types';
+
+import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature, CountryCode, GalleryImage } from './types';
 
 import navLinksData from '@/data/nav-links.json';
 import servicesData from '@/data/services.json';
@@ -21,5 +22,6 @@ export const blogPosts: BlogPost[] = blogPostsData;
 export const timelineEvents: TimelineEvent[] = timelineEventsData;
 export const faqs: FAQ[] = faqsData;
 export const features: Feature[] = featuresData;
-export const galleryImages = galleryImagesData;
+export const galleryImages: GalleryImage[] = galleryImagesData;
 export const countryCodes: CountryCode[] = countryCodesData;
+

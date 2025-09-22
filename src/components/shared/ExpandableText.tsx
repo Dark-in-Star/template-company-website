@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -6,13 +7,13 @@ import { Button } from '@/components/ui/button';
 
 interface ExpandableTextProps {
   text: string;
-  maxLength?: number;
 }
 
 const DEFAULT_MAX_LENGTH = 100;
 
-export function ExpandableText({ text, maxLength = DEFAULT_MAX_LENGTH }: ExpandableTextProps) {
+export function ExpandableText({ text }: ExpandableTextProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = DEFAULT_MAX_LENGTH;
 
   // Only show "Read More" if the text is longer than maxLength + 10 characters
   if (text.length <= maxLength + 10) {

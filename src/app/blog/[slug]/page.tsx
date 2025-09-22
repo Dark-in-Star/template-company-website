@@ -1,8 +1,11 @@
-import { blogPosts } from '@/lib/data';
+
+import { blogPosts, teamMembers } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { teamMembers } from '@/lib/data';
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
+
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -16,10 +19,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) {
     notFound();
   }
-
+  const authorImage = placeholderImages.author as ImageType;
   const authorDetails = teamMembers.find(member => member.name === post.author);
-  const authorImage = authorDetails?.image.src || 'https://picsum.photos/seed/avatar/100/100';
-  const authorImageHint = authorDetails?.image.hint || 'person';
   const authorInitials = post.author.split(' ').map(n => n[0]).join('');
 
   return (
@@ -29,7 +30,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">{post.title}</h1>
             <div className="mt-6 flex items-center justify-center gap-4">
                 <Avatar>
-                    <AvatarImage src={authorImage} alt={post.author} data-ai-hint={authorImageHint}/>
+                    <AvatarImage src={authorImage.src} alt={post.author} data-ai-hint={authorImage.hint}/>
                     <AvatarFallback>{authorInitials}</AvatarFallback>
                 </Avatar>
                 <div>

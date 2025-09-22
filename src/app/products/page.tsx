@@ -1,7 +1,13 @@
+
 import { Package } from "lucide-react";
 import Image from "next/image";
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
+
 
 export default function ProductsPage() {
+  const products = placeholderImages.products as ImageType;
+
   return (
     <>
       <section className="bg-primary/5">
@@ -16,11 +22,11 @@ export default function ProductsPage() {
       <section>
         <div className="container mx-auto text-center">
             <Image 
-                src="https://picsum.photos/seed/products-soon/800/600"
+                src={products.src}
                 alt="Products coming soon"
-                data-ai-hint="blueprint product"
-                width={800}
-                height={600}
+                data-ai-hint={products.hint}
+                width={products.width}
+                height={products.height}
                 className="mb-8 inline-block rounded-lg object-cover shadow-lg"
             />
           <div className="flex flex-col items-center gap-4">

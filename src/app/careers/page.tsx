@@ -1,6 +1,10 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CareerForm } from './CareerForm';
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
+
 
 export const metadata = {
   title: 'Careers',
@@ -8,6 +12,8 @@ export const metadata = {
 };
 
 export default function CareersPage() {
+  const careers = placeholderImages.careers as ImageType;
+
   return (
     <>
       <section>
@@ -45,11 +51,11 @@ export default function CareersPage() {
             </div>
             <div className="rounded-lg overflow-hidden">
               <Image
-                src="https://picsum.photos/seed/careers-team/600/400"
+                src={careers.src}
                 alt="Our team collaborating"
-                data-ai-hint="diverse team working"
-                width={600}
-                height={400}
+                data-ai-hint={careers.hint}
+                width={careers.width}
+                height={careers.height}
                 className="w-full object-cover"
               />
             </div>

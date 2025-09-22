@@ -1,6 +1,6 @@
 
+
 import Image from 'next/image';
-import { testimonials } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -9,8 +9,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import type { Testimonial } from '@/lib/types';
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
   return (
     <section className="bg-primary/5">
       <div className="container mx-auto">

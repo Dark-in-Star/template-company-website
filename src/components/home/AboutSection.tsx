@@ -1,9 +1,11 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import type { Image as ImageType } from '@/lib/types';
 
-export function AboutSection() {
+export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
   return (
     <section className="bg-background">
       <div className="container mx-auto">
@@ -24,11 +26,11 @@ export function AboutSection() {
              <Card>
                 <CardContent className="p-0">
                     <Image
-                        src="https://picsum.photos/seed/about-home/600/450"
+                        src={aboutImage.src}
                         alt="Our Team"
-                        data-ai-hint="team collaboration"
-                        width={600}
-                        height={450}
+                        data-ai-hint={aboutImage.hint}
+                        width={aboutImage.width}
+                        height={aboutImage.height}
                         className="rounded-lg object-cover"
                     />
                 </CardContent>

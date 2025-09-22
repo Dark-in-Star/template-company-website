@@ -1,20 +1,26 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { services } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { ExpandableText } from '@/components/shared/ExpandableText';
+import { services } from '@/lib/data';
+import * as placeholderImages from '@/app/lib/placeholder-images.json';
+import type { Image as ImageType } from '@/lib/types';
+
 
 export default function ServicesPage() {
+  const servicesHero = placeholderImages.servicesHero as ImageType;
+
   return (
     <>
       <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
          <div className="absolute inset-0">
           <Image
-            src="https://picsum.photos/seed/services-hero/1920/400"
+            src={servicesHero.src}
             alt="Abstract background for services"
-            data-ai-hint="technology blueprint"
+            data-ai-hint={servicesHero.hint}
             fill
             className="object-cover opacity-20"
             priority
@@ -46,7 +52,7 @@ export default function ServicesPage() {
                 </CardHeader>
                 <CardContent className="flex flex-1 flex-col p-6">
                   <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <ExpandableText text={service.shortDescription} maxLength={100} />
+                  <ExpandableText text={service.shortDescription} />
                   <div className="mt-auto pt-4">
                     <Link href={`/services/${service.slug}`} className="mt-4">
                         <Button variant="outline" className="w-full">

@@ -1,7 +1,7 @@
 
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { blogPosts } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -13,9 +13,9 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { ExpandableText } from '@/components/shared/ExpandableText';
+import type { BlogPost } from '@/lib/types';
 
-export function BlogSection() {
-  const featuredPosts = blogPosts.slice(0, 3);
+export function BlogSection({ posts }: { posts: BlogPost[] }) {
 
   return (
     <section className="bg-background">
@@ -33,7 +33,7 @@ export function BlogSection() {
           className="w-full"
         >
           <CarouselContent>
-            {featuredPosts.map((post) => (
+            {posts.map((post) => (
               <CarouselItem key={post.slug} className="md:basis-1/2 lg:basis-1/3">
                  <div className="p-1 h-full">
                     <Card className="flex h-full flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
@@ -58,7 +58,7 @@ export function BlogSection() {
                         <CardTitle className="mt-2 text-xl">
                             <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                         </CardTitle>
-                        <ExpandableText text={post.excerpt} maxLength={100} />
+                        <ExpandableText text={post.excerpt} />
                         <div className="mt-auto pt-4">
                             <Link href={`/blog/${post.slug}`} className="mt-4">
                                 <Button variant="link" className="p-0">

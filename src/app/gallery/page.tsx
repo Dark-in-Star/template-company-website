@@ -1,4 +1,5 @@
 
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { galleryImages } from '@/lib/data';

@@ -1,4 +1,5 @@
 
+
 import type { LucideIcon } from 'lucide-react';
 
 export type NavLink = {
@@ -6,26 +7,23 @@ export type NavLink = {
   label: string;
 };
 
+export type Image = {
+  src: string;
+  width: number;
+  height: number;
+  hint: string;
+};
+
 export type Service = {
   slug: string;
   title: string;
   shortDescription: string;
   longDescription: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    hint: string;
-  };
+  image: Image,
   projects?: {
     title: string;
     description: string;
-    image: {
-      src: string;
-      width: number;
-      height: number;
-      hint: string;
-    };
+    image: Image;
   }[];
   industries: string[];
 };
@@ -33,12 +31,7 @@ export type Service = {
 export type TeamMember = {
   name: string;
   role: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    hint: string;
-  };
+  image: Image,
   bio: string;
   socials?: {
     linkedin?: string;
@@ -54,12 +47,7 @@ export type Testimonial = {
   name: string;
   company: string;
   comment: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    hint: string;
-  };
+  image: Image,
 };
 
 export type BlogPost = {
@@ -69,12 +57,7 @@ export type BlogPost = {
   content: string;
   author: string;
   date: string;
-  image: {
-    src: string;
-    width: number;
-    height: number;
-    hint: string;
-  };
+  image: Image,
 };
 
 export type TimelineEvent = {
@@ -98,4 +81,10 @@ export type Feature = {
 export type CountryCode = {
     name: string;
     code: string;
+}
+
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  hint: string;
 }
