@@ -1,14 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import { Twitter, Linkedin, Facebook, Github, Instagram } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 
 export function Footer() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
   return (
     <footer className="w-full border-t bg-background">
-      <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 md:grid-cols-3 md:px-6">
+      <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-3 md:px-8">
         <div className="flex flex-col items-start gap-4">
           <Logo />
           <p className="text-sm text-muted-foreground">
