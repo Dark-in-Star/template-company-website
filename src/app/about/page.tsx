@@ -115,34 +115,41 @@ export default function AboutPage() {
             <div>
                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
                 <div className="relative">
-                    <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true"></div>
-                     <div className="absolute left-8 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 md:hidden" aria-hidden="true"></div>
+                    <div className="absolute left-4 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 md:left-1/2" aria-hidden="true"></div>
                     <div className="space-y-12">
                         {timelineEvents.map((event, index) => {
                             const Icon = LucideIcons[event.icon] as React.ElementType;
                             const isEven = index % 2 === 0;
                             return (
-                                <div key={index} className={`relative flex items-center ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
-                                    <div className={`hidden md:block md:w-1/2 ${isEven ? 'pr-8' : 'pl-8'}`}>
-                                        {!isEven && (
-                                             <div className="w-full rounded-lg bg-card p-6 shadow-xl text-left">
-                                                <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                                <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                                <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                                    {event.description}
-                                                </p>
+                                <div key={index} className="relative">
+                                    <div className="md:flex md:items-center">
+                                        <div className={`flex w-full items-center justify-start md:w-1/2 ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
+                                            <div className={`w-full md:w-auto ${isEven ? 'md:pr-8' : 'md:pl-8'}`}>
+                                                {(!isEven || isMobile) && (
+                                                    <div className={`ml-10 w-full rounded-lg bg-card p-6 shadow-xl text-left md:ml-0 ${isEven ? '' : 'md:text-right'}`}>
+                                                        <p className="mb-2 text-sm text-primary">{event.date}</p>
+                                                        <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                                                        <p className="text-sm leading-snug tracking-wide text-muted-foreground">
+                                                            {event.description}
+                                                        </p>
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </div>
-                                    <div className="z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl md:absolute md:left-1/2 md:-translate-x-1/2">
-                                        <Icon className="h-8 w-8 text-primary-foreground" />
-                                    </div>
-                                    <div className={`w-full rounded-lg bg-card p-6 shadow-xl md:w-1/2 ${isEven ? 'md:ml-8' : 'md:hidden'} ml-16`}>
-                                        <p className="mb-2 text-sm text-primary">{event.date}</p>
-                                        <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
-                                        <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                            {event.description}
-                                        </p>
+                                        </div>
+                                        <div className="absolute left-4 top-1/2 z-10 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary shadow-xl md:left-1/2 md:h-12 md:w-12">
+                                            <Icon className="h-4 w-4 text-primary-foreground md:h-6 md:w-6" />
+                                        </div>
+                                        <div className="hidden w-1/2 pr-8 md:block">
+                                            {isEven && !isMobile && (
+                                                 <div className="w-full rounded-lg bg-card p-6 shadow-xl text-left ml-8">
+                                                    <p className="mb-2 text-sm text-primary">{event.date}</p>
+                                                    <h3 className="mb-2 text-xl font-bold">{event.title}</h3>
+                                                    <p className="text-sm leading-snug tracking-wide text-muted-foreground">
+                                                        {event.description}
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             )
