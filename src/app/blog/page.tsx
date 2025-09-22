@@ -4,13 +4,23 @@ import { blogPosts } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-primary/5">
-        <div className="container mx-auto py-16 text-center">
+      <section className="relative h-96 bg-secondary">
+         <div className="absolute inset-0">
+          <Image
+            src="https://picsum.photos/seed/blog-hero/1920/400"
+            alt="Abstract background for blog"
+            data-ai-hint="writing desk"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        </div>
+        <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Our Blog</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Insights, news, and stories from the team at Procellence Technology.

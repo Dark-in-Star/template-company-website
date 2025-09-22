@@ -8,8 +8,19 @@ import { ArrowRight } from 'lucide-react';
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-primary/5">
-        <div className="container mx-auto py-16 text-center">
+      <section className="relative h-96 bg-secondary">
+         <div className="absolute inset-0">
+          <Image
+            src="https://picsum.photos/seed/services-hero/1920/400"
+            alt="Abstract background for services"
+            data-ai-hint="technology blueprint"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        </div>
+        <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Our Services</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             We offer a comprehensive suite of technology services designed to elevate your business, from strategic planning to custom software and cloud infrastructure.
