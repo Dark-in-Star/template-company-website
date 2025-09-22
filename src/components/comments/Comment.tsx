@@ -43,7 +43,7 @@ export function Comment({ comment, onReply, onEdit, onDelete }: CommentProps) {
           <div className="flex items-center gap-2">
             <p className="font-semibold">{comment.author.name}</p>
             <p className="text-xs text-muted-foreground">
-              {formatDistanceToNow(new Date(comment.date))} ago
+              {formatDistanceToNow(comment.date)}
             </p>
           </div>
           {!isEditing && (
