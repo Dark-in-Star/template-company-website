@@ -25,6 +25,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import * as React from 'react';
 import * as LucideIcons from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 
 function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember['socials']>, url: string | undefined }) {
@@ -50,6 +51,7 @@ function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember[
 }
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
+    const isMobile = useIsMobile();
   return (
     <div className={`grid grid-cols-1 items-center gap-8 ${isFounder ? 'md:grid-cols-3' : ''}`}>
       <div className={`relative group flex justify-center ${isFounder ? 'md:col-span-1' : ''}`}>
@@ -62,7 +64,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
           className="h-64 w-64 rounded-full object-cover shadow-lg"
         />
         {member.socials && (
-          <div className="absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className={`absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 transition-opacity ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
             <SocialLink platform="linkedin" url={member.socials.linkedin} />
             <SocialLink platform="twitter" url={member.socials.twitter} />
             <SocialLink platform="github" url={member.socials.github} />
@@ -84,6 +86,7 @@ export default function AboutPage() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
+    const isMobile = useIsMobile();
 
   return (
     <>
@@ -111,17 +114,18 @@ export default function AboutPage() {
         <div className="container mx-auto space-y-16">
             <div>
                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-                <div className="relative wrap overflow-hidden p-10 h-full">
-                    <div className="absolute left-1/2 h-full border-2 border-primary/20" style={{transform: 'translateX(-1px)'}}></div>
+                <div className="relative wrap overflow-hidden p-4 md:p-10 h-full">
+                    <div className="absolute left-1/2 h-full border-2 border-primary/20 -translate-x-px md:block hidden"></div>
+                     <div className="absolute left-6 h-full border-2 border-primary/20 -translate-x-px md:hidden"></div>
                     {timelineEvents.map((event, index) => {
                         const Icon = LucideIcons[event.icon] as React.ElementType;
                         return (
-                            <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse right-timeline' : 'left-timeline'}`}>
-                                <div className="order-1 w-5/12"></div>
-                                <div className="z-20 order-1 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
+                            <div key={index} className={`mb-8 flex justify-between items-center w-full md:right-timeline ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:left-timeline'}`}>
+                                <div className="order-1 w-5/12 hidden md:block"></div>
+                                <div className="z-20 order-1 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl md:mx-auto ml-0">
                                     <Icon className="h-8 w-8 text-primary-foreground" />
                                 </div>
-                                <div className="order-1 w-5/12 rounded-lg bg-card px-6 py-4 shadow-xl">
+                                <div className="order-1 w-full md:w-5/12 rounded-lg bg-card px-6 py-4 shadow-xl ml-4 md:ml-0">
                                     <p className="mb-3 text-sm text-primary">{event.date}</p>
                                     <h3 className="mb-3 font-bold text-xl">{event.title}</h3>
                                     <p className="text-sm leading-snug tracking-wide text-muted-foreground">
@@ -166,7 +170,7 @@ export default function AboutPage() {
                             fill
                             className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <div className={`absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                             <div className="text-center text-white">
                             <h3 className="text-2xl font-bold">{member.name}</h3>
                             <p className="text-lg font-medium text-primary">{member.role}</p>
@@ -197,6 +201,7 @@ export default function AboutPage() {
                         {faqs.map((faq, index) => (
                             <AccordionItem key={index} value={`item-${index}`}>
                                 <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
+
                                 <AccordionContent className="text-base text-muted-foreground">
                                     {faq.answer}
                                 </AccordionContent>

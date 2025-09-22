@@ -101,17 +101,15 @@ body {
         @apply flex-row-reverse;
     }
     
-    @media (max-width: 768px) {
-        .left-timeline, .right-timeline {
-            @apply flex-row-reverse;
-        }
+    .left-timeline:not(.md\:left-timeline) {
+        @apply flex-row-reverse;
+    }
 
-        .left-timeline > div:first-child, .right-timeline > div:first-child {
-            @apply w-0;
-        }
-        
-        .left-timeline > div:last-child, .right-timeline > div:last-child {
-            @apply w-10/12;
-        }
+    .left-timeline > div:first-child, .right-timeline > div:first-child {
+        @apply w-0;
+    }
+    
+    .left-timeline > div:last-child, .right-timeline > div:last-child {
+        @apply w-10/12;
     }
 }
