@@ -5,7 +5,8 @@
     "title": "App Development",
     "icon": "Smartphone",
     "shortDescription": "We build intuitive and high-performance mobile apps for both iOS and Android platforms.",
-    "longDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.",
+    "mediumDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.",
+    "longDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals. We follow a detailed process from UI/UX design, through development and testing, to final deployment on the app stores. Post-launch, we offer maintenance and support packages to ensure your application remains up-to-date and performs optimally. Whether you're a startup or an enterprise, our team has the expertise to build an app that meets your users' needs and your business objectives.",
     "image": { "src": "https://picsum.photos/seed/dev-app/600/400", "width": 600, "height": 400, "hint": "mobile application" },
     "industries": ["E-commerce", "Fintech", "Healthcare", "Social Media"]
   },
@@ -14,7 +15,8 @@
     "title": "Web Development",
     "icon": "Monitor",
     "shortDescription": "Custom web solutions tailored to your unique needs, from dynamic websites to complex web applications.",
-    "longDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget. From enterprise-level applications to user-friendly marketing sites, we have the expertise to bring your vision to life.",
+    "mediumDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget.",
+    "longDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget. From enterprise-level applications to user-friendly marketing sites, we have the expertise to bring your vision to life. Our tech stack includes the latest and most stable technologies, ensuring that your web application is modern, performant, and maintainable for years to come. We cover everything from front-end to back-end development, including database design and API integrations.",
     "image": { "src": "https://picsum.photos/seed/dev-web/600/400", "width": 600, "height": 400, "hint": "code laptop" },
     "industries": ["E-commerce", "SaaS", "Education", "Logistics"]
   },
@@ -23,7 +25,8 @@
     "title": "Cloud Solutions",
     "icon": "Cloud",
     "shortDescription": "Leverage the power of the cloud with our migration, management, and optimization services.",
-    "longDescription": "Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud. Our solutions are designed to enhance scalability, improve security, and reduce operational costs.",
+    "mediumDescription": "Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud.",
+    "longDescription": "Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud. Our solutions are designed to enhance scalability, improve security, and reduce operational costs. We help you choose the right cloud provider and services for your needs, design a resilient and cost-effective architecture, and manage your cloud infrastructure to ensure high availability and performance. Our DevOps practices automate deployment and management, accelerating your time to market.",
     "image": { "src": "https://picsum.photos/seed/cloud1/600/400", "width": 600, "height": 400, "hint": "server room" },
     "industries": ["SaaS", "Media", "Manufacturing", "Government"]
   },
@@ -32,7 +35,8 @@
     "title": "AI Powered Applications",
     "icon": "BrainCircuit",
     "shortDescription": "Embed cutting-edge AI into your applications to boost efficiency and unlock new opportunities.",
-    "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services.",
+    "mediumDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications.",
+    "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services. From recommendation engines and chatbots to predictive analytics and image recognition, we can help you leverage AI to gain a competitive advantage and create innovative user experiences.",
     "image": { "src": "https://picsum.photos/seed/ai1/600/400", "width": 600, "height": 400, "hint": "abstract network" },
     "industries": ["Healthcare", "Customer Service", "Marketing", "Automotive"]
   },
@@ -41,7 +45,8 @@
     "title": "Data Analytics",
     "icon": "BarChart",
     "shortDescription": "Turn your data into actionable insights with our advanced analytics and visualization services.",
-    "longDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends, predict outcomes, and make informed business decisions. We create custom dashboards and reports that provide a clear view of your performance.",
+    "mediumDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends and predict outcomes.",
+    "longDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends, predict outcomes, and make informed business decisions. We create custom dashboards and reports that provide a clear view of your performance. Our team of data scientists uses advanced statistical models and machine learning algorithms to extract meaningful insights that drive business growth. We can help you with everything from data warehousing and ETL pipelines to building predictive models.",
     "image": { "src": "https://picsum.photos/seed/data1/600/400", "width": 600, "height": 400, "hint": "dashboard charts" },
     "industries": ["E-commerce", "Finance", "Healthcare", "SaaS"]
   }

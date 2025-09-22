@@ -19,6 +19,7 @@ export type Service = {
   title: string;
   icon: keyof typeof import('lucide-react');
   shortDescription: string;
+  mediumDescription: string;
   longDescription: string;
   image: Image,
   projects?: {
