@@ -1,29 +1,22 @@
 
 [
   {
-    "slug": "strategic-consulting",
-    "title": "Strategic Consulting",
-    "icon": "TrendingUp",
-    "shortDescription": "Navigate the complex business landscape with our data-driven insights to foster growth.",
-    "longDescription": "Our strategic consulting services provide you with a clear roadmap to success. We analyze market trends, assess competitive landscapes, and identify opportunities for growth. Our team of experts works closely with you to develop actionable strategies that align with your business objectives and drive sustainable results.",
-    "image": { "src": "https://picsum.photos/seed/strat1/600/400", "width": 600, "height": 400, "hint": "business meeting" },
-    "industries": ["Finance", "Healthcare", "Technology", "Retail"],
-    "projects": [
-      {
-        "title": "Market Entry Strategy for Tech Startup",
-        "description": "Developed a comprehensive market entry plan for a SaaS startup, resulting in a 30% market share within the first year.",
-        "image": { "src": "https://picsum.photos/seed/proj1/500/300", "width": 500, "height": 300, "hint": "graphs charts" }
-      }
-    ]
+    "slug": "app-development",
+    "title": "App Development",
+    "icon": "Smartphone",
+    "shortDescription": "We build intuitive and high-performance mobile apps for both iOS and Android platforms.",
+    "longDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.",
+    "image": { "src": "https://picsum.photos/seed/dev-app/600/400", "width": 600, "height": 400, "hint": "mobile application" },
+    "industries": ["E-commerce", "Fintech", "Healthcare", "Social Media"]
   },
   {
-    "slug": "software-development",
-    "title": "Software Development",
-    "icon": "Code",
-    "shortDescription": "Custom software solutions tailored to your unique needs, from web to mobile platforms.",
-    "longDescription": "We build robust, scalable, and secure software solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget. From enterprise-level applications to user-friendly mobile apps, we have the expertise to bring your vision to life.",
-    "image": { "src": "https://picsum.photos/seed/dev1/600/400", "width": 600, "height": 400, "hint": "code laptop" },
-    "industries": ["E-commerce", "Fintech", "Education", "Logistics"]
+    "slug": "web-development",
+    "title": "Web Development",
+    "icon": "Monitor",
+    "shortDescription": "Custom web solutions tailored to your unique needs, from dynamic websites to complex web applications.",
+    "longDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget. From enterprise-level applications to user-friendly marketing sites, we have the expertise to bring your vision to life.",
+    "image": { "src": "https://picsum.photos/seed/dev-web/600/400", "width": 600, "height": 400, "hint": "code laptop" },
+    "industries": ["E-commerce", "SaaS", "Education", "Logistics"]
   },
   {
     "slug": "cloud-solutions",
@@ -35,11 +28,11 @@
     "industries": ["SaaS", "Media", "Manufacturing", "Government"]
   },
   {
-    "slug": "ai-integration",
-    "title": "AI Integration",
+    "slug": "ai-powered-applications",
+    "title": "AI Powered Applications",
     "icon": "BrainCircuit",
-    "shortDescription": "Embed cutting-edge AI into your workflows to boost efficiency and unlock new opportunities.",
-    "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in integrating AI technologies like machine learning, natural language processing, and computer vision into your existing systems. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services.",
+    "shortDescription": "Embed cutting-edge AI into your applications to boost efficiency and unlock new opportunities.",
+    "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services.",
     "image": { "src": "https://picsum.photos/seed/ai1/600/400", "width": 600, "height": 400, "hint": "abstract network" },
     "industries": ["Healthcare", "Customer Service", "Marketing", "Automotive"]
   },
