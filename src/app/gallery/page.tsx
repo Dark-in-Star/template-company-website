@@ -1,17 +1,7 @@
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-
-const galleryImages = [
-  { src: 'https://picsum.photos/seed/gallery1/600/400', alt: 'Gallery Image 1', hint: 'abstract architecture' },
-  { src: 'https://picsum.photos/seed/gallery2/600/800', alt: 'Gallery Image 2', hint: 'nature landscape' },
-  { src: 'https://picsum.photos/seed/gallery3/800/600', alt: 'Gallery Image 3', hint: 'city skyline' },
-  { src: 'https://picsum.photos/seed/gallery4/600/400', alt: 'Gallery Image 4', hint: 'technology design' },
-  { src: 'https://picsum.photos/seed/gallery5/800/600', alt: 'Gallery Image 5', hint: 'team working' },
-  { src: 'https://picsum.photos/seed/gallery6/600/800', alt: 'Gallery Image 6', hint: 'modern office' },
-  { src: 'https://picsum.photos/seed/gallery7/600/400', alt: 'Gallery Image 7', hint: 'data visualization' },
-  { src: 'https://picsum.photos/seed/gallery8/800/600', alt: 'Gallery Image 8', hint: 'innovation concept' },
-];
-
+import { galleryImages } from '@/lib/data';
 
 export default function GalleryPage() {
   return (

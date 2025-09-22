@@ -1,0 +1,30 @@
+
+[
+  {
+    "slug": "the-future-of-ai-in-business",
+    "title": "The Future of AI in Business: Trends to Watch in 2024",
+    "excerpt": "Artificial Intelligence is no longer a futuristic concept; it's a present-day reality transforming industries. From predictive analytics to hyper-personalization, AI is reshaping how businesses operate and compete. In this post, we explore the key AI trends that will define the business landscape in the coming year.",
+    "content": "...",
+    "author": "Eleanor Vance",
+    "date": "2024-05-15",
+    "image": { "src": "https://picsum.photos/seed/blog1/800/450", "width": 800, "height": 450, "hint": "futuristic city" }
+  },
+  {
+    "slug": "mastering-multi-cloud-strategy",
+    "title": "Mastering the Multi-Cloud: A Guide to a Resilient Strategy",
+    "excerpt": "A multi-cloud strategy offers flexibility and avoids vendor lock-in, but it also introduces complexity. How do you manage multiple cloud environments effectively? This guide covers the best practices for building a resilient and cost-effective multi-cloud architecture.",
+    "content": "...",
+    "author": "Marcus Thorne",
+    "date": "2024-04-22",
+    "image": { "src": "https://picsum.photos/seed/blog2/800/450", "width": 800, "height": 450, "hint": "cloud data" }
+  },
+  {
+    "slug": "user-centric-design-principles",
+    "title": "5 User-Centric Design Principles for Building Products People Love",
+    "excerpt": "In a crowded market, a great user experience is what sets successful products apart. But what makes a design \"user-centric\"? We break down five fundamental principles that should guide your product development process, from initial concept to final launch.",
+    "content": "...",
+    "author": "Aria Chen",
+    "date": "2024-03-10",
+    "image": { "src": "https://picsum.photos/seed/blog3/800/450", "width": 800, "height": 450, "hint": "ui design" }
+  }
+]

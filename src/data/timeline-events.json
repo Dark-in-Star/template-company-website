@@ -1,0 +1,45 @@
+
+[
+    {
+        "icon": "Lightbulb",
+        "date": "2018",
+        "title": "The Big Idea",
+        "description": "Founded in a small garage with a big idea, Procellence Technology begins its journey to innovate the future of business."
+    },
+    {
+        "icon": "Building",
+        "date": "2019",
+        "title": "First Office",
+        "description": "Moved from the garage to our first official office space, marking a new chapter of growth and collaboration."
+    },
+    {
+        "icon": "Briefcase",
+        "date": "2020",
+        "title": "Secured First Major Client",
+        "description": "A milestone achievement that validated our business model and set the stage for future growth."
+    },
+    {
+        "icon": "Users",
+        "date": "2021",
+        "title": "Team Expansion",
+        "description": "Our team grew to over 10 passionate innovators, strengthening our capabilities in software and AI."
+    },
+    {
+        "icon": "Award",
+        "date": "2022",
+        "title": "Global Recognition",
+        "description": "Received the 'Innovator of the Year' award, recognizing our impact on the tech industry."
+    },
+    {
+        "icon": "Target",
+        "date": "2023",
+        "title": "Major Milestone",
+        "description": "Launched our flagship AI-driven analytics platform, helping businesses unlock data-driven insights like never before."
+    },
+    {
+        "icon": "Sparkles",
+        "date": "2024",
+        "title": "Expanded Service Offerings",
+        "description": "Introduced new services in cybersecurity and IoT, broadening our expertise to meet evolving client needs."
+    }
+]

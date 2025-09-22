@@ -1,7 +1,8 @@
+
 'use client';
 
 import Image from 'next/image';
-import { teamMembers } from '@/lib/data';
+import { teamMembers, timelineEvents, faqs } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -23,6 +24,8 @@ import {
 } from "@/components/ui/accordion"
 import Autoplay from "embla-carousel-autoplay";
 import * as React from 'react';
+import * as LucideIcons from 'lucide-react';
+
 
 function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember['socials']>, url: string | undefined }) {
   if (!url) return null;
@@ -75,79 +78,6 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
   );
 }
 
-const timelineEvents = [
-    {
-        icon: Lightbulb,
-        date: '2018',
-        title: 'The Big Idea',
-        description: 'Founded in a small garage with a big idea, Procellence Technology begins its journey to innovate the future of business.',
-    },
-    {
-        icon: Building,
-        date: '2019',
-        title: 'First Office',
-        description: 'Moved from the garage to our first official office space, marking a new chapter of growth and collaboration.',
-    },
-    {
-        icon: Briefcase,
-        date: '2020',
-        title: 'Secured First Major Client',
-        description: 'A milestone achievement that validated our business model and set the stage for future growth.',
-    },
-    {
-        icon: Users,
-        date: '2021',
-        title: 'Team Expansion',
-        description: 'Our team grew to over 10 passionate innovators, strengthening our capabilities in software and AI.',
-    },
-    {
-        icon: Award,
-        date: '2022',
-        title: 'Global Recognition',
-        description: 'Received the "Innovator of the Year" award, recognizing our impact on the tech industry.',
-    },
-    {
-        icon: Target,
-        date: '2023',
-        title: 'Major Milestone',
-        description: 'Launched our flagship AI-driven analytics platform, helping businesses unlock data-driven insights like never before.',
-    },
-    {
-        icon: Sparkles,
-        date: '2024',
-        title: 'Expanded Service Offerings',
-        description: 'Introduced new services in cybersecurity and IoT, broadening our expertise to meet evolving client needs.',
-    },
-];
-
-const faqs = [
-    {
-        question: "What is Procellence Technology's core mission?",
-        answer: "Our core mission is to empower businesses to achieve their full potential through digital transformation. We are dedicated to solving complex challenges with state-of-the-art technology, integrity, and a commitment to excellence."
-    },
-    {
-        question: "What industries do you specialize in?",
-        answer: "We have a broad range of experience across various sectors, including Finance, Healthcare, E-commerce, SaaS, and more. Our adaptable solutions are designed to meet the unique needs of each industry."
-    },
-    {
-        question: "How do you ensure the quality of your software?",
-        answer: "We adhere to a rigorous development and testing process, following agile methodologies to ensure high-quality, robust, and scalable solutions. Our commitment to quality is uncompromising, from initial design to final deployment."
-    },
-    {
-        question: "Can you integrate with our existing systems?",
-        answer: "Absolutely. A key part of our service is seamless integration. We specialize in embedding modern technologies like AI and cloud services into existing workflows and systems with minimal disruption."
-    },
-    {
-        question: "How does Procellence stay ahead of technology trends?",
-        answer: "Continuous learning is in our DNA. Our teams are constantly researching, training, and experimenting with emerging technologies to ensure we can provide our clients with the most innovative and effective solutions."
-    },
-    {
-        question: "What does the typical project engagement look like?",
-        answer: "We begin with a deep-dive discovery phase to understand your goals. From there, we move through strategy, design, development, and deployment in an iterative, transparent process. We believe in strong communication and partnership throughout the entire project lifecycle."
-    }
-]
-
-
 export default function AboutPage() {
   const [founder, ...otherTeamMembers] = teamMembers;
 
@@ -172,21 +102,24 @@ export default function AboutPage() {
                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
                 <div className="relative wrap overflow-hidden p-10 h-full">
                     <div className="absolute left-1/2 h-full border-2 border-primary/20" style={{transform: 'translateX(-1px)'}}></div>
-                    {timelineEvents.map((event, index) => (
-                        <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse right-timeline' : 'left-timeline'}`}>
-                            <div className="order-1 w-5/12"></div>
-                            <div className="z-20 order-1 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
-                                <event.icon className="h-8 w-8 text-primary-foreground" />
+                    {timelineEvents.map((event, index) => {
+                        const Icon = LucideIcons[event.icon] as React.ElementType;
+                        return (
+                            <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse right-timeline' : 'left-timeline'}`}>
+                                <div className="order-1 w-5/12"></div>
+                                <div className="z-20 order-1 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
+                                    <Icon className="h-8 w-8 text-primary-foreground" />
+                                </div>
+                                <div className="order-1 w-5/12 rounded-lg bg-card px-6 py-4 shadow-xl">
+                                    <p className="mb-3 text-sm text-primary">{event.date}</p>
+                                    <h3 className="mb-3 font-bold text-xl">{event.title}</h3>
+                                    <p className="text-sm leading-snug tracking-wide text-muted-foreground">
+                                        {event.description}
+                                    </p>
+                                </div>
                             </div>
-                            <div className="order-1 w-5/12 rounded-lg bg-card px-6 py-4 shadow-xl">
-                                <p className="mb-3 text-sm text-primary">{event.date}</p>
-                                <h3 className="mb-3 font-bold text-xl">{event.title}</h3>
-                                <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                    {event.description}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                 </div>
             </div>
 

@@ -1,28 +1,8 @@
+
 import { ShieldCheck, Zap, Users, BrainCircuit } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-
-const features = [
-  {
-    icon: <BrainCircuit className="h-10 w-10 text-primary" />,
-    title: 'Innovative Solutions',
-    description: 'We leverage the latest technologies to build future-proof solutions that give you a competitive edge.',
-  },
-  {
-    icon: <Users className="h-10 w-10 text-primary" />,
-    title: 'Client-Centric Approach',
-    description: 'Your success is our priority. We work as a true partner to understand your needs and deliver value.',
-  },
-  {
-    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: 'Uncompromising Quality',
-    description: 'Our commitment to quality ensures that we deliver robust, reliable, and secure products and services.',
-  },
-  {
-    icon: <Zap className="h-10 w-10 text-primary" />,
-    title: 'Agile & Efficient',
-    description: 'We adopt agile methodologies to deliver results quickly and efficiently, adapting to changes with ease.',
-  },
-];
+import { features } from '@/lib/data';
+import * as LucideIcons from 'lucide-react';
 
 export function WhyChooseUsSection() {
   return (
@@ -35,17 +15,20 @@ export function WhyChooseUsSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
-            <Card key={feature.title} className="text-center">
-              <CardHeader>
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                    {feature.icon}
-                </div>
-                <CardTitle>{feature.title}</CardTitle>
-                <CardDescription className="mt-2">{feature.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+          {features.map((feature) => {
+            const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType || BrainCircuit;
+            return (
+                <Card key={feature.title} className="text-center">
+                <CardHeader>
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                        <Icon className="h-10 w-10 text-primary" />
+                    </div>
+                    <CardTitle>{feature.title}</CardTitle>
+                    <CardDescription className="mt-2">{feature.description}</CardDescription>
+                </CardHeader>
+                </Card>
+            );
+          })}
         </div>
       </div>
     </section>

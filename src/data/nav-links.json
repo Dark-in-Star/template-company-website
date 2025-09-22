@@ -1,0 +1,12 @@
+
+[
+  { "href": "/", "label": "Home" },
+  { "href": "/about", "label": "About Us" },
+  { "href": "/services", "label": "Services" },
+  { "href": "/blog", "label": "Blog" },
+  { "href": "/products", "label": "Products" },
+  { "href": "/gallery", "label": "Gallery" },
+  { "href": "/careers", "label": "Careers" },
+  { "href": "/contact", "label": "Contact" },
+  { "href": "/summarize-brochure", "label": "AI Tool" }
+]

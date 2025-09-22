@@ -1,4 +1,5 @@
-import type { StaticImageData } from 'next/image';
+
+import type { LucideIcon } from 'lucide-react';
 
 export type NavLink = {
   href: string;
@@ -75,3 +76,21 @@ export type BlogPost = {
     hint: string;
   };
 };
+
+export type TimelineEvent = {
+    icon: keyof typeof import('lucide-react');
+    date: string;
+    title: string;
+    description: string;
+};
+
+export type FAQ = {
+    question: string;
+    answer: string;
+}
+
+export type Feature = {
+    icon: keyof typeof import('lucide-react');
+    title: string;
+    description: string;
+}
