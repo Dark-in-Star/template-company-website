@@ -66,6 +66,7 @@ export type TimelineEvent = {
     date: string;
     title: string;
     description: string;
+    image: Image;
 };
 
 export type FAQ = {

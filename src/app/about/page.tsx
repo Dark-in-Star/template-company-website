@@ -31,13 +31,14 @@ import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { PageHero } from '@/components/shared/PageHero';
 import { SocialLink } from '@/components/shared/SocialLink';
+import { cn } from '@/lib/utils';
 
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
   return (
-    <div className={`flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left`}>
-      <div className={`relative group flex justify-center`}>
+    <div className={cn('flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left')}>
+      <div className={cn('relative group flex justify-center')}>
         <Image
           src={member.image.src}
           alt={member.name}
@@ -47,7 +48,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
           className="h-64 w-64 rounded-full object-cover shadow-lg"
         />
         {member.socials && (
-          <div className={`absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 transition-opacity ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+          <div className={cn('absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 transition-opacity', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
             <SocialLink platform="linkedin" url={member.socials.linkedin} />
             <SocialLink platform="twitter" url={member.socials.twitter} />
             <SocialLink platform="github" url={member.socials.github} />
@@ -85,63 +86,41 @@ export default function AboutPage() {
 
       <section>
         <div className="container mx-auto space-y-16">
-          <div>
+           <div>
             <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-            <div className="relative">
-              {/* Vertical line for desktop */}
-              <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" aria-hidden="true" />
-              {/* Vertical line for mobile */}
-              <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 md:hidden" aria-hidden="true" />
+            <div className="space-y-8">
+              {timelineEvents.map((event, index) => {
+                const Icon = LucideIcons[event.icon as keyof typeof LucideIcons] as React.ElementType;
+                const isLeft = index % 2 === 0;
 
-              <div className="space-y-12">
-                {timelineEvents.map((event, index) => {
-                  const Icon = LucideIcons[event.icon as keyof typeof LucideIcons] as React.ElementType;
-                  const isLeft = index % 2 === 0;
-
-                  return (
-                    <div key={index} className="relative md:grid md:grid-cols-2 md:gap-x-12">
-                      {/* Desktop View */}
-                      <div className={`hidden md:block ${isLeft ? 'text-right' : 'text-left'}`}>
-                        {isLeft && (
-                           <Card className="inline-block max-w-md p-6 text-left shadow-xl">
-                            <p className="mb-2 text-sm text-primary">{event.date}</p>
-                            <h3 className="font-heading mb-2 text-xl font-bold">{event.title}</h3>
-                            <p className="text-sm text-muted-foreground">{event.description}</p>
-                          </Card>
-                        )}
-                      </div>
-                      
-                      <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform md:block">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl">
-                          <Icon className="h-8 w-8 text-primary-foreground" />
+                return (
+                    <Card key={index} className="overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                        <div className={cn("relative h-64 md:h-auto", isLeft ? 'md:order-1' : 'md:order-2')}>
+                             <Image
+                                src={event.image.src}
+                                alt={event.title}
+                                data-ai-hint={event.image.hint}
+                                fill
+                                className="object-cover"
+                            />
                         </div>
-                      </div>
-
-                      <div className={`hidden md:block ${!isLeft ? 'text-left' : 'text-right'}`}>
-                        {!isLeft && (
-                          <Card className="inline-block max-w-md p-6 text-left shadow-xl">
-                            <p className="mb-2 text-sm text-primary">{event.date}</p>
-                            <h3 className="font-heading mb-2 text-xl font-bold">{event.title}</h3>
-                            <p className="text-sm text-muted-foreground">{event.description}</p>
-                          </Card>
-                        )}
-                      </div>
-
-                      {/* Mobile View */}
-                      <div className="flex items-center gap-6 md:hidden">
-                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl">
-                          <Icon className="h-6 w-6 text-primary-foreground" />
+                        <div className={cn("flex flex-col justify-center p-8", isLeft ? 'md:order-2' : 'md:order-1')}>
+                            <div className="flex items-center gap-4">
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <Icon className="h-6 w-6" />
+                                </div>
+                                <div>
+                                    <p className="font-heading text-2xl font-bold">{event.title}</p>
+                                    <p className="text-sm font-semibold text-primary">{event.date}</p>
+                                </div>
+                            </div>
+                            <p className="mt-4 text-muted-foreground">{event.description}</p>
                         </div>
-                        <Card className="flex-1 p-4 shadow-xl">
-                          <p className="mb-1 text-sm text-primary">{event.date}</p>
-                          <h3 className="font-heading mb-1 text-lg font-bold">{event.title}</h3>
-                          <p className="text-sm text-muted-foreground">{event.description}</p>
-                        </Card>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                        </div>
+                    </Card>
+                );
+              })}
             </div>
           </div>
 
@@ -177,7 +156,7 @@ export default function AboutPage() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                       />
-                      <div className={`absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                      <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
                           <div className="text-center text-white">
                           <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
                           <p className="text-lg font-medium text-primary">{member.role}</p>
