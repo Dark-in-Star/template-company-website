@@ -113,7 +113,7 @@ export function ContactForm() {
                                         </FormControl>
                                         <SelectContent>
                                             {countryCodes.map(country => (
-                                                <SelectItem key={country.code} value={country.code}>
+                                                <SelectItem key={country.name} value={country.code}>
                                                     {country.code} ({country.name})
                                                 </SelectItem>
                                             ))}
