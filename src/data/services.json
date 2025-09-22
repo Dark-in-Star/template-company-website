@@ -38,5 +38,13 @@
     "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in integrating AI technologies like machine learning, natural language processing, and computer vision into your existing systems. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services.",
     "image": { "src": "https://picsum.photos/seed/ai1/600/400", "width": 600, "height": 400, "hint": "abstract network" },
     "industries": ["Healthcare", "Customer Service", "Marketing", "Automotive"]
+  },
+  {
+    "slug": "data-analytics",
+    "title": "Data Analytics",
+    "shortDescription": "Turn your data into actionable insights with our advanced analytics and visualization services.",
+    "longDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends, predict outcomes, and make informed business decisions. We create custom dashboards and reports that provide a clear view of your performance.",
+    "image": { "src": "https://picsum.photos/seed/data1/600/400", "width": 600, "height": 400, "hint": "dashboard charts" },
+    "industries": ["E-commerce", "Finance", "Healthcare", "SaaS"]
   }
 ]
