@@ -71,16 +71,18 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-gray-400 hover:text-white"
+                  className="flex items-center text-gray-400 hover:text-white"
                 >
+                  <ChevronRight className="mr-2 h-4 w-4" />
                   Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
                   href="/terms-of-service"
-                  className="text-gray-400 hover:text-white"
+                  className="flex items-center text-gray-400 hover:text-white"
                 >
+                  <ChevronRight className="mr-2 h-4 w-4" />
                   Terms of Service
                 </Link>
               </li>
