@@ -2,6 +2,7 @@
 'use client';
 
 import * as React from 'react';
+import { usePathname } from 'next/navigation';
 import {
   Dialog,
   DialogContent,
@@ -11,13 +12,14 @@ import {
 } from '@/components/ui/dialog';
 import { ContactForm } from './ContactForm';
 
-const FIRST_POPUP_DELAY = 6000; // 0.1 minutes in milliseconds
-const SUBSEQUENT_POPUP_DELAY = 30000; // 0.5 minutes in milliseconds
+const FIRST_POPUP_DELAY = 6000; // 6 seconds in milliseconds
+const SUBSEQUENT_POPUP_DELAY = 30000; // 30 seconds in milliseconds
 const SESSION_STORAGE_KEY = 'procellence-popup-shown-count';
 
 export function LeadPopup() {
   const [isOpen, setIsOpen] = React.useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
@@ -33,6 +35,11 @@ export function LeadPopup() {
   };
 
   React.useEffect(() => {
+    // Do not show popup on contact or careers page
+    if (pathname === '/contact' || pathname === '/careers') {
+      return;
+    }
+
     const shownCountStr = sessionStorage.getItem(SESSION_STORAGE_KEY) || '0';
     const shownCount = parseInt(shownCountStr, 10);
 
@@ -48,7 +55,7 @@ export function LeadPopup() {
         clearTimeout(timerRef.current);
       }
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
