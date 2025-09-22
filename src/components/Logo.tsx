@@ -13,7 +13,7 @@ export function Logo({ className }: { className?: string }) {
         height={40}
         className="h-10 w-10"
       />
-      <span className="text-xl font-bold tracking-tighter text-foreground">
+      <span className="text-xl font-bold tracking-tighter">
         Procellence
       </span>
     </Link>
