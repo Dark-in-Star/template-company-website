@@ -12,7 +12,8 @@ interface ExpandableTextProps {
 export function ExpandableText({ text, maxLength = 100 }: ExpandableTextProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  if (text.length <= maxLength) {
+  // Only show "Read More" if the text is longer than maxLength + 10 characters
+  if (text.length <= maxLength + 10) {
     return <p className="text-muted-foreground mt-2 flex-1">{text}</p>;
   }
 
