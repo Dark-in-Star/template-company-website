@@ -24,7 +24,7 @@ export function TestimonialsSection() {
             align: 'start',
             loop: true,
           }}
-          className="w-full"
+          className="w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
