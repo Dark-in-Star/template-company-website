@@ -22,7 +22,7 @@ export function HeroSection() {
             Innovating the Future of Business
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            Procyon Dynamics delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business.
+            Procellence Technology delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business.
           </p>
         </div>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">

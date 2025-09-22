@@ -38,7 +38,7 @@ export const services: Service[] = [
     slug: 'cloud-solutions',
     title: 'Cloud Solutions',
     shortDescription: 'Leverage the power of the cloud with our migration, management, and optimization services.',
-    longDescription: 'Unlock the full potential of the cloud with Procyon Dynamics. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud. Our solutions are designed to enhance scalability, improve security, and reduce operational costs.',
+    longDescription: 'Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud. Our solutions are designed to enhance scalability, improve security, and reduce operational costs.',
     image: { src: 'https://picsum.photos/seed/cloud1/600/400', width: 600, height: 400, hint: 'server room' },
     industries: ['SaaS', 'Media', 'Manufacturing', 'Government'],
   },
@@ -57,7 +57,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Eleanor Vance',
     role: 'Founder & CEO',
     image: { src: 'https://picsum.photos/seed/founder/400/400', width: 400, height: 400, hint: 'professional woman' },
-    bio: 'With over 20 years of experience in the tech industry, Eleanor founded Procyon Dynamics with a vision to merge innovation with integrity. Her leadership drives the company\'s commitment to excellence and client success.',
+    bio: 'With over 20 years of experience in the tech industry, Eleanor founded Procellence Technology with a vision to merge innovation with integrity. Her leadership drives the company\'s commitment to excellence and client success.',
   },
   {
     name: 'Marcus Thorne',
@@ -83,19 +83,19 @@ export const testimonials: Testimonial[] = [
   {
     name: 'Sophia Loren',
     company: 'CEO of Innovate Inc.',
-    comment: 'Procyon Dynamics transformed our operations. Their cloud solution is not just a piece of tech; it\'s the backbone of our new-found efficiency. Their team is professional, knowledgeable, and a pleasure to work with.',
+    comment: 'Procellence Technology transformed our operations. Their cloud solution is not just a piece of tech; it\'s the backbone of our new-found efficiency. Their team is professional, knowledgeable, and a pleasure to work with.',
     image: { src: 'https://picsum.photos/seed/client1/100/100', width: 100, height: 100, hint: 'business woman' },
   },
   {
     name: 'David Chen',
     company: 'CTO at QuantumLeap',
-    comment: 'The custom software developed by Procyon is exceptional. It perfectly fits our unique workflow and has significantly boosted our team\'s productivity. I was impressed by their agile process and attention to detail.',
+    comment: 'The custom software developed by Procellence is exceptional. It perfectly fits our unique workflow and has significantly boosted our team\'s productivity. I was impressed by their agile process and attention to detail.',
     image: { src: 'https://picsum.photos/seed/client2/100/100', width: 100, height: 100, hint: 'smiling man' },
   },
   {
     name: 'Emily Rodriguez',
     company: 'Founder of Starlight Ventures',
-    comment: 'The strategic consulting from Procyon was a game-changer for us. They provided clear, actionable insights that helped us navigate a critical market transition. We couldn\'t have done it without them.',
+    comment: 'The strategic consulting from Procellence was a game-changer for us. They provided clear, actionable insights that helped us navigate a critical market transition. We couldn\'t have done it without them.',
     image: { src: 'https://picsum.photos/seed/client3/100/100', width: 100, height: 100, hint: 'woman portrait' },
   },
 ];

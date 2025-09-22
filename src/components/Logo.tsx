@@ -8,7 +8,7 @@ export function Logo({ className }: { className?: string }) {
       <BotMessageSquare className="h-8 w-8 text-primary" />
       <div className="flex flex-col">
         <span className="text-xl font-bold tracking-tighter text-foreground">
-          Procyon Dynamics
+          Procellence Technology
         </span>
         <span className="text-xs text-muted-foreground">
           Innovating the Future of Business

@@ -32,7 +32,7 @@ export default function AboutPage() {
     <>
       <section className="bg-primary/5">
         <div className="container mx-auto py-16 text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">About Procyon Dynamics</h1>
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">About Procellence Technology</h1>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
             We are innovators, dreamers, and builders, united by a passion for technology and a commitment to our clients' success.
           </p>
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold tracking-tighter">Our Story</h2>
               <p className="mt-4 text-muted-foreground">
-                Founded in a small garage with a big idea, Procyon Dynamics has grown from a humble startup into a leading technology solutions provider. Our journey has been fueled by a relentless pursuit of innovation and a steadfast dedication to our core values.
+                Founded in a small garage with a big idea, Procellence Technology has grown from a humble startup into a leading technology solutions provider. Our journey has been fueled by a relentless pursuit of innovation and a steadfast dedication to our core values.
               </p>
               <p className="mt-4 text-muted-foreground">
                 We believe that technology should be a force for good, empowering businesses to operate more efficiently, connect with their customers more meaningfully, and make a positive impact on the world.

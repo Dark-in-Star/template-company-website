@@ -81,8 +81,8 @@ export function Footer() {
                 <li>123 Innovation Drive</li>
                 <li>Tech City, TX 12345</li>
                 <li className='pt-2'>
-                    <a href="mailto:contact@procyondynamics.com" className="hover:text-primary">
-                        contact@procyondynamics.com
+                    <a href="mailto:contact@procellencetechnology.com" className="hover:text-primary">
+                        contact@procellencetechnology.com
                     </a>
                 </li>
                 <li>
@@ -97,7 +97,7 @@ export function Footer() {
       <div className="border-t">
         <div className="container mx-auto flex items-center justify-center px-4 py-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Procyon Dynamics. All rights reserved.
+            &copy; {new Date().getFullYear()} Procellence Technology. All rights reserved.
           </p>
         </div>
       </div>

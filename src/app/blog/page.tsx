@@ -13,7 +13,7 @@ export default function BlogPage() {
         <div className="container mx-auto py-16 text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Our Blog</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Insights, news, and stories from the team at Procyon Dynamics.
+            Insights, news, and stories from the team at Procellence Technology.
           </p>
         </div>
       </section>

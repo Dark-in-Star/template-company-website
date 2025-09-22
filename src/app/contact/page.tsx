@@ -29,8 +29,8 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <h3 className="font-semibold">Email</h3>
-                            <a href="mailto:contact@procyondynamics.com" className="text-muted-foreground hover:text-primary">
-                                contact@procyondynamics.com
+                            <a href="mailto:contact@procellencetechnology.com" className="text-muted-foreground hover:text-primary">
+                                contact@procellencetechnology.com
                             </a>
                         </div>
                     </div>
