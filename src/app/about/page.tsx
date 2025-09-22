@@ -5,7 +5,7 @@ import { teamMembers } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, Building, Target, Users, Lightbulb } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, Building, Target, Users, Lightbulb, Award, Briefcase, Sparkles } from 'lucide-react';
 import type { TeamMember } from '@/lib/types';
 import Link from 'next/link';
 import {
@@ -89,16 +89,34 @@ const timelineEvents = [
         description: 'Moved from the garage to our first official office space, marking a new chapter of growth and collaboration.',
     },
     {
+        icon: Briefcase,
+        date: '2020',
+        title: 'Secured First Major Client',
+        description: 'A milestone achievement that validated our business model and set the stage for future growth.',
+    },
+    {
         icon: Users,
         date: '2021',
         title: 'Team Expansion',
         description: 'Our team grew to over 10 passionate innovators, strengthening our capabilities in software and AI.',
     },
     {
+        icon: Award,
+        date: '2022',
+        title: 'Global Recognition',
+        description: 'Received the "Innovator of the Year" award, recognizing our impact on the tech industry.',
+    },
+    {
         icon: Target,
         date: '2023',
         title: 'Major Milestone',
         description: 'Launched our flagship AI-driven analytics platform, helping businesses unlock data-driven insights like never before.',
+    },
+    {
+        icon: Sparkles,
+        date: '2024',
+        title: 'Expanded Service Offerings',
+        description: 'Introduced new services in cybersecurity and IoT, broadening our expertise to meet evolving client needs.',
     },
 ];
 
@@ -118,6 +136,14 @@ const faqs = [
     {
         question: "Can you integrate with our existing systems?",
         answer: "Absolutely. A key part of our service is seamless integration. We specialize in embedding modern technologies like AI and cloud services into existing workflows and systems with minimal disruption."
+    },
+    {
+        question: "How does Procellence stay ahead of technology trends?",
+        answer: "Continuous learning is in our DNA. Our teams are constantly researching, training, and experimenting with emerging technologies to ensure we can provide our clients with the most innovative and effective solutions."
+    },
+    {
+        question: "What does the typical project engagement look like?",
+        answer: "We begin with a deep-dive discovery phase to understand your goals. From there, we move through strategy, design, development, and deployment in an iterative, transparent process. We believe in strong communication and partnership throughout the entire project lifecycle."
     }
 ]
 
