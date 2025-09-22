@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { ContactForm } from './ContactForm';
 
-const POPUP_DELAY = 18000; // 0.3 minutes in milliseconds
+const POPUP_DELAY = 6000; // 0.1 minutes in milliseconds
 const SESSION_STORAGE_KEY = 'procellence-popup-shown';
 
 export function LeadPopup() {
