@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook, Github, Instagram } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Github, Instagram, ChevronRight } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -54,8 +54,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white"
+                    className="flex items-center text-gray-400 transition-colors hover:text-white"
                   >
+                    <ChevronRight className="mr-2 h-4 w-4" />
                     {link.label}
                   </Link>
                 </li>
