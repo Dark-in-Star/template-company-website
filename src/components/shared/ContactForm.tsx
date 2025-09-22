@@ -49,7 +49,8 @@ export function ContactForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real app, you would handle form submission here (e.g., send an email, API call).
-    const fullPhoneNumber = `${values.phone?.countryCode || ''}${values.phone?.number || ''}`;
+    const countryCodeValue = values.phone?.countryCode ? values.phone.countryCode.split('-')[1] || '' : '';
+    const fullPhoneNumber = `${countryCodeValue}${values.phone?.number || ''}`;
     const submissionValues = {
         ...values,
         phone: fullPhoneNumber,
@@ -154,7 +155,7 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Message</Label>
+                    <FormLabel>Message</FormLabel>
                     <FormControl>
                         <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
                     </FormControl>
