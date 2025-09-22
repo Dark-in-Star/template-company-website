@@ -121,7 +121,7 @@ export default function AboutPage() {
                             const Icon = LucideIcons[event.icon] as React.ElementType;
                             const isEven = index % 2 === 0;
                             return (
-                                <div key={index} className={`relative flex items-center gap-6 md:gap-0 ${isEven ? 'md:flex-row-reverse md:pl-8' : 'md:pr-8'}`}>
+                                <div key={index} className={`relative flex items-center gap-6 md:gap-0 ${isEven ? 'md:flex-row-reverse md:pl-16' : 'md:pr-16'}`}>
                                     <div className="hidden md:block md:w-1/2"></div>
                                     <div className="z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl md:mx-auto">
                                         <Icon className="h-8 w-8 text-primary-foreground" />
