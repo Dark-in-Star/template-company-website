@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/lib/data';
@@ -33,7 +34,7 @@ export function BlogSection() {
           <CarouselContent>
             {featuredPosts.map((post) => (
               <CarouselItem key={post.slug} className="md:basis-1/2 lg:basis-1/3">
-                 <div className="p-1">
+                 <div className="p-1 h-full">
                     <Card className="flex h-full flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
                         <Link href={`/blog/${post.slug}`} className="block">
                         <CardHeader className="p-0">

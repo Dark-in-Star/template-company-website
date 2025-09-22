@@ -1,5 +1,5 @@
 
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { features } from '@/lib/data';
 import * as LucideIcons from 'lucide-react';
 
@@ -17,14 +17,16 @@ export function WhyChooseUsSection() {
           {features.map((feature) => {
             const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
             return (
-                <Card key={feature.title} className="text-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <Card key={feature.title} className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 <CardHeader>
                     <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                         <Icon className="h-10 w-10 text-primary" />
                     </div>
                     <CardTitle>{feature.title}</CardTitle>
-                    <CardDescription className="mt-2">{feature.description}</CardDescription>
                 </CardHeader>
+                <CardContent className="flex-1">
+                    <CardDescription>{feature.description}</CardDescription>
+                </CardContent>
                 </Card>
             );
           })}
