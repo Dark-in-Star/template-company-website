@@ -19,7 +19,7 @@ export function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Logo />
         
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -35,13 +35,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-            <Link href="/contact">
+            <Link href="/contact" className="hidden sm:block">
                 <Button>Contact Us</Button>
             </Link>
             <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="lg:hidden"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -50,21 +50,24 @@ export function Header() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
-          <div className="container flex flex-col items-start space-y-4 py-4">
+        <div className="lg:hidden" onClick={() => setIsOpen(false)}>
+          <div className="container flex flex-col items-start space-y-2 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'w-full rounded-md p-2 text-left text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground',
+                  'w-full rounded-md p-2 text-left text-lg text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground',
                   pathname === link.href ? 'bg-accent text-accent-foreground' : ''
                 )}
               >
                 {link.label}
               </Link>
             ))}
+            <Link href="/contact" className="w-full">
+              <Button className="w-full mt-2">Contact Us</Button>
+            </Link>
           </div>
         </div>
       )}

@@ -9,8 +9,33 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Procellence Technology',
-  description: 'Innovating the Future of Business',
+  title: {
+    default: 'Procellence Technology',
+    template: '%s | Procellence Technology',
+  },
+  description: 'Innovating the Future of Business with cutting-edge technology solutions.',
+  keywords: ['Technology Solutions', 'Software Development', 'AI Integration', 'Cloud Consulting', 'Strategic IT'],
+  authors: [{ name: 'Procellence Technology' }],
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Procellence Technology',
+    description: 'Innovating the Future of Business with cutting-edge technology solutions.',
+    url: 'https://your-domain.com', // Replace with your actual domain
+    siteName: 'Procellence Technology',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Procellence Technology',
+    description: 'Innovating the Future of Business with cutting-edge technology solutions.',
+    // creator: '@your_twitter_handle', // Replace with your Twitter handle
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
