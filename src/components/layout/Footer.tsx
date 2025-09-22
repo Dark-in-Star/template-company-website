@@ -6,8 +6,15 @@ import { Twitter, Linkedin, Facebook, Github, Instagram, ChevronRight } from 'lu
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
+import * as React from 'react';
 
 export function Footer() {
+    const [year, setYear] = React.useState(new Date().getFullYear());
+
+    React.useEffect(() => {
+        setYear(new Date().getFullYear());
+    }, []);
+
   return (
     <footer className="w-full border-t bg-gray-900 text-gray-200">
       <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-3 md:px-8">
@@ -112,7 +119,7 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container mx-auto flex items-center justify-center px-4 py-4">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Procellence Technology. All rights reserved.
+            &copy; {year} Procellence Technology. All rights reserved.
           </p>
         </div>
       </div>
