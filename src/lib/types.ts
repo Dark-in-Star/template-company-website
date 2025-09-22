@@ -88,3 +88,15 @@ export type GalleryImage = {
   alt: string;
   hint: string;
 }
+
+export type Comment = {
+  id: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  date: string;
+  content: string;
+  replies?: Comment[];
+  replyingTo?: string;
+};

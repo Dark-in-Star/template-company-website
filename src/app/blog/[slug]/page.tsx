@@ -1,11 +1,12 @@
 
-import { blogPosts, teamMembers } from '@/lib/data';
+
+import { blogPosts, teamMembers, comments as allComments } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
-
+import { Comments } from '@/components/comments/Comments';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -22,6 +23,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const authorImage = placeholderImages.author as ImageType;
   const authorDetails = teamMembers.find(member => member.name === post.author);
   const authorInitials = post.author.split(' ').map(n => n[0]).join('');
+  const comments = allComments[params.slug] || [];
 
   return (
     <>
@@ -65,6 +67,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu.</p>
                 <p>Aenean consequat lorem ut felis. Ut at sapien morbi platform. Fusce cursus egestas velit. Mauris tortor felis, interdum in, eleifend ut, commodo vulputate, justo. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
             </article>
+        </div>
+      </section>
+
+      <section className="bg-secondary">
+        <div className="container mx-auto max-w-3xl">
+          <Comments initialComments={comments} />
         </div>
       </section>
     </>
