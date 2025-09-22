@@ -1,8 +1,10 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -44,6 +46,24 @@ export function ContactForm() {
       message: '',
     },
   });
+
+  React.useEffect(() => {
+    async function fetchCountry() {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const userCountry = data.country_name;
+        const matchingCountry = countryCodes.find(c => c.name === userCountry);
+        if (matchingCountry) {
+          form.setValue('phone.countryCode', `${matchingCountry.name}-${matchingCountry.code}`);
+        }
+      } catch (error) {
+        console.error('Failed to fetch country:', error);
+      }
+    }
+
+    fetchCountry();
+  }, [form]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real app, you would handle form submission here (e.g., send an email, API call).
@@ -104,7 +124,7 @@ export function ContactForm() {
                             name="phone.countryCode"
                             render={({ field }) => (
                                 <FormItem className="w-1/3">
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                                         <FormControl>
                                             <SelectTrigger>
                                                 <SelectValue placeholder="Code" />
