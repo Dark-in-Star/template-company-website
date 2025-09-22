@@ -1,5 +1,4 @@
 
-import { ShieldCheck, Zap, Users, BrainCircuit } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { features } from '@/lib/data';
 import * as LucideIcons from 'lucide-react';
@@ -16,9 +15,9 @@ export function WhyChooseUsSection() {
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => {
-            const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType || BrainCircuit;
+            const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
             return (
-                <Card key={feature.title} className="text-center">
+                <Card key={feature.title} className="text-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 <CardHeader>
                     <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                         <Icon className="h-10 w-10 text-primary" />
