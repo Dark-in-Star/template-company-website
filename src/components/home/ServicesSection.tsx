@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { Service } from '@/lib/types';
-import { ServiceCard } from '@/components/shared/ServiceCard';
+import { HomeServiceCard } from './HomeServiceCard';
 
 export function ServicesSection({ services }: { services: Service[] }) {
 
@@ -18,7 +18,7 @@ export function ServicesSection({ services }: { services: Service[] }) {
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+            <HomeServiceCard key={service.slug} service={service} />
           ))}
         </div>
         <div className="mt-12 text-center">
