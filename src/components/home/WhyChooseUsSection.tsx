@@ -1,5 +1,4 @@
 
-
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import * as LucideIcons from 'lucide-react';
 import { ExpandableText } from '@/components/shared/ExpandableText';
@@ -15,20 +14,20 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
             We are more than just a vendor; we are your strategic partner in innovation and growth.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {features.map((feature) => {
             const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
             return (
-                <Card key={feature.title} className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <CardHeader>
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                        <Icon className="h-10 w-10 text-primary" />
-                    </div>
-                    <CardTitle>{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                    <ExpandableText text={feature.description} />
-                </CardContent>
+                <Card key={feature.title} className="group flex flex-col text-left transition-shadow duration-300 hover:shadow-xl sm:flex-row">
+                    <CardHeader className="flex items-center justify-center p-6 sm:w-1/4">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                            <Icon className="h-8 w-8" />
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex flex-1 flex-col justify-center p-6 pt-0 sm:pt-6">
+                        <CardTitle>{feature.title}</CardTitle>
+                        <p className="mt-2 text-muted-foreground">{feature.description}</p>
+                    </CardContent>
                 </Card>
             );
           })}
