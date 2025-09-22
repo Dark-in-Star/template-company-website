@@ -28,7 +28,7 @@ export function BlogSection() {
           opts={{
             align: 'start',
           }}
-          className="w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
+          className="w-full"
         >
           <CarouselContent>
             {featuredPosts.map((post) => (
@@ -68,8 +68,8 @@ export function BlogSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
         <div className="mt-12 text-center">
             <Link href="/blog">

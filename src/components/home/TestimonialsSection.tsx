@@ -53,8 +53,8 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
         </Carousel>
       </div>
     </section>
