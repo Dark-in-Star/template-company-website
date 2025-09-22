@@ -13,7 +13,7 @@ export function BrochureSummarizerSection() {
                     <Bot className="hidden h-20 w-20 sm:block" />
                 </div>
                 <div className="md:col-span-2">
-                    <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">
+                    <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl font-heading">
                         Discover Our AI-Powered Brochure Summarizer
                     </h2>
                     <p className="mt-4 max-w-[600px] opacity-90 md:mx-0 mx-auto">

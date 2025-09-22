@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
           and other sites we own and operate.
         </p>
 
-        <h2 className="font-heading">1. Information We Collect</h2>
+        <h2 className="font-heading text-3xl">1. Information We Collect</h2>
         <p>
           We only ask for personal information when we truly need it to provide a service
           to you. We collect it by fair and lawful means, with your knowledge and
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
           </ul>
         </p>
 
-        <h2 className="font-heading">2. Use of Information</h2>
+        <h2 className="font-heading text-3xl">2. Use of Information</h2>
         <p>
           We may use the information we collect for various purposes, including to:
           <ul>
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
           </ul>
         </p>
 
-        <h2 className="font-heading">3. Security</h2>
+        <h2 className="font-heading text-3xl">3. Security</h2>
         <p>
           The security of your personal information is important to us, but remember that
           no method of transmission over the Internet, or method of electronic storage, is
@@ -60,14 +60,14 @@ export default function PrivacyPolicyPage() {
           your personal information, we cannot guarantee its absolute security.
         </p>
 
-        <h2 className="font-heading">4. Changes to This Privacy Policy</h2>
+        <h2 className="font-heading text-3xl">4. Changes to This Privacy Policy</h2>
         <p>
           We may update our Privacy Policy from time to time. We will notify you of any
           changes by posting the new Privacy Policy on this page. You are advised to
           review this Privacy Policy periodically for any changes.
         </p>
 
-        <h2 className="font-heading">5. Contact Us</h2>
+        <h2 className="font-heading text-3xl">5. Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us.
         </p>
