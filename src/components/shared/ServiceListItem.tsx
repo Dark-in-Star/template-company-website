@@ -7,6 +7,7 @@ import * as LucideIcons from 'lucide-react';
 import type { Service } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface ServiceListItemProps {
   service: Service;
@@ -19,10 +20,16 @@ export function ServiceListItem({ service, align }: ServiceListItemProps) {
 
   return (
     <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
-      <div className={cn('relative flex h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-primary/5 p-8', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
-         <Icon className="h-48 w-48 animate-subtle-float text-primary opacity-50" />
+      <div className={cn('group relative h-80 w-full overflow-hidden rounded-lg bg-primary/5 p-8', isLeftAligned ? 'md:order-2' : 'md:order-1')}>
+         <Image 
+            src={service.image.src}
+            alt={service.image.hint}
+            data-ai-hint={service.image.hint}
+            fill
+            className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
+         />
       </div>
-      <div className={cn('flex flex-col justify-center space-y-4 rounded-lg p-8', isLeftAligned ? 'md:order-1' : 'md:order-2')}>
+      <div className={cn('flex flex-col justify-center space-y-4 rounded-lg', isLeftAligned ? 'md:order-1' : 'md:order-2')}>
         <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon className="h-6 w-6" />
         </div>
