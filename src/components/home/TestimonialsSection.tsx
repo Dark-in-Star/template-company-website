@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { testimonials } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,12 +25,12 @@ export function TestimonialsSection() {
             align: 'start',
             loop: true,
           }}
-          className="mx-auto w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl"
+          className="mx-auto w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+                <div className="p-4 h-full">
                   <Card className="h-full">
                     <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">
                       <Image
@@ -53,8 +54,8 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden sm:inline-flex" />
+          <CarouselNext className="hidden sm:inline-flex" />
         </Carousel>
       </div>
     </section>
