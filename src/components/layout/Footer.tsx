@@ -103,7 +103,7 @@ export function Footer() {
                 <li>123 Innovation Drive</li>
                 <li>Tech City, TX 12345</li>
                 <li className='pt-2'>
-                    <a href="mailto:contact@procellencetechnology.com" className="hover:text-primary">
+                    <a href="mailto:contact@procellencetechnology.com" className="break-all hover:text-primary">
                         contact@procellencetechnology.com
                     </a>
                 </li>
