@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import type { Image as ImageType } from '@/lib/types';
+import { StatsSection } from './StatsSection';
 
 export function HeroSection({ heroImage }: { heroImage: ImageType }) {
   return (
@@ -40,6 +41,11 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
               Get in Touch
             </Button>
           </Link>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="container -mt-24 pb-12">
+            <StatsSection />
         </div>
       </div>
     </section>
