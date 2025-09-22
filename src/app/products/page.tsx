@@ -1,4 +1,5 @@
 import { Package } from "lucide-react";
+import Image from "next/image";
 
 export default function ProductsPage() {
   return (
@@ -14,6 +15,14 @@ export default function ProductsPage() {
 
       <section>
         <div className="container mx-auto text-center">
+            <Image 
+                src="https://picsum.photos/seed/products-soon/800/600"
+                alt="Products coming soon"
+                data-ai-hint="blueprint product"
+                width={800}
+                height={600}
+                className="mb-8 inline-block rounded-lg object-cover shadow-lg"
+            />
           <div className="flex flex-col items-center gap-4">
             <Package className="h-24 w-24 text-muted-foreground" />
             <h2 className="text-2xl font-bold">Coming Soon</h2>
