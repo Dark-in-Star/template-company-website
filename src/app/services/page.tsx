@@ -20,7 +20,7 @@ export default function ServicesPage() {
           image={servicesHero}
           />
         <div className="relative">
-            <div className="container -mt-24 pb-12">
+            <div className="container pb-12 lg:-mt-24">
                 <StatsSection />
             </div>
         </div>

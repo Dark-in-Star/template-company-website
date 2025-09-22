@@ -29,7 +29,7 @@ export function StatsSection() {
         <Card key={index} className="bg-background/80 shadow-lg backdrop-blur-sm transition-transform duration-300 hover:scale-105 hover:shadow-xl">
           <CardContent className="flex flex-col items-center justify-center p-6 text-center">
             {stat.icon}
-            <p className="mt-4 text-4xl font-bold font-heading">{stat.value}</p>
+            <p className="font-heading mt-4 text-4xl font-bold">{stat.value}</p>
             <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
           </CardContent>
         </Card>
