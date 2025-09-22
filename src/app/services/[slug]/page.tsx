@@ -1,10 +1,11 @@
 
-import { services } from '@/lib/data';
+import { services, testimonials } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { ContactForm } from '@/components/shared/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -12,7 +13,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({ params }: { params: { slug:string } }) {
   const service = services.find((s) => s.slug === params.slug);
 
   if (!service) {
@@ -100,6 +101,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </div>
         </div>
       </section>
+
+      <TestimonialsSection testimonials={testimonials} />
     </>
   );
 }
