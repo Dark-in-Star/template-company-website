@@ -31,6 +31,7 @@ import type { Image as ImageType } from '@/lib/types';
 import { PageHero } from '@/components/shared/PageHero';
 import { SocialLink } from '@/components/shared/SocialLink';
 import { cn } from '@/lib/utils';
+import { StatsSection } from '@/components/home/StatsSection';
 
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
@@ -82,8 +83,13 @@ export default function AboutPage() {
         description="We are innovators, dreamers, and builders, united by a passion for technology and a commitment to our clients' success."
         image={aboutHero}
         />
+        <div className="relative">
+            <div className="container -mt-24 pb-12">
+                <StatsSection />
+            </div>
+        </div>
 
-      <section>
+      <section className="pt-0">
         <div className="container mx-auto space-y-16">
            <div>
             <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
