@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Twitter, Mail, Facebook, Instagram, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import type { TeamMember } from '@/lib/types';
 import Link from 'next/link';
 import {
@@ -29,28 +29,9 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { teamMembers, timelineEvents, faqs } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
+import { PageHero } from '@/components/shared/PageHero';
+import { SocialLink } from '@/components/shared/SocialLink';
 
-function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember['socials']>, url: string | undefined }) {
-  if (!url) return null;
-
-  const icons: { [key in keyof NonNullable<TeamMember['socials']>]: React.ReactNode } = {
-    linkedin: <Linkedin className="h-5 w-5" />,
-    twitter: <Twitter className="h-5 w-5" />,
-    github: <Github className="h-5 w-5" />,
-    facebook: <Facebook className="h-5 w-5" />,
-    instagram: <Instagram className="h-5 w-5" />,
-    email: <Mail className="h-5 w-5" />,
-  };
-
-  return (
-    <Link href={url} target="_blank" rel="noopener noreferrer">
-      <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 hover:text-white">
-        {icons[platform]}
-        <span className="sr-only">{platform}</span>
-      </Button>
-    </Link>
-  );
-}
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
@@ -96,25 +77,11 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="relative h-[50vh] bg-secondary flex items-center justify-center">
-         <div className="absolute inset-0">
-          <Image
-            src={aboutHero.src}
-            alt="Our team at work"
-            data-ai-hint={aboutHero.hint}
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        </div>
-        <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-heading">About Procellence Technology</h1>
-            <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
-                We are innovators, dreamers, and builders, united by a passion for technology and a commitment to our clients' success.
-            </p>
-        </div>
-      </section>
+      <PageHero
+        title="About Procellence Technology"
+        description="We are innovators, dreamers, and builders, united by a passion for technology and a commitment to our clients' success."
+        image={aboutHero}
+        />
 
       <section>
         <div className="container mx-auto space-y-16">
