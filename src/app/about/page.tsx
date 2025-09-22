@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { teamMembers } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,11 +8,20 @@ import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Twitter, Mail, Facebook, Instagram } from 'lucide-react';
 import type { TeamMember } from '@/lib/types';
 import Link from 'next/link';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+import * as React from 'react';
 
-function SocialLink({ platform, url }: { platform: keyof TeamMember['socials'], url: string | undefined }) {
+function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember['socials']>, url: string | undefined }) {
   if (!url) return null;
 
-  const icons: { [key in keyof TeamMember['socials']]: React.ReactNode } = {
+  const icons: { [key in keyof NonNullable<TeamMember['socials']>]: React.ReactNode } = {
     linkedin: <Linkedin className="h-5 w-5" />,
     twitter: <Twitter className="h-5 w-5" />,
     github: <Github className="h-5 w-5" />,
@@ -21,7 +32,7 @@ function SocialLink({ platform, url }: { platform: keyof TeamMember['socials'], 
 
   return (
     <Link href={url} target="_blank" rel="noopener noreferrer">
-      <Button variant="ghost" size="icon">
+      <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 hover:text-white">
         {icons[platform]}
         <span className="sr-only">{platform}</span>
       </Button>
@@ -39,7 +50,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
           data-ai-hint={member.image.hint}
           width={member.image.width}
           height={member.image.height}
-          className="h-64 w-64 rounded-full object-cover shadow-lg transition-opacity group-hover:opacity-75"
+          className="h-64 w-64 rounded-full object-cover shadow-lg"
         />
         {member.socials && (
           <div className="absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
@@ -61,6 +72,10 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
 
 export default function AboutPage() {
   const [founder, ...otherTeamMembers] = teamMembers;
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
   return (
     <>
@@ -110,30 +125,47 @@ export default function AboutPage() {
 
           <div>
             <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-              {otherTeamMembers.map((member) => (
-                <Card key={member.name} className="group relative flex flex-col items-center overflow-hidden p-6 text-center">
-                   <Image
-                    src={member.image.src}
-                    alt={member.name}
-                    data-ai-hint={member.image.hint}
-                    width={150}
-                    height={150}
-                    className="h-32 w-32 rounded-full object-cover transition-opacity group-hover:opacity-75"
-                  />
-                  {member.socials && (
-                    <div className="absolute top-[24px] flex h-32 w-32 items-center justify-center gap-1 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
-                      <SocialLink platform="linkedin" url={member.socials.linkedin} />
-                      <SocialLink platform="twitter" url={member.socials.twitter} />
-                      <SocialLink platform="github" url={member.socials.github} />
-                    </div>
-                  )}
-                  <h3 className="mt-4 text-xl font-bold">{member.name}</h3>
-                  <p className="font-medium text-primary">{member.role}</p>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{member.bio}</p>
-                </Card>
-              ))}
-            </div>
+            <Carousel
+                plugins={[plugin.current]}
+                className="w-full"
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+                opts={{
+                    align: 'start',
+                    loop: true,
+                }}
+            >
+              <CarouselContent className="-ml-4">
+                {otherTeamMembers.map((member) => (
+                  <CarouselItem key={member.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="group relative h-96 w-full overflow-hidden">
+                      <Image
+                        src={member.image.src}
+                        alt={member.name}
+                        data-ai-hint={member.image.hint}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <div className="text-center text-white">
+                          <h3 className="text-2xl font-bold">{member.name}</h3>
+                          <p className="text-lg font-medium text-primary">{member.role}</p>
+                        </div>
+                        {member.socials && (
+                          <div className="mt-4 flex gap-2">
+                            <SocialLink platform="linkedin" url={member.socials.linkedin} />
+                            <SocialLink platform="twitter" url={member.socials.twitter} />
+                            <SocialLink platform="github" url={member.socials.github} />
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+            </Carousel>
           </div>
         </div>
       </section>
