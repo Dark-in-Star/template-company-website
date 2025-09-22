@@ -8,7 +8,14 @@
     "mediumDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals.",
     "longDescription": "Our mobile app development services cover the full cycle, from concept to launch and support. We specialize in creating native and cross-platform applications that deliver a seamless user experience, are scalable, and align perfectly with your business goals. We follow a detailed process from UI/UX design, through development and testing, to final deployment on the app stores. Post-launch, we offer maintenance and support packages to ensure your application remains up-to-date and performs optimally. Whether you're a startup or an enterprise, our team has the expertise to build an app that meets your users' needs and your business objectives.",
     "image": { "src": "https://picsum.photos/seed/dev-app/600/400", "width": 600, "height": 400, "hint": "mobile application" },
-    "industries": ["E-commerce", "Fintech", "Healthcare", "Social Media"]
+    "industries": ["E-commerce", "Fintech", "Healthcare", "Social Media"],
+    "projects": [
+      {
+        "title": "E-commerce App 'ShopEasy'",
+        "description": "Developed a full-featured e-commerce application for iOS and Android, resulting in a 40% increase in mobile sales for our client. The app included features like personalized recommendations, secure checkout, and order tracking.",
+        "image": { "src": "https://picsum.photos/seed/project-app1/600/400", "width": 600, "height": 400, "hint": "mobile shopping" }
+      }
+    ]
   },
   {
     "slug": "web-development",
@@ -18,7 +25,14 @@
     "mediumDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget.",
     "longDescription": "We build robust, scalable, and secure web solutions that power your business. Our agile development process ensures that we deliver high-quality products on time and within budget. From enterprise-level applications to user-friendly marketing sites, we have the expertise to bring your vision to life. Our tech stack includes the latest and most stable technologies, ensuring that your web application is modern, performant, and maintainable for years to come. We cover everything from front-end to back-end development, including database design and API integrations.",
     "image": { "src": "https://picsum.photos/seed/dev-web/600/400", "width": 600, "height": 400, "hint": "code laptop" },
-    "industries": ["E-commerce", "SaaS", "Education", "Logistics"]
+    "industries": ["E-commerce", "SaaS", "Education", "Logistics"],
+     "projects": [
+      {
+        "title": "SaaS Platform 'ConnectSphere'",
+        "description": "Built a multi-tenant SaaS platform for a B2B client, enabling them to serve hundreds of businesses from a single, scalable codebase. The platform features role-based access control, custom branding, and detailed analytics.",
+        "image": { "src": "https://picsum.photos/seed/project-web1/600/400", "width": 600, "height": 400, "hint": "dashboard interface" }
+      }
+    ]
   },
   {
     "slug": "cloud-solutions",
@@ -28,7 +42,14 @@
     "mediumDescription": "Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud.",
     "longDescription": "Unlock the full potential of the cloud with Procellence Technology. We offer end-to-end cloud services, including strategy, migration, and management for AWS, Azure, and Google Cloud. Our solutions are designed to enhance scalability, improve security, and reduce operational costs. We help you choose the right cloud provider and services for your needs, design a resilient and cost-effective architecture, and manage your cloud infrastructure to ensure high availability and performance. Our DevOps practices automate deployment and management, accelerating your time to market.",
     "image": { "src": "https://picsum.photos/seed/cloud1/600/400", "width": 600, "height": 400, "hint": "server room" },
-    "industries": ["SaaS", "Media", "Manufacturing", "Government"]
+    "industries": ["SaaS", "Media", "Manufacturing", "Government"],
+     "projects": [
+      {
+        "title": "Cloud Migration for 'Global Media'",
+        "description": "Successfully migrated a major media company's entire infrastructure to a multi-cloud environment, reducing their operational costs by 30% and improving their service uptime to 99.99%.",
+        "image": { "src": "https://picsum.photos/seed/project-cloud1/600/400", "width": 600, "height": 400, "hint": "network servers" }
+      }
+    ]
   },
   {
     "slug": "ai-powered-applications",
@@ -38,7 +59,14 @@
     "mediumDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications.",
     "longDescription": "Transform your business with the power of Artificial Intelligence. We specialize in building and integrating AI technologies like machine learning, natural language processing, and computer vision into your applications. Our solutions help automate processes, derive valuable insights from data, and create intelligent products and services. From recommendation engines and chatbots to predictive analytics and image recognition, we can help you leverage AI to gain a competitive advantage and create innovative user experiences.",
     "image": { "src": "https://picsum.photos/seed/ai1/600/400", "width": 600, "height": 400, "hint": "abstract network" },
-    "industries": ["Healthcare", "Customer Service", "Marketing", "Automotive"]
+    "industries": ["Healthcare", "Customer Service", "Marketing", "Automotive"],
+    "projects": [
+      {
+        "title": "AI Chatbot for 'HealthFirst'",
+        "description": "Created an intelligent chatbot for a healthcare provider to handle patient inquiries, schedule appointments, and provide information, reducing customer service workload by 50% and improving patient satisfaction.",
+        "image": { "src": "https://picsum.photos/seed/project-ai1/600/400", "width": 600, "height": 400, "hint": "chatbot interface" }
+      }
+    ]
   },
   {
     "slug": "data-analytics",
@@ -48,6 +76,13 @@
     "mediumDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends and predict outcomes.",
     "longDescription": "In the digital age, data is your most valuable asset. Our data analytics services help you collect, process, and analyze vast amounts of data to uncover trends, predict outcomes, and make informed business decisions. We create custom dashboards and reports that provide a clear view of your performance. Our team of data scientists uses advanced statistical models and machine learning algorithms to extract meaningful insights that drive business growth. We can help you with everything from data warehousing and ETL pipelines to building predictive models.",
     "image": { "src": "https://picsum.photos/seed/data1/600/400", "width": 600, "height": 400, "hint": "dashboard charts" },
-    "industries": ["E-commerce", "Finance", "Healthcare", "SaaS"]
+    "industries": ["E-commerce", "Finance", "Healthcare", "SaaS"],
+    "projects": [
+      {
+        "title": "Retail Analytics Dashboard",
+        "description": "Built a comprehensive analytics dashboard for a large retail chain, providing real-time insights into sales, inventory, and customer behavior. This led to a 15% improvement in inventory management and marketing campaign ROI.",
+        "image": { "src": "https://picsum.photos/seed/project-data1/600/400", "width": 600, "height": 400, "hint": "analytics dashboard" }
+      }
+    ]
   }
 ]
