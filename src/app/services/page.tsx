@@ -23,7 +23,7 @@ export default function ServicesPage() {
                 <StatsSection />
             </div>
         </div>
-      <section>
+      <section className="pt-0">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-12">
             {services.map((service, index) => (
