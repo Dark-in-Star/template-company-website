@@ -84,5 +84,56 @@
         "image": { "src": "https://picsum.photos/seed/project-data1/600/400", "width": 600, "height": 400, "hint": "analytics dashboard" }
       }
     ]
+  },
+  {
+    "slug": "seo-digital-marketing",
+    "title": "SEO & Digital Marketing",
+    "icon": "TrendingUp",
+    "shortDescription": "Boost your online visibility and drive organic traffic with our expert SEO and marketing strategies.",
+    "mediumDescription": "Our data-driven SEO and digital marketing services are designed to increase your online presence, attract qualified leads, and grow your revenue. We cover everything from keyword research and on-page optimization to content marketing and link building.",
+    "longDescription": "Our data-driven SEO and digital marketing services are designed to increase your online presence, attract qualified leads, and grow your revenue. We cover everything from keyword research and on-page optimization to content marketing and link building. Our team stays ahead of search engine algorithm changes to ensure your website ranks high for relevant keywords. We also manage paid advertising campaigns (PPC), social media marketing, and email marketing to create a comprehensive digital strategy that delivers measurable results.",
+    "image": { "src": "https://picsum.photos/seed/seo1/600/400", "width": 600, "height": 400, "hint": "marketing graph" },
+    "industries": ["E-commerce", "Local Business", "SaaS", "Healthcare"],
+    "projects": [
+      {
+        "title": "Organic Growth for 'EcoLiving'",
+        "description": "Executed a content-focused SEO strategy for an e-commerce brand, resulting in a 200% increase in organic traffic and a 120% rise in online sales over 12 months.",
+        "image": { "src": "https://picsum.photos/seed/project-seo1/600/400", "width": 600, "height": 400, "hint": "website analytics" }
+      }
+    ]
+  },
+  {
+    "slug": "ui-ux-design",
+    "title": "UI/UX Design",
+    "icon": "PenTool",
+    "shortDescription": "Creating beautiful, user-friendly interfaces that provide an exceptional user experience.",
+    "mediumDescription": "Good design is good business. Our UI/UX design team focuses on creating intuitive, engaging, and aesthetically pleasing digital products that users love. We follow a user-centric design process to ensure the final product is both beautiful and functional.",
+    "longDescription": "Good design is good business. Our UI/UX design team focuses on creating intuitive, engaging, and aesthetically pleasing digital products that users love. We follow a user-centric design process, from user research and wireframing to prototyping and usability testing. This ensures the final product is not only beautiful but also highly functional and aligned with your users' needs. We design interfaces for web applications, mobile apps, and enterprise software, always prioritizing clarity, consistency, and accessibility.",
+    "image": { "src": "https://picsum.photos/seed/uiux1/600/400", "width": 600, "height": 400, "hint": "design wireframe" },
+    "industries": ["SaaS", "Mobile Apps", "E-commerce", "Startups"],
+    "projects": [
+      {
+        "title": "Redesign for 'FinanceNow' App",
+        "description": "Overhauled the user interface and experience for a popular fintech app, leading to a 30% increase in user engagement and a significant improvement in app store ratings.",
+        "image": { "src": "https://picsum.photos/seed/project-uiux1/600/400", "width": 600, "height": 400, "hint": "mobile ui design" }
+      }
+    ]
+  },
+  {
+    "slug": "cybersecurity-services",
+    "title": "Cybersecurity Services",
+    "icon": "ShieldCheck",
+    "shortDescription": "Protect your digital assets with our comprehensive cybersecurity and risk management services.",
+    "mediumDescription": "In an increasingly connected world, protecting your business from cyber threats is paramount. Our cybersecurity services help you identify vulnerabilities, protect against attacks, and respond to security incidents effectively.",
+    "longDescription": "In an increasingly connected world, protecting your business from cyber threats is paramount. Our cybersecurity services help you identify vulnerabilities, protect against attacks, and respond to security incidents effectively. We offer a range of services, including security audits, penetration testing, threat monitoring, and incident response. Our experts work with you to develop a robust security posture that protects your data, your customers, and your reputation, ensuring compliance with industry regulations.",
+    "image": { "src": "https://picsum.photos/seed/cyber1/600/400", "width": 600, "height": 400, "hint": "security code" },
+    "industries": ["Finance", "Healthcare", "Government", "E-commerce"],
+    "projects": [
+      {
+        "title": "Security Audit for 'MedData'",
+        "description": "Conducted a full-scale security audit and penetration test for a healthcare data provider, identifying critical vulnerabilities and providing a roadmap for remediation that secured their systems against potential breaches.",
+        "image": { "src": "https://picsum.photos/seed/project-cyber1/600/400", "width": 600, "height": 400, "hint": "network security" }
+      }
+    ]
   }
 ]
