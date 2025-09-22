@@ -6,14 +6,9 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cn('flex items-center gap-2', className)}>
       <BotMessageSquare className="h-8 w-8 text-primary" />
-      <div className="flex flex-col">
-        <span className="text-xl font-bold tracking-tighter text-foreground">
-          Procellence<span className="hidden sm:inline"> Technology</span>
-        </span>
-        <span className="text-xs text-muted-foreground hidden sm:block">
-          Innovating the Future of Business
-        </span>
-      </div>
+      <span className="text-xl font-bold tracking-tighter text-foreground">
+        Procellence
+      </span>
     </Link>
   );
 }
