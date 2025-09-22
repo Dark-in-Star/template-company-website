@@ -53,8 +53,8 @@ function SocialLink({ platform, url }: { platform: keyof NonNullable<TeamMember[
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
   return (
-    <div className={`grid grid-cols-1 items-center gap-8 ${isFounder ? 'md:grid-cols-3' : ''}`}>
-      <div className={`relative group flex justify-center ${isFounder ? 'md:col-span-1' : ''}`}>
+    <div className={`flex flex-col md:flex-row items-center gap-8 ${isFounder ? 'text-center md:text-left' : ''}`}>
+      <div className={`relative group flex justify-center`}>
         <Image
           src={member.image.src}
           alt={member.name}
@@ -71,7 +71,7 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
           </div>
         )}
       </div>
-      <div className={isFounder ? 'md:col-span-2' : ''}>
+      <div className="flex-1">
         <h3 className="text-2xl font-bold">{member.name}</h3>
         <p className="text-lg font-medium text-primary">{member.role}</p>
         <p className="mt-4 text-muted-foreground">{member.bio}</p>
@@ -114,27 +114,30 @@ export default function AboutPage() {
         <div className="container mx-auto space-y-16">
             <div>
                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-                <div className="relative wrap overflow-hidden p-4 md:p-10 h-full">
-                    <div className="absolute left-1/2 h-full border-2 border-primary/20 -translate-x-px md:block hidden"></div>
-                     <div className="absolute left-6 h-full border-2 border-primary/20 -translate-x-px md:hidden"></div>
-                    {timelineEvents.map((event, index) => {
-                        const Icon = LucideIcons[event.icon] as React.ElementType;
-                        return (
-                            <div key={index} className={`mb-8 flex justify-between items-center w-full md:right-timeline ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:left-timeline'}`}>
-                                <div className="order-1 w-5/12 hidden md:block"></div>
-                                <div className="z-20 order-1 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl md:mx-auto ml-0">
-                                    <Icon className="h-8 w-8 text-primary-foreground" />
+                <div className="relative">
+                    <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 hidden md:block" aria-hidden="true"></div>
+                    <div className="space-y-12">
+                        {timelineEvents.map((event, index) => {
+                            const Icon = LucideIcons[event.icon] as React.ElementType;
+                            const isEven = index % 2 === 0;
+                            return (
+                                <div key={index} className={`relative flex items-center gap-6 md:gap-0 ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className="hidden md:block md:w-1/2"></div>
+                                    <div className="z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary shadow-xl md:mx-auto">
+                                        <Icon className="h-8 w-8 text-primary-foreground" />
+                                    </div>
+                                    <div className="w-full rounded-lg bg-card px-6 py-4 shadow-xl md:w-1/2">
+                                        <p className="mb-2 text-sm text-primary">{event.date}</p>
+                                        <h3 className="mb-2 font-bold text-xl">{event.title}</h3>
+                                        <p className="text-sm leading-snug tracking-wide text-muted-foreground">
+                                            {event.description}
+                                        </p>
+                                    </div>
+                                    <div className={`absolute left-8 top-1/2 h-full w-0.5 -translate-y-1/2 bg-primary/20 md:hidden ${index === 0 ? 'top-full' : ''} ${index === timelineEvents.length - 1 ? 'bottom-full' : ''}`} aria-hidden="true"></div>
                                 </div>
-                                <div className="order-1 w-full md:w-5/12 rounded-lg bg-card px-6 py-4 shadow-xl ml-4 md:ml-0">
-                                    <p className="mb-3 text-sm text-primary">{event.date}</p>
-                                    <h3 className="mb-3 font-bold text-xl">{event.title}</h3>
-                                    <p className="text-sm leading-snug tracking-wide text-muted-foreground">
-                                        {event.description}
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
 
