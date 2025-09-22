@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import * as React from 'react';
+import { User, Mail, Phone as PhoneIcon, MessageSquare, Send } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -95,11 +96,14 @@ export function ContactForm() {
                 name="name"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                        <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
+                        <FormLabel>Full Name</FormLabel>
+                        <div className="relative">
+                            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                            <FormControl>
+                                <Input placeholder="John Doe" {...field} />
+                            </FormControl>
+                        </div>
+                        <FormMessage />
                     </FormItem>
                 )}
                 />
@@ -108,50 +112,56 @@ export function ContactForm() {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                        <Input placeholder="john.doe@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
+                        <FormLabel>Email Address</FormLabel>
+                        <div className="relative">
+                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                            <FormControl>
+                                <Input placeholder="john.doe@example.com" {...field} />
+                            </FormControl>
+                        </div>
+                        <FormMessage />
                     </FormItem>
                 )}
                 />
                 <FormItem>
                     <FormLabel>Phone Number (Optional)</FormLabel>
-                    <div className="flex gap-2">
-                        <FormField
-                            control={form.control}
-                            name="phone.countryCode"
-                            render={({ field }) => (
-                                <FormItem className="w-1/3">
-                                    <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                    <div className="relative">
+                         <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <div className="flex gap-2">
+                            <FormField
+                                control={form.control}
+                                name="phone.countryCode"
+                                render={({ field }) => (
+                                    <FormItem className="w-1/3">
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className="pl-10">
+                                                    <SelectValue placeholder="Code" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                {countryCodes.map(country => (
+                                                    <SelectItem key={country.name} value={`${country.name}-${country.code}`}>
+                                                        {country.code} ({country.name})
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="phone.number"
+                                render={({ field }) => (
+                                    <FormItem className="flex-1">
                                         <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Code" />
-                                            </SelectTrigger>
+                                            <Input type="tel" placeholder="123-456-7890" {...field} className="pl-4"/>
                                         </FormControl>
-                                        <SelectContent>
-                                            {countryCodes.map(country => (
-                                                <SelectItem key={country.name} value={`${country.name}-${country.code}`}>
-                                                    {country.code} ({country.name})
-                                                </SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="phone.number"
-                            render={({ field }) => (
-                                <FormItem className="flex-1">
-                                    <FormControl>
-                                        <Input type="tel" placeholder="123-456-7890" {...field} />
-                                    </FormControl>
-                                </FormItem>
-                            )}
-                        />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
                     </div>
                     <FormMessage />
                 </FormItem>
@@ -160,15 +170,21 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Message (Optional)</FormLabel>
-                    <FormControl>
-                        <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
-                    </FormControl>
-                    <FormMessage />
+                        <FormLabel>Message (Optional)</FormLabel>
+                        <div className="relative">
+                            <MessageSquare className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+                            <FormControl>
+                                <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
+                            </FormControl>
+                        </div>
+                        <FormMessage />
                     </FormItem>
                 )}
                 />
-                <Button type="submit" className="w-full" size="lg">Send Message</Button>
+                <Button type="submit" className="w-full" size="lg">
+                    Send Message
+                    <Send className="ml-2 h-4 w-4" />
+                </Button>
             </form>
             </Form>
         </CardContent>
