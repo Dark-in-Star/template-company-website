@@ -19,9 +19,9 @@ export default function ServicesPage() {
 
       <section>
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-16">
+          <div className="grid grid-cols-1 gap-12">
             {services.map((service, index) => (
-              <ServiceListItem key={service.slug} service={service} align={index % 2 === 0 ? 'left' : 'right'} />
+              <ServiceListItem key={service.slug} service={service} align={index % 2 === 0 ? 'right' : 'left'} />
             ))}
           </div>
         </div>
