@@ -95,3 +95,23 @@ body {
     @apply w-full py-12 md:py-24 lg:py-32;
   }
 }
+
+@layer utilities {
+    .right-timeline {
+        @apply flex-row-reverse;
+    }
+    
+    @media (max-width: 768px) {
+        .left-timeline, .right-timeline {
+            @apply flex-row-reverse;
+        }
+
+        .left-timeline > div:first-child, .right-timeline > div:first-child {
+            @apply w-0;
+        }
+        
+        .left-timeline > div:last-child, .right-timeline > div:last-child {
+            @apply w-10/12;
+        }
+    }
+}
