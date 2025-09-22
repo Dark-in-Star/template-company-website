@@ -72,8 +72,8 @@ export function BlogSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
         <div className="mt-12 text-center">
             <Link href="/blog">
