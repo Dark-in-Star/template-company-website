@@ -26,15 +26,15 @@ export function HeroSection() {
             Procellence Technology delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business. Let us be your partner in digital excellence.
           </p>
         </div>
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Link href="/services">
-            <Button size="lg" className="w-full sm:w-auto">
+        <div className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+          <Link href="/services" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full">
               Explore Our Services
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
-          <Link href="/contact">
-            <Button size="lg" variant="outline" className="w-full sm:w-auto">
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button size="lg" variant="outline" className="w-full">
               Get in Touch
             </Button>
           </Link>

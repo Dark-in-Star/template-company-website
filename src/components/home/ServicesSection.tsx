@@ -19,7 +19,7 @@ export function ServicesSection() {
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredServices.map((service) => (
-            <Card key={service.slug} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+            <Card key={service.slug} className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
               <CardHeader className="p-0">
                 <Image
                   src={service.image.src}
@@ -27,7 +27,7 @@ export function ServicesSection() {
                   data-ai-hint={service.image.hint}
                   width={service.image.width}
                   height={service.image.height}
-                  className="h-48 w-full object-cover"
+                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </CardHeader>
               <CardContent className="flex flex-1 flex-col p-6">

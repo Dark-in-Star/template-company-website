@@ -113,7 +113,7 @@ export function ContactForm() {
                                         </FormControl>
                                         <SelectContent>
                                             {countryCodes.map(country => (
-                                                <SelectItem key={country.name} value={country.code}>
+                                                <SelectItem key={country.name} value={`${country.name}-${country.code}`}>
                                                     {country.code} ({country.name})
                                                 </SelectItem>
                                             ))}
@@ -154,7 +154,7 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Message</Label>
                     <FormControl>
                         <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
                     </FormControl>
