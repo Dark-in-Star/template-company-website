@@ -43,11 +43,6 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
           </Link>
         </div>
       </div>
-      <div className="relative">
-        <div className="container -mt-24 pb-12">
-            <StatsSection />
-        </div>
-      </div>
     </section>
   );
 }
