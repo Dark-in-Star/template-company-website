@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +9,7 @@ interface ExpandableTextProps {
   maxLength?: number;
 }
 
-export function ExpandableText({ text, maxLength = 200 }: ExpandableTextProps) {
+export function ExpandableText({ text, maxLength = 100 }: ExpandableTextProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (text.length <= maxLength) {
