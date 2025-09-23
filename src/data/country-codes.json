@@ -1,13 +1,13 @@
 
 [
-    { "name": "United States", "code": "+1" },
-    { "name": "Canada", "code": "+1" },
-    { "name": "United Kingdom", "code": "+44" },
-    { "name": "Australia", "code": "+61" },
-    { "name": "Germany", "code": "+49" },
-    { "name": "France", "code": "+33" },
-    { "name": "Japan", "code": "+81" },
-    { "name": "India", "code": "+91" },
-    { "name": "Brazil", "code": "+55" },
-    { "name": "China", "code": "+86" }
+    { "name": "United States", "short": "US", "code": "+1" },
+    { "name": "Canada", "short": "CA", "code": "+1" },
+    { "name": "United Kingdom", "short": "UK", "code": "+44" },
+    { "name": "Australia", "short": "AU", "code": "+61" },
+    { "name": "Germany", "short": "DE", "code": "+49" },
+    { "name": "France", "short": "FR", "code": "+33" },
+    { "name": "Japan", "short": "JP", "code": "+81" },
+    { "name": "India", "short": "IN", "code": "+91" },
+    { "name": "Brazil", "short": "BR", "code": "+55" },
+    { "name": "China", "short": "CN", "code": "+86" }
 ]

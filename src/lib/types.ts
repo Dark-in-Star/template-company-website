@@ -83,6 +83,7 @@ export type Feature = {
 
 export type CountryCode = {
     name: string;
+    short: string;
     code: string;
 }
 
