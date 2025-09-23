@@ -10,10 +10,12 @@ interface ScrollAnimationProps {
   className?: string;
   delay?: number;
   threshold?: number;
+  triggerOnce?: boolean;
 }
 
-export function ScrollAnimation({ children, className, delay = 0, threshold = 0.1 }: ScrollAnimationProps) {
-  const { ref, isInView } = useScrollAnimation({ threshold, triggerOnce: true });
+export function ScrollAnimation({ children, className, delay = 0, threshold = 0.1, triggerOnce = true }: ScrollAnimationProps) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const { isInView } = useScrollAnimation({ ref, threshold, triggerOnce });
 
   const style = {
     transitionDelay: `${delay}ms`,

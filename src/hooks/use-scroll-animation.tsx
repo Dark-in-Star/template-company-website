@@ -1,34 +1,31 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, type RefObject } from 'react';
 
-interface ScrollAnimationOptions {
+interface UseScrollAnimationProps {
+  ref: RefObject<Element>;
   threshold?: number;
   triggerOnce?: boolean;
 }
 
-export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
-  const { threshold = 0.1, triggerOnce = true } = options;
+export function useScrollAnimation({ ref, threshold = 0.1, triggerOnce = true }: UseScrollAnimationProps) {
   const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsInView(true);
             if (triggerOnce) {
-              obs.unobserve(element);
+              observer.unobserve(element);
             }
-          } else {
-             if (!triggerOnce) {
-              setIsInView(false);
-            }
+          } else if (!triggerOnce) {
+            setIsInView(false);
           }
         });
       },
