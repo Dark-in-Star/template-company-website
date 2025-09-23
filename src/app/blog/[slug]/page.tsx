@@ -111,8 +111,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-4xl text-center">
-            <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
-            <div className="mt-6 flex items-center justify-center gap-4">
+            <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl animate-fade-in-down">{post.title}</h1>
+            <div className="mt-6 flex items-center justify-center gap-4 animate-fade-in-up [animation-delay:200ms]">
                 <Avatar>
                     <AvatarImage src={authorImage.src} alt={post.author} data-ai-hint={authorImage.hint}/>
                     <AvatarFallback>{authorInitials}</AvatarFallback>

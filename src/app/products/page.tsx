@@ -55,16 +55,18 @@ export default function ProductsPage() {
 
   return (
     <>
-      <section className="bg-secondary md:flex md:items-center md:h-screen">
+      <section className="bg-secondary md:flex md:items-center md:h-screen overflow-hidden">
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 py-12 md:grid-cols-2 lg:py-24">
             <div className="space-y-6 text-center md:text-left">
-                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Meet Qynko: Your Ultimate Productivity Companion</h1>
-                <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
+                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl animate-fade-in-down">Meet Qynko: Your Ultimate Productivity Companion</h1>
+                <p className="max-w-xl text-lg text-muted-foreground md:text-xl animate-fade-in-up [animation-delay:200ms]">
                     Streamline your workflow, organize your tasks, and achieve your goals with our beautifully designed and powerful application.
                 </p>
-                <StoreButtons />
+                <div className="animate-fade-in-up [animation-delay:400ms]">
+                    <StoreButtons />
+                </div>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center animate-fade-in-up [animation-delay:600ms]">
                 <Image
                     src={qynkoHero.src}
                     alt="Qynko App Showcase"

@@ -7,7 +7,7 @@ import type { Image as ImageType } from '@/lib/types';
 
 export function HeroSection({ heroImage }: { heroImage: ImageType }) {
   return (
-    <section className="relative w-full bg-secondary">
+    <section className="relative w-full bg-secondary overflow-hidden">
        <div className="absolute inset-0 overflow-hidden">
         <Image
           src={heroImage.src}
@@ -21,14 +21,14 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
       </div>
       <div className="container relative mx-auto flex min-h-[60dvh] flex-col items-center justify-center text-center md:min-h-[70dvh]">
         <div className="space-y-4">
-          <h1 className="font-heading text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-heading text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
             Innovating the Future of Business
           </h1>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl animate-fade-in-up [animation-delay:200ms]">
             Procellence Technology delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business. Let us be your partner in digital excellence.
           </p>
         </div>
-        <div className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+        <div className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row animate-fade-in-up [animation-delay:400ms]">
           <Link href="/services" className="w-full sm:w-auto">
             <Button size="lg" className="w-full">
               Explore Our Services
