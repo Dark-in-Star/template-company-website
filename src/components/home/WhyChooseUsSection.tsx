@@ -28,12 +28,6 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
                   <stop offset="1" stopColor="hsl(var(--chart-4))" />
                 </linearGradient>
               </defs>
-              <path
-                d="M50 80 C 250 120, 350 0, 500 40 C 650 80, 750 0, 950 40"
-                stroke="url(#journey-gradient)"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-              />
             </svg>
           </div>
           <div className="grid grid-cols-1 gap-y-20 gap-x-8 md:grid-cols-2 lg:grid-cols-4">
