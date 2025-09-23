@@ -16,8 +16,10 @@ export default function PrivacyPolicyPage() {
           to you. We collect it by fair and lawful means, with your knowledge and
           consent. We also let you know why we’re collecting it and how it will be used.
         </p>
-        <p>
-          We may collect the following types of information:
+        <div>
+          <p>
+            We may collect the following types of information:
+          </p>
           <ul>
             <li>
               <strong>Log data:</strong> When you visit our website, our servers may
@@ -32,11 +34,13 @@ export default function PrivacyPolicyPage() {
               number, work address, and payment information.
             </li>
           </ul>
-        </p>
+        </div>
 
         <h2 className="font-heading text-3xl">2. Use of Information</h2>
-        <p>
-          We may use the information we collect for various purposes, including to:
+        <div>
+          <p>
+            We may use the information we collect for various purposes, including to:
+          </p>
           <ul>
             <li>Provide, operate, and maintain our website</li>
             <li>Improve, personalize, and expand our website</li>
@@ -51,7 +55,7 @@ export default function PrivacyPolicyPage() {
             <li>Send you emails</li>
             <li>Find and prevent fraud</li>
           </ul>
-        </p>
+        </div>
 
         <h2 className="font-heading text-3xl">3. Security</h2>
         <p>

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -57,7 +58,7 @@ export function SummarizeBrochureClient() {
       <Card>
         <CardHeader>
           <CardTitle>Enter Brochure URL</CardTitle>
-          <CardDescription>
+          <CardDescription as="div">
             You can use one of these examples:
             <ul className="list-disc pl-5 pt-2">
                 <li>https://example.com/brochure1</li>
