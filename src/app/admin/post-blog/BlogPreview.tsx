@@ -5,12 +5,17 @@ import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import type { BlogPostFormValues } from './PostBlogForm';
+import { Button } from '@/components/ui/button';
+import { Copy, Check } from 'lucide-react';
+import * as React from 'react';
 
 interface BlogPreviewProps {
   data: Partial<BlogPostFormValues>;
 }
 
 export function BlogPreview({ data }: BlogPreviewProps) {
+  const [copied, setCopied] = React.useState(false);
+
   const authorInitials = data.author
     ? data.author.split(' ').map((n) => n[0]).join('')
     : 'JD';
@@ -26,6 +31,16 @@ export function BlogPreview({ data }: BlogPreviewProps) {
 
   const featuredImageUrl = getImageUrl(data.image);
   const metaImageUrl = getImageUrl(data.metaImage);
+
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://your-domain.com';
+  const fullUrl = `${siteUrl}/blog/${data.slug || 'your-unique-slug'}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+    });
+  };
 
   return (
     <Card className="overflow-hidden">
@@ -71,6 +86,15 @@ export function BlogPreview({ data }: BlogPreviewProps) {
             <h3 className="font-heading text-lg font-bold">SEO & Meta Preview</h3>
             <div className="space-y-2 text-sm">
                 <p><strong>Slug:</strong> {data.slug || 'your-unique-slug'}</p>
+                <div>
+                  <p><strong>Full URL:</strong></p>
+                  <div className="flex items-center gap-2 mt-1">
+                      <p className="truncate text-muted-foreground flex-1">{fullUrl}</p>
+                      <Button variant="ghost" size="icon" onClick={handleCopy} className="h-8 w-8">
+                          {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                      </Button>
+                  </div>
+                </div>
                 <p><strong>Meta Title:</strong> {data.metaTitle || 'Your Meta Title'}</p>
                 <p><strong>Meta Description:</strong> {data.metaDescription || 'Your meta description for search engines.'}</p>
                  <p><strong>Keywords:</strong> {data.keywords || 'keyword1, keyword2'}</p>
