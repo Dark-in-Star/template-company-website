@@ -1,6 +1,7 @@
 
 import type { Feature } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 export function WhyChooseUsSection({ features }: { features: Feature[] }) {
   return (
@@ -13,21 +14,14 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
           </p>
         </div>
         <div className="journey-container mx-auto max-w-6xl">
-          <div className="absolute inset-x-0 top-0 hidden h-full md:block">
-            <svg
-              viewBox="0 0 1000 120"
-              preserveAspectRatio="none"
-              className="h-full w-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="journey-gradient" x1="0" y1="60" x2="1000" y2="60" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="hsl(var(--chart-1))" />
-                  <stop offset="1" stopColor="hsl(var(--chart-4))" />
-                </linearGradient>
-              </defs>
-            </svg>
+           <div className="absolute inset-x-0 top-0 hidden h-full items-center justify-center lg:flex">
+            <Image
+              src="/img/journey-path.png"
+              alt="Journey path"
+              width={1000}
+              height={120}
+              className="h-auto w-full"
+            />
           </div>
           <div className="grid grid-cols-1 gap-y-20 gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
