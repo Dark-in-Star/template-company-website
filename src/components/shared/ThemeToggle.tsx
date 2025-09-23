@@ -2,32 +2,37 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const [isMounted, setIsMounted] = React.useState(false)
 
-  const onThemeChange = (isChecked: boolean) => {
-    setTheme(isChecked ? "dark" : "light")
+  React.useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const onThemeChange = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
+  // Avoid rendering the toggle until the theme state is mounted on the client
+  if (!isMounted) {
+    return null
   }
 
   return (
-    <div className="flex items-center space-x-2">
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Switch
-        id="theme-switch"
-        checked={theme === "dark"}
-        onCheckedChange={onThemeChange}
-        aria-label="Toggle theme"
+    <div className="day-night-toggle-container">
+      <input 
+        id="day-night-toggle" 
+        type="checkbox" 
+        className="day-night-toggle-input" 
+        checked={theme === 'dark'}
+        onChange={onThemeChange} 
       />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <Label htmlFor="theme-switch" className="sr-only">
-        Toggle theme
-      </Label>
+      <label htmlFor="day-night-toggle" className="day-night-toggle-label">
+        <i className="day-night-toggle-icon"></i>
+      </label>
     </div>
   )
 }
