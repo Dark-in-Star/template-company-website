@@ -19,7 +19,6 @@ import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email.' }),
 });
 
@@ -28,7 +27,6 @@ export function LeadForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
       email: '',
     },
   });
@@ -47,21 +45,6 @@ export function LeadForm() {
         <CardContent className="p-0">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                    <FormItem>
-                        <div className="relative">
-                            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                            <FormControl>
-                                <Input placeholder="Full Name" {...field} className="pl-10" />
-                            </FormControl>
-                        </div>
-                        <FormMessage />
-                    </FormItem>
-                )}
-                />
                 <FormField
                 control={form.control}
                 name="email"

@@ -29,8 +29,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="bg-primary/5">
-        <div className="container mx-auto max-w-4xl py-16 text-center">
+      <section className="bg-background py-12 md:py-16">
+        <div className="container mx-auto max-w-4xl text-center">
             <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
             <div className="mt-6 flex items-center justify-center gap-4">
                 <Avatar>
@@ -46,25 +46,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
         </div>
       </section>
-
-      <section className="py-0">
-        <div className="container mx-auto -mt-16 max-w-5xl">
-            <Image
-                src={post.image.src}
-                alt={post.title}
-                data-ai-hint={post.image.hint}
-                width={post.image.width}
-                height={post.image.height}
-                className="w-full rounded-lg object-cover shadow-lg"
-            />
-        </div>
-      </section>
       
-      <section>
+      <section className="py-0">
         <div className="container mx-auto">
            <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
              <div className="lg:col-span-2">
                 <article className="prose prose-lg max-w-none dark:prose-invert">
+                    <Image
+                        src={post.image.src}
+                        alt={post.title}
+                        data-ai-hint={post.image.hint}
+                        width={post.image.width}
+                        height={post.image.height}
+                        className="w-full rounded-lg object-cover shadow-lg"
+                    />
                     <p>{post.excerpt}</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <h2 className="font-heading text-3xl">A Deeper Dive</h2>
