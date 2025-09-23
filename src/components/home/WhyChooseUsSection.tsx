@@ -1,6 +1,5 @@
 
 import type { Feature } from '@/lib/types';
-import { Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function WhyChooseUsSection({ features }: { features: Feature[] }) {
@@ -45,7 +44,6 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
               </div>
             ))}
           </div>
-          <Send className="journey-arrow" />
         </div>
       </div>
     </section>
