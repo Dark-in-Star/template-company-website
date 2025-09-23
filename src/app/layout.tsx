@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Procellence Technology',
     description: 'Innovating the Future of Business with cutting-edge technology solutions.',
-    url: 'https://your-domain.com', // Replace with your actual domain
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     siteName: 'Procellence Technology',
     locale: 'en_US',
     type: 'website',

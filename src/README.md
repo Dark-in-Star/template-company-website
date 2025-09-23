@@ -22,16 +22,17 @@ yarn install
 
 ### 2. Set Up Environment Variables
 
-Create a `.env` file in the root of your project by copying the example file:
+Create a `.env.local` file in the root of your project by copying the example file:
 
 ```bash
-cp .env.example .env
+cp .env.example .env.local
 ```
 
-You will need to populate this file with your Google AI (Gemini) API key for the Genkit features to work.
+You will need to populate this file with your Google AI (Gemini) API key for the Genkit features to work. Open `.env.local` and add your key:
 
 ```
 GEMINI_API_KEY=your_gemini_api_key_here
+NEXT_PUBLIC_SITE_URL=http://localhost:9002
 ```
 
 ### 3. Running the Development Server

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const metaTitle = post.metaTitle || post.title;
   const metaDescription = post.metaDescription || post.excerpt;
   const metaImage = post.metaImage ? post.metaImage.src : post.image.src;
-  const siteUrl = 'https://procellence.com'; // Replace with your actual domain
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://procellence.com';
 
   return {
     title: metaTitle,
@@ -67,7 +67,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const authorDetails = teamMembers.find(member => member.name === post.author);
   const authorInitials = post.author.split(' ').map(n => n[0]).join('');
   const comments = allComments[params.slug] || [];
-  const siteUrl = 'https://procellence.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://procellence.com';
 
   const defaultJsonLd = {
     '@context': 'https://schema.org',
@@ -88,7 +88,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       name: 'Procellence Technology',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://procellence.com/img/logo.webp',
+        url: `${siteUrl}/img/logo.webp`,
       },
     },
     datePublished: post.date,

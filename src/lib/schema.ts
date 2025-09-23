@@ -3,8 +3,8 @@ export const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Procellecence Technology",
-    "url": "https://procellence.com",
-    "logo": "https://procellence.com/img/favicon.ico",
+    "url": process.env.NEXT_PUBLIC_SITE_URL,
+    "logo": `${process.env.NEXT_PUBLIC_SITE_URL}/img/favicon.ico`,
     "industry": {
         "@type": "InformationTechnologyIndustry"
     },
@@ -90,6 +90,6 @@ export const organizationSchema = {
     "award": "Best IT Solutions Provider 2023",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://procellence.com"
+        "@id": process.env.NEXT_PUBLIC_SITE_URL
     }
 }
