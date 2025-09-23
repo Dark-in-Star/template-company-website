@@ -3,6 +3,7 @@
 import { blogPosts } from '@/lib/data';
 import { BlogCard } from '@/components/shared/BlogCard';
 import type { Metadata } from 'next';
+import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 export const metadata: Metadata = {
     title: 'Blog',
@@ -16,14 +17,16 @@ export default function BlogPage() {
       <section>
         <div className="container mx-auto">
           <div className="mb-12 text-center">
-              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Our Blog</h1>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl animate-fade-in-down">Our Blog</h1>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground animate-fade-in-up [animation-delay:200ms]">
                   Insights, news, and stories from the team at Procellence Technology.
               </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+            {blogPosts.map((post, index) => (
+              <ScrollAnimation key={post.slug} delay={index * 150}>
+                <BlogCard post={post} />
+              </ScrollAnimation>
             ))}
           </div>
         </div>

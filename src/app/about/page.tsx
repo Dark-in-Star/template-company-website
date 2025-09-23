@@ -33,6 +33,7 @@ import { SocialLink } from '@/components/shared/SocialLink';
 import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
 import { INITIAL_FAQS_COUNT, TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
+import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
     const isMobile = useIsMobile();
@@ -85,14 +86,18 @@ export default function AboutPage() {
         />
         <div className="relative">
             <div className="container -mt-24 pb-12">
-                <StatsSection />
+                <ScrollAnimation>
+                    <StatsSection />
+                </ScrollAnimation>
             </div>
         </div>
 
       <section className="pt-0">
         <div className="container mx-auto space-y-16">
            <div>
-            <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
+            <ScrollAnimation>
+                <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
+            </ScrollAnimation>
             <div className="relative">
                 <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
                 {timelineEvents.map((event, index) => {
@@ -100,18 +105,20 @@ export default function AboutPage() {
                     const isLeft = index % 2 === 0;
                     return (
                         <div key={index} className={cn("relative mb-12 flex w-full items-center", isLeft ? 'justify-start' : 'justify-end')}>
-                            <div className={cn("w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
-                                <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                                    <CardContent className="p-6">
-                                        <div className="flex items-center gap-4">
-                                            <div>
-                                                <p className="font-heading text-xl font-bold">{event.title}</p>
-                                                <p className="text-sm font-semibold text-primary">{event.date}</p>
+                             <div className={cn("w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
+                                <ScrollAnimation delay={index * 150}>
+                                    <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                        <CardContent className="p-6">
+                                            <div className="flex items-center gap-4">
+                                                <div>
+                                                    <p className="font-heading text-xl font-bold">{event.title}</p>
+                                                    <p className="text-sm font-semibold text-primary">{event.date}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <p className="mt-4 text-muted-foreground">{event.description}</p>
-                                    </CardContent>
-                                </Card>
+                                            <p className="mt-4 text-muted-foreground">{event.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </ScrollAnimation>
                             </div>
                             <div className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-background bg-primary text-primary-foreground">
                                 <Icon className="h-6 w-6" />
@@ -124,15 +131,19 @@ export default function AboutPage() {
 
           <Separator />
 
-          <div>
-              <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
-              <TeamMemberCard member={founder} />
-          </div>
+          <ScrollAnimation>
+            <div>
+                <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
+                <TeamMemberCard member={founder} />
+            </div>
+          </ScrollAnimation>
 
           <Separator />
 
-          <div>
-              <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
+            <div>
+                <ScrollAnimation>
+                    <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
+                </ScrollAnimation>
               <Carousel
                   plugins={[plugin.current]}
                   className="w-full"
@@ -146,30 +157,32 @@ export default function AboutPage() {
               <CarouselContent className="-ml-4">
                   {otherTeamMembers.map((member) => (
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
-                    <div className="group block h-full">
-                      <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                        <Image
-                            src={member.image.src}
-                            alt={member.name}
-                            data-ai-hint={member.image.hint}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100')}>
-                            <div className="text-center text-white">
-                            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-                            <p className="text-lg font-medium text-primary">{member.role}</p>
+                    <ScrollAnimation>
+                        <div className="group block h-full">
+                        <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <Image
+                                src={member.image.src}
+                                alt={member.name}
+                                data-ai-hint={member.image.hint}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100')}>
+                                <div className="text-center text-white">
+                                <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+                                <p className="text-lg font-medium text-primary">{member.role}</p>
+                                </div>
+                                {member.socials && (
+                                <div className="mt-4 flex gap-2">
+                                    <SocialLink platform="linkedin" url={member.socials.linkedin} />
+                                    <SocialLink platform="twitter" url={member.socials.twitter} />
+                                    <SocialLink platform="github" url={member.socials.github} />
+                                </div>
+                                )}
                             </div>
-                            {member.socials && (
-                            <div className="mt-4 flex gap-2">
-                                <SocialLink platform="linkedin" url={member.socials.linkedin} />
-                                <SocialLink platform="twitter" url={member.socials.twitter} />
-                                <SocialLink platform="github" url={member.socials.github} />
-                            </div>
-                            )}
+                        </Card>
                         </div>
-                      </Card>
-                    </div>
+                    </ScrollAnimation>
                   </CarouselItem>
                   ))}
               </CarouselContent>
@@ -180,44 +193,52 @@ export default function AboutPage() {
 
           <Separator />
 
-          <div>
-              <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
+            <div>
+                <ScrollAnimation>
+                    <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
+                </ScrollAnimation>
               <div className="mx-auto max-w-3xl">
-                  <Accordion type="single" collapsible className="w-full">
-                      {displayedFaqs.map((faq, index) => (
-                          <AccordionItem key={index} value={`item-${index}`}>
-                              <AccordionTrigger className="font-heading text-left text-lg">{faq.question}</AccordionTrigger>
+                <ScrollAnimation>
+                    <Accordion type="single" collapsible className="w-full">
+                        {displayedFaqs.map((faq, index) => (
+                            <AccordionItem key={index} value={`item-${index}`}>
+                                <AccordionTrigger className="font-heading text-left text-lg">{faq.question}</AccordionTrigger>
 
-                              <AccordionContent className="text-base text-muted-foreground">
-                                  {faq.answer}
-                              </AccordionContent>
-                          </AccordionItem>
-                      ))}
-                  </Accordion>
+                                <AccordionContent className="text-base text-muted-foreground">
+                                    {faq.answer}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </ScrollAnimation>
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                      {faqs.length > INITIAL_FAQS_COUNT && (
-                          <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
-                              {showAllFaqs ? (
-                                  <>
-                                      <ChevronUp className="mr-2 h-4 w-4" />
-                                      Show Less
-                                  </>
-                              ) : (
-                                  <>
-                                      <ChevronDown className="mr-2 h-4 w-4" />
-                                      Show More
-                                  </>
-                              )}
-                          </Button>
-                      )}
-                      {showAllFaqs && (
-                           <Link href="/contact">
-                                <Button>
-                                    Still have questions? Contact Us
-                                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ScrollAnimation>
+                        <>
+                            {faqs.length > INITIAL_FAQS_COUNT && (
+                                <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
+                                    {showAllFaqs ? (
+                                        <>
+                                            <ChevronUp className="mr-2 h-4 w-4" />
+                                            Show Less
+                                        </>
+                                    ) : (
+                                        <>
+                                            <ChevronDown className="mr-2 h-4 w-4" />
+                                            Show More
+                                        </>
+                                    )}
                                 </Button>
-                            </Link>
-                      )}
+                            )}
+                            {showAllFaqs && (
+                                <Link href="/contact">
+                                        <Button>
+                                            Still have questions? Contact Us
+                                            <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Button>
+                                    </Link>
+                            )}
+                        </>
+                    </ScrollAnimation>
                   </div>
               </div>
           </div>

@@ -6,6 +6,7 @@ import type { Image } from '@/lib/types';
 import { StatsSection } from '@/components/home/StatsSection';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 const AboutSection = dynamic(() => import('@/components/home/AboutSection').then(mod => mod.AboutSection), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
@@ -36,15 +37,29 @@ export default function Home() {
       <HeroSection heroImage={heroImage} />
        <div className="relative">
         <div className="container -mt-24 pb-12">
-          <StatsSection />
+            <ScrollAnimation>
+                <StatsSection />
+            </ScrollAnimation>
         </div>
       </div>
-      <AboutSection aboutImage={aboutImage} />
-      <ServicesSection services={services.slice(0, 4)} />
-      <WhyChooseUsSection features={features} />
-      <BlogSection posts={blogPosts.slice(0, 3)} />
-      <TestimonialsSection testimonials={testimonials} />
-      <BrochureSummarizerSection />
+      <ScrollAnimation>
+        <AboutSection aboutImage={aboutImage} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <ServicesSection services={services.slice(0, 4)} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <WhyChooseUsSection features={features} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <BlogSection posts={blogPosts.slice(0, 3)} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <TestimonialsSection testimonials={testimonials} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <BrochureSummarizerSection />
+      </ScrollAnimation>
     </>
   );
 }

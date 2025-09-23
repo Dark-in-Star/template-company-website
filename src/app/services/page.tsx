@@ -8,6 +8,7 @@ import { PageHero } from '@/components/shared/PageHero';
 import { StatsSection } from '@/components/home/StatsSection';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 const WhyChooseUsSection = dynamic(() => import('@/components/home/WhyChooseUsSection').then(mod => mod.WhyChooseUsSection), {
     loading: () => <Skeleton className="h-[400px] w-full" />,
@@ -29,22 +30,30 @@ export default function ServicesPage() {
           />
         <div className="relative">
             <div className="container -mt-24 pb-12">
-                <StatsSection />
+                <ScrollAnimation>
+                    <StatsSection />
+                </ScrollAnimation>
             </div>
         </div>
-      <section className="bg-primary/5">
-        <WhyChooseUsSection features={features} />
-      </section>
+      <ScrollAnimation>
+        <section className="bg-primary/5">
+            <WhyChooseUsSection features={features} />
+        </section>
+      </ScrollAnimation>
       <section className="pt-0">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-12">
             {services.map((service, index) => (
-              <ServiceListItem key={service.slug} service={service} align={index % 2 === 0 ? 'right' : 'left'} />
+              <ScrollAnimation key={service.slug} delay={index * 150}>
+                <ServiceListItem service={service} align={index % 2 === 0 ? 'right' : 'left'} />
+              </ScrollAnimation>
             ))}
           </div>
         </div>
       </section>
-      <TestimonialsSection testimonials={testimonials} />
+      <ScrollAnimation>
+        <TestimonialsSection testimonials={testimonials} />
+      </ScrollAnimation>
     </>
   );
 }
