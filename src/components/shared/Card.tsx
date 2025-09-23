@@ -19,7 +19,7 @@ interface CardProps {
 export function Card({ image, title, description, href, headerContent, footerContent }: CardProps) {
   return (
     <ShadcnCard className="flex h-full flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
-      <Link href={href} className="block">
+      <Link href={href} className="block" aria-label={`Read more about ${title}`}>
         <CardHeader className="p-0">
           <Image
             src={image.src}
@@ -34,7 +34,9 @@ export function Card({ image, title, description, href, headerContent, footerCon
       <CardContent className="flex flex-1 flex-col p-6">
         {headerContent}
         <CardTitle className="mt-2 text-xl">
-          {title}
+          <Link href={href}>
+            {title}
+          </Link>
         </CardTitle>
         <ExpandableText text={description} />
         <div className="mt-auto pt-4">

@@ -125,36 +125,36 @@ export function ContactForm() {
                 />
                 <FormItem>
                     <FormLabel>Phone Number (Optional)</FormLabel>
-                    <div className="relative">
-                         <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <div className="flex gap-2">
-                            <FormField
-                                control={form.control}
-                                name="phone.countryCode"
-                                render={({ field }) => (
-                                    <FormItem className="w-1/3">
-                                        <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
-                                            <FormControl>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Code" />
-                                                </SelectTrigger>
-                                            </FormControl>
-                                            <SelectContent>
-                                                {countryCodes.map(country => (
-                                                    <SelectItem key={country.name} value={`${country.name}-${country.code}`}>
-                                                        {country.code} ({country.short})
-                                                    </SelectItem>
-                                                ))}
-                                            </SelectContent>
-                                        </Select>
-                                    </FormItem>
-                                )}
-                            />
+                    <div className="flex gap-2">
+                        <FormField
+                            control={form.control}
+                            name="phone.countryCode"
+                            render={({ field }) => (
+                                <FormItem className="w-1/3">
+                                    <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Code" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {countryCodes.map(country => (
+                                                <SelectItem key={country.name} value={`${country.name}-${country.code}`}>
+                                                    {country.code} ({country.short})
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <div className="relative flex-1">
+                             <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <FormField
                                 control={form.control}
                                 name="phone.number"
                                 render={({ field }) => (
-                                    <FormItem className="flex-1">
+                                    <FormItem className="w-full">
                                         <FormControl>
                                             <Input type="tel" placeholder="123-456-7890" {...field} className="pl-10"/>
                                         </FormControl>

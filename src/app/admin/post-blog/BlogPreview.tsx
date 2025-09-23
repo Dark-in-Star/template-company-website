@@ -23,19 +23,24 @@ export function BlogPreview({ data }: BlogPreviewProps) {
   const today = new Date().toISOString().split('T')[0];
 
   React.useEffect(() => {
-    const siteUrl = window.location.origin;
-    setFullUrl(`${siteUrl}/blog/${data.slug || 'your-unique-slug'}`);
+    if (typeof window !== 'undefined') {
+        const siteUrl = window.location.origin;
+        setFullUrl(`${siteUrl}/blog/${data.slug || 'your-unique-slug'}`);
+    }
   }, [data.slug]);
 
-  const getImageUrl = (image: unknown) => {
+  const getImageUrl = (image: unknown): string | null => {
     if (image instanceof File) {
       return URL.createObjectURL(image);
+    }
+    if (typeof image === 'string') {
+        return image;
     }
     return null;
   }
 
-  const featuredImageUrl = getImageUrl(data.image);
-  const metaImageUrl = getImageUrl(data.metaImage);
+  const featuredImageUrl = data.image ? getImageUrl(data.image) : null;
+  const metaImageUrl = data.metaImage ? getImageUrl(data.metaImage) : null;
 
   const handleCopy = () => {
     if (!fullUrl) return;

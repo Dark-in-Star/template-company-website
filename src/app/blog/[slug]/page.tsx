@@ -64,7 +64,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     notFound();
   }
   const authorImage = placeholderImages.author as ImageType;
-  const authorDetails = teamMembers.find(member => member.name === post.author);
   const authorInitials = post.author.split(' ').map(n => n[0]).join('');
   const comments = allComments[params.slug] || [];
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://procellence.com';
@@ -94,7 +93,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     datePublished: post.date,
   };
 
-  const jsonLd = post.jsonLd && post.jsonLd.trim() !== '{}' && post.jsonLd.trim() !== '' ? JSON.parse(post.jsonLd) : defaultJsonLd;
+  let jsonLd;
+  try {
+      jsonLd = post.jsonLd && post.jsonLd.trim() !== '' && post.jsonLd.trim() !== '{}' ? JSON.parse(post.jsonLd) : defaultJsonLd;
+  } catch(e) {
+      console.error("Failed to parse jsonLd", e);
+      jsonLd = defaultJsonLd;
+  }
+
 
   return (
     <>

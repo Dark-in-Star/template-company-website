@@ -34,11 +34,11 @@ import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
 import { INITIAL_FAQS_COUNT, TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 
-function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
+function TeamMemberCard({ member }: { member: TeamMember }) {
     const isMobile = useIsMobile();
   return (
-    <div className={cn('flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left')}>
-      <div className={cn('relative group flex justify-center')}>
+    <div className='flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left'>
+      <div className='relative group flex justify-center'>
         <Image
           src={member.image.src}
           alt={member.name}
@@ -67,11 +67,11 @@ function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isF
 export default function AboutPage() {
   const [founder, ...otherTeamMembers] = teamMembers;
   const [showAllFaqs, setShowAllFaqs] = React.useState(false);
+  const isMobile = useIsMobile();
 
   const plugin = React.useRef(
     Autoplay({ delay: TEAM_CAROUSEL_AUTOPLAY_DELAY, stopOnInteraction: true })
-  )
-    const isMobile = useIsMobile();
+  );
 
   const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, INITIAL_FAQS_COUNT);
   const aboutHero = placeholderImages.aboutHero as ImageType;
@@ -100,7 +100,7 @@ export default function AboutPage() {
                     const isLeft = index % 2 === 0;
                     return (
                         <div key={index} className={cn("relative mb-12 flex w-full items-center", isLeft ? 'justify-start' : 'justify-end')}>
-                            <div className={cn("relative w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
+                            <div className={cn("w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
                                 <Card className="shadow-lg transition-shadow duration-300 hover:shadow-xl">
                                     <CardContent className="p-6">
                                         <div className="flex items-center gap-4">
@@ -126,7 +126,7 @@ export default function AboutPage() {
 
           <div>
               <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
-              <TeamMemberCard member={founder} isFounder />
+              <TeamMemberCard member={founder} />
           </div>
 
           <Separator />
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <CarouselContent className="-ml-4">
                   {otherTeamMembers.map((member) => (
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
-                    <Link href="/about" className="group block h-full">
+                    <div className="group block h-full">
                       <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full">
                         <Image
                             src={member.image.src}
@@ -169,7 +169,7 @@ export default function AboutPage() {
                             )}
                         </div>
                       </Card>
-                    </Link>
+                    </div>
                   </CarouselItem>
                   ))}
               </CarouselContent>
