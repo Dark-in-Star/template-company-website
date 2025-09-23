@@ -2,10 +2,8 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-
-import { Switch } from "@/components/ui/switch"
+import { cn } from "@/lib/utils"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -15,26 +13,34 @@ export function ThemeToggle() {
     setIsMounted(true)
   }, [])
 
-  const onThemeChange = (checked: boolean) => {
-    setTheme(checked ? "dark" : "light")
+  if (!isMounted) {
+    // Render a placeholder to avoid layout shift and hydration mismatch
+    return <div className="theme-toggle-placeholder" />
   }
 
-  // Avoid rendering until mounted on client
-  if (!isMounted) {
-    // Render a placeholder to avoid layout shift
-    return <div className="w-[74px] h-10" />
+  const isDark = theme === "dark"
+
+  const onThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTheme(e.target.checked ? "dark" : "light")
   }
 
   return (
-    <div className="flex items-center space-x-2">
-      <Sun className="h-5 w-5" />
-      <Switch
-        id="theme-switch"
-        checked={theme === 'dark'}
-        onCheckedChange={onThemeChange}
-        aria-label="Theme toggle"
-      />
-      <Moon className="h-5 w-5" />
+    <div className="flex items-center justify-center">
+      <label htmlFor="theme-switch-toggle" className={cn("theme-switch", isDark && "dark")}>
+        <input
+          id="theme-switch-toggle"
+          type="checkbox"
+          checked={isDark}
+          onChange={onThemeChange}
+        />
+        <div className="sun-moon">
+          <div className="dots"></div>
+        </div>
+        <div className="background">
+          <div className="stars"></div>
+          <div className="stars2"></div>
+        </div>
+      </label>
     </div>
   )
 }
