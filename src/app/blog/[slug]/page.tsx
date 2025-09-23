@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { Comments } from '@/components/comments/Comments';
+import { ContactForm } from '@/components/shared/ContactForm';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -59,14 +60,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </section>
       
       <section>
-        <div className="container mx-auto max-w-3xl">
-            <article className="prose prose-lg max-w-none dark:prose-invert">
-                <p>{post.excerpt}</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <h2 className="font-heading text-3xl">A Deeper Dive</h2>
-                <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu.</p>
-                <p>Aenean consequat lorem ut felis. Ut at sapien morbi platform. Fusce cursus egestas velit. Mauris tortor felis, interdum in, eleifend ut, commodo vulputate, justo. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
-            </article>
+        <div className="container mx-auto">
+           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+             <div className="lg:col-span-2">
+                <article className="prose prose-lg max-w-none dark:prose-invert">
+                    <p>{post.excerpt}</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2 className="font-heading text-3xl">A Deeper Dive</h2>
+                    <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu.</p>
+                    <p>Aenean consequat lorem ut felis. Ut at sapien morbi platform. Fusce cursus egestas velit. Mauris tortor felis, interdum in, eleifend ut, commodo vulputate, justo. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+                </article>
+              </div>
+            <aside className="lg:col-span-1">
+                <div className="sticky top-24">
+                    <ContactForm />
+                </div>
+            </aside>
+           </div>
         </div>
       </section>
 
