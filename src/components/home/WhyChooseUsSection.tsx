@@ -32,7 +32,6 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
                   <div className="journey-badge-wrapper">
                     <div className="journey-badge">
                       <Icon className="h-6 w-6" />
-                      <span className="text-xs">{index + 1}</span>
                     </div>
                   </div>
                   <div className="journey-content">
