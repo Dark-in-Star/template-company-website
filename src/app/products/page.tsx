@@ -58,13 +58,11 @@ const AppStoreIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 512 512" height="1em" width="1em" {...props}>
-        <path fill="#4285f4" d="m265 24-207 119v226l207 119 203-116V143z" />
-        <path fill="#66a3ff" d="m265 24-207 119v1l207-120 203 116v-1z" />
-        <path fill="#bbdefb" d="m468 143-203 116 203 116V143z" />
-        <path fill="#4285f4" d="m265 488 203-116V256z" />
-        <path fill="#1e88e5" d="m265 372-207-119v119l207 119z" />
-        <path fill="#66a3ff" d="m58 253 207 119 203-116-207-120z" />
+    <svg viewBox="0 0 512 512" fill="currentColor" height="1em" width="1em" {...props}>
+        <path fill="#4385F4" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0L104.6 13 47 240.2 47 0z" />
+        <path fill="#34A853" d="M104.6 499l280.8-161.2-60.1-60.1L104.6 499zM47 512l57.6-271.8L47 512z" />
+        <path fill="#FBBC05" d="M466.5 256l-105.1-105.1-125.4 125.4 125.4 125.4 105.1-105.1z" />
+        <path fill="#EA4335" d="M325.3 234.3L104.6 13l-57.6 221.3 278.3-11.2-60.1-60.1z" />
     </svg>
 )
 
@@ -78,7 +76,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <section className="bg-secondary">
+      <section className="bg-secondary md:h-screen md:flex md:items-center">
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 py-12 md:grid-cols-2 lg:py-24">
             <div className="space-y-6 text-center md:text-left">
                 <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Meet Qynko: Your Ultimate Productivity Companion</h1>
