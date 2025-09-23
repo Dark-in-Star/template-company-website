@@ -4,12 +4,11 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { DEFAULT_MAX_LENGTH } from '@/lib/constants';
 
 interface ExpandableTextProps {
   text: string;
 }
-
-const DEFAULT_MAX_LENGTH = 100;
 
 export function ExpandableText({ text }: ExpandableTextProps) {
   const [isExpanded, setIsExpanded] = useState(false);

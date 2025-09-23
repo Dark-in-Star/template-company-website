@@ -32,9 +32,7 @@ import { PageHero } from '@/components/shared/PageHero';
 import { SocialLink } from '@/components/shared/SocialLink';
 import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
-
-const INITIAL_FAQS_COUNT = 3;
-const TEAM_CAROUSEL_AUTOPLAY_DELAY = 2000;
+import { INITIAL_FAQS_COUNT, TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();

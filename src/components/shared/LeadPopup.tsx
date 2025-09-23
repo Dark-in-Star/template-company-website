@@ -11,10 +11,8 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { LeadForm } from './LeadForm';
+import { FIRST_POPUP_DELAY, SUBSEQUENT_POPUP_DELAY, SESSION_STORAGE_KEY } from '@/lib/constants';
 
-const FIRST_POPUP_DELAY = 6000; // 6 seconds in milliseconds
-const SUBSEQUENT_POPUP_DELAY = 30000; // 30 seconds in milliseconds
-const SESSION_STORAGE_KEY = 'procellence-popup-shown-count';
 
 export function LeadPopup() {
   const [isOpen, setIsOpen] = React.useState(false);
