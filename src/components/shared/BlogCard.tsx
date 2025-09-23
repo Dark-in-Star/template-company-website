@@ -22,7 +22,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </div>
       }
       footerContent={
-        <Link href={`/blog/${post.slug}`} className="mt-4">
+        <Link href={`/blog/${post.slug}`} className="mt-4" tabIndex={-1}>
           <Button variant="link" className="p-0">
             Read More <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

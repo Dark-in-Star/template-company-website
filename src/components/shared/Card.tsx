@@ -34,7 +34,7 @@ export function Card({ image, title, description, href, headerContent, footerCon
       <CardContent className="flex flex-1 flex-col p-6">
         {headerContent}
         <CardTitle className="mt-2 text-xl">
-          <Link href={href}>{title}</Link>
+          {title}
         </CardTitle>
         <ExpandableText text={description} />
         <div className="mt-auto pt-4">
