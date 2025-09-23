@@ -33,43 +33,52 @@ export function Comment({ comment, onReply, onEdit, onDelete }: CommentProps) {
   };
 
   return (
-    <div className="flex gap-4">
-      <Avatar>
+    <div className="flex items-start gap-3">
+      <Avatar className="h-8 w-8 sm:h-10 sm:w-10">
         <AvatarImage src={comment.author.avatar} alt={comment.author.name} />
         <AvatarFallback>{authorInitials}</AvatarFallback>
       </Avatar>
-      <div className="flex-1 space-y-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <p className="font-semibold">{comment.author.name}</p>
+      <div className="flex-1">
+        <div className="flex flex-col">
+          {isEditing ? (
+            <CommentForm
+              initialContent={comment.content}
+              onSubmit={handleEditSubmit}
+              onCancel={() => setIsEditing(false)}
+              isEditing
+            />
+          ) : (
+            <div className="group relative rounded-lg bg-secondary p-3">
+              <div className="flex items-center justify-between">
+                <p className="font-semibold">{comment.author.name}</p>
+                <div className="absolute right-1 top-1 opacity-0 group-hover:opacity-100">
+                    <CommentActions
+                        onEdit={() => setIsEditing(true)}
+                        onDelete={() => onDelete(comment.id)}
+                    />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground">{comment.content}</p>
+            </div>
+          )}
+
+          <div className="flex items-center gap-2 pl-3 pt-1">
             <p className="text-xs text-muted-foreground">
               {formatDistanceToNow(comment.date)}
             </p>
+            {!isEditing && (
+              <>
+                <span className="text-xs text-muted-foreground">&middot;</span>
+                <Button variant="link" size="sm" className="h-auto p-0 text-xs" onClick={() => setIsReplying(!isReplying)}>
+                  Reply
+                </Button>
+              </>
+            )}
           </div>
-          {!isEditing && (
-            <CommentActions
-              onEdit={() => setIsEditing(true)}
-              onDelete={() => onDelete(comment.id)}
-            />
-          )}
         </div>
-        {isEditing ? (
-          <CommentForm
-            initialContent={comment.content}
-            onSubmit={handleEditSubmit}
-            onCancel={() => setIsEditing(false)}
-            isEditing
-          />
-        ) : (
-          <p className="text-muted-foreground">{comment.content}</p>
-        )}
-        {!isEditing && (
-          <Button variant="ghost" size="sm" onClick={() => setIsReplying(!isReplying)}>
-            Reply
-          </Button>
-        )}
+
         {isReplying && (
-          <div className="pt-4">
+          <div className="pt-2">
             <CommentForm
               onSubmit={handleReplySubmit}
               onCancel={() => setIsReplying(false)}
@@ -77,6 +86,7 @@ export function Comment({ comment, onReply, onEdit, onDelete }: CommentProps) {
             />
           </div>
         )}
+        
         {comment.replies && comment.replies.length > 0 && (
           <div className="pt-4 space-y-4">
             {comment.replies.map(reply => (
