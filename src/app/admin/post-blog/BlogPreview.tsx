@@ -27,7 +27,7 @@ export function BlogPreview({ data }: BlogPreviewProps) {
     setFullUrl(`${siteUrl}/blog/${data.slug || 'your-unique-slug'}`);
   }, [data.slug]);
 
-  const getImageUrl = (image: any) => {
+  const getImageUrl = (image: unknown) => {
     if (image instanceof File) {
       return URL.createObjectURL(image);
     }

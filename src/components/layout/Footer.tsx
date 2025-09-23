@@ -24,19 +24,19 @@ export function Footer() {
             Empowering businesses with innovative technology solutions.
           </p>
           <div className="flex gap-2">
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
                 <Twitter className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
                 <Linkedin className="h-5 w-5" />
             </a>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
                 <Facebook className="h-5 w-5" />
             </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
                 <Instagram className="h-5 w-5" />
             </a>
-            <a href="https://github.com" target="_blank" aria-label="GitHub" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition-all hover:scale-110 hover:bg-gray-700 hover:text-white">
                 <Github className="h-5 w-5" />
             </a>
           </div>

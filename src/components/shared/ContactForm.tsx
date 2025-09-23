@@ -41,7 +41,7 @@ export function ContactForm() {
       name: '',
       email: '',
       phone: {
-        countryCode: '+1',
+        countryCode: 'United States-+1',
         number: ''
       },
       message: '',

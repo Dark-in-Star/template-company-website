@@ -146,28 +146,30 @@ export default function AboutPage() {
               <CarouselContent className="-ml-4">
                   {otherTeamMembers.map((member) => (
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
-                      <Card className="group relative w-full overflow-hidden pt-[133.33%]">
-                      <Image
-                          src={member.image.src}
-                          alt={member.name}
-                          data-ai-hint={member.image.hint}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
-                          <div className="text-center text-white">
-                          <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-                          <p className="text-lg font-medium text-primary">{member.role}</p>
-                          </div>
-                          {member.socials && (
-                          <div className="mt-4 flex gap-2">
-                              <SocialLink platform="linkedin" url={member.socials.linkedin} />
-                              <SocialLink platform="twitter" url={member.socials.twitter} />
-                              <SocialLink platform="github" url={member.socials.github} />
-                          </div>
-                          )}
-                      </div>
+                    <Link href="/about" className="group block h-full">
+                      <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full">
+                        <Image
+                            src={member.image.src}
+                            alt={member.name}
+                            data-ai-hint={member.image.hint}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
+                            <div className="text-center text-white">
+                            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+                            <p className="text-lg font-medium text-primary">{member.role}</p>
+                            </div>
+                            {member.socials && (
+                            <div className="mt-4 flex gap-2">
+                                <SocialLink platform="linkedin" url={member.socials.linkedin} />
+                                <SocialLink platform="twitter" url={member.socials.twitter} />
+                                <SocialLink platform="github" url={member.socials.github} />
+                            </div>
+                            )}
+                        </div>
                       </Card>
+                    </Link>
                   </CarouselItem>
                   ))}
               </CarouselContent>

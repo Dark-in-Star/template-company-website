@@ -94,7 +94,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     datePublished: post.date,
   };
 
-  const jsonLd = post.jsonLd ? JSON.parse(post.jsonLd) : defaultJsonLd;
+  const jsonLd = post.jsonLd && post.jsonLd.trim() !== '{}' && post.jsonLd.trim() !== '' ? JSON.parse(post.jsonLd) : defaultJsonLd;
 
   return (
     <>
