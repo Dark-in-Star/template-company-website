@@ -101,12 +101,12 @@ h1, h2, h3, h4, h5, h6 {
   *, ::before, ::after {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 2s;
+    transition-duration: 300ms;
   }
 
   *:not(.theme-switch *) {
     transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0.2, 0, 1);
     transition-duration: 300ms;
   }
 }
@@ -118,11 +118,15 @@ h1, h2, h3, h4, h5, h6 {
     }
     .btn-shine::before {
         content: '';
-        @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent;
-        transform: translateX(-100%);
+        @apply absolute inset-0;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+        background-size: 0% 0%;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
     }
     .btn-shine:hover::before {
-        animation: shine 0.85s forwards;
+        animation: shine 0.5s ease-out;
     }
     .btn-super-glow {
       box-shadow: 0 0 5px hsl(var(--primary-hsl)), 0 0 10px hsl(var(--primary-hsl));
@@ -130,8 +134,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes shine {
-    to {
-        transform: translateX(100%);
+    0% {
+        opacity: 1;
+        background-size: 0% 0%;
+    }
+    100% {
+        opacity: 0;
+        background-size: 200% 200%;
     }
 }
 
@@ -308,3 +317,4 @@ h1, h2, h3, h4, h5, h6 {
 
 
     
+
