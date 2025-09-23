@@ -7,7 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { Comments } from '@/components/comments/Comments';
-import { ContactForm } from '@/components/shared/ContactForm';
+import { LeadForm } from '@/components/shared/LeadForm';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -73,7 +74,17 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </div>
             <aside className="lg:col-span-1">
                 <div className="sticky top-24">
-                    <ContactForm />
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Ready to Innovate?</CardTitle>
+                            <CardDescription>
+                                Leave your details below and one of our experts will get in touch to discuss how we can help.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <LeadForm />
+                        </CardContent>
+                    </Card>
                 </div>
             </aside>
            </div>
