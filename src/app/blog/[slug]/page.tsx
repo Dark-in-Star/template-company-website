@@ -1,5 +1,4 @@
 
-
 import { blogPosts, teamMembers, comments as allComments } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const metaTitle = post.metaTitle || post.title;
   const metaDescription = post.metaDescription || post.excerpt;
   const metaImage = post.metaImage ? post.metaImage.src : post.image.src;
-  const siteUrl = 'https://your-domain.com'; // Replace with your actual domain
+  const siteUrl = 'https://procellence.com'; // Replace with your actual domain
 
   return {
     title: metaTitle,
@@ -68,9 +67,39 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const authorDetails = teamMembers.find(member => member.name === post.author);
   const authorInitials = post.author.split(' ').map(n => n[0]).join('');
   const comments = allComments[params.slug] || [];
+  const siteUrl = 'https://procellence.com';
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/blog/${post.slug}`,
+    },
+    headline: post.title,
+    description: post.excerpt,
+    image: post.metaImage ? post.metaImage.src : post.image.src,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Procellence Technology',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://procellence.com/img/logo.webp',
+      },
+    },
+    datePublished: post.date,
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto max-w-4xl text-center">
             <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{post.title}</h1>
