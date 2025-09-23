@@ -34,6 +34,7 @@ import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
 import { INITIAL_FAQS_COUNT, TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
+import { InteractiveCard } from '@/components/shared/InteractiveCard';
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
     const isMobile = useIsMobile();
@@ -132,7 +133,9 @@ export default function AboutPage() {
           <ScrollAnimation>
             <div>
                 <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
-                <TeamMemberCard member={founder} />
+                 <InteractiveCard>
+                    <TeamMemberCard member={founder} />
+                </InteractiveCard>
             </div>
           </ScrollAnimation>
 
@@ -151,9 +154,9 @@ export default function AboutPage() {
                   }}
               >
               <CarouselContent className="-ml-4">
-                  {otherTeamMembers.map((member) => (
+                  {otherTeamMembers.map((member, index) => (
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
-                    <ScrollAnimation>
+                    <ScrollAnimation delay={index * 150}>
                         <div className="group block h-full">
                         <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <Image
