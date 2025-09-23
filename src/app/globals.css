@@ -376,6 +376,10 @@ h1, h2, h3, h4, h5, h6 {
   .journey-path {
     @apply absolute top-8 left-0 right-0 h-0.5 w-full bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 hidden md:block;
   }
+  .journey-arrow {
+    @apply absolute top-8 right-0 h-6 w-6 -translate-y-1/2 translate-x-full text-primary hidden md:block;
+    animation: pulse 2s infinite ease-in-out;
+  }
   .journey-card {
     @apply relative text-center;
   }
@@ -401,10 +405,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .group:hover .journey-content,
   .group:hover .journey-badge {
     transform: none;
   }
+  .journey-arrow {
+      animation: none;
+  }
 }
-
