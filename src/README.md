@@ -1,4 +1,6 @@
-# Project Coding Guidelines
+# Procellence Technology Website
+
+This is a Next.js project bootstrapped with `create-next-app` and customized for Procellence Technology. It uses Genkit for AI features, ShadCN for UI components, and Tailwind CSS for styling.
 
 This document provides a guide to the project's structure, naming conventions, and local setup. Following these guidelines will help maintain code quality and consistency.
 
@@ -113,3 +115,37 @@ Consistent naming is crucial for a readable and maintainable codebase.
 -   **React Components & Types/Interfaces**: Use `PascalCase` (e.g., `function MyComponent() {}`, `type BlogPost = { ... }`).
 -   **Constants**: Use `UPPER_SNAKE_CASE` for top-level constants that are truly fixed and global (e.g., `const DEFAULT_MAX_LENGTH = 100;`).
 -   **Booleans**: Prefix with `is`, `has`, or `should` for clarity (e.g., `const isOpen = false;`).
+
+---
+
+## Production Builds
+
+### 1. Building for Production
+
+To create a production-ready build of your application, run:
+
+```bash
+yarn build
+```
+
+This command will compile and optimize your Next.js application for production.
+
+### 2. Running in Production Mode
+
+After building, you can start the application in production mode with:
+
+```bash
+yarn start
+```
+
+This will run the optimized version of your app.
+
+## Available Scripts
+
+- `yarn dev`: Starts the Next.js development server.
+- `yarn genkit:dev`: Starts the Genkit development server.
+- `yarn genkit:watch`: Starts the Genkit development server in watch mode.
+- `yarn build`: Builds the application for production.
+- `yarn start`: Starts the production server.
+- `yarn lint`: Runs the linter to check for code quality issues.
+- `yarn typecheck`: Runs the TypeScript compiler to check for type errors.
