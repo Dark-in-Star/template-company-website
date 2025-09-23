@@ -86,21 +86,21 @@ export default function ProductsPage() {
                     Streamline your workflow, organize your tasks, and achieve your goals with our beautifully designed and powerful application.
                 </p>
                 <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
-                    <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                        <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
-                            <AppStoreIcon className="mr-3 h-8 w-8" />
-                            <div className="text-left">
-                                <p className="text-xs">Available on the</p>
-                                <p className="font-heading text-xl">App Store</p>
-                            </div>
-                        </Button>
-                    </Link>
                     <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
                         <Button size="lg" variant="super" className="h-16 w-full sm:w-48">
                            <GooglePlayIcon className="mr-3 h-8 w-8" />
                            <div className="text-left">
                                 <p className="text-xs">GET IT ON</p>
                                 <p className="font-heading text-xl">Google Play</p>
+                            </div>
+                        </Button>
+                    </Link>
+                    <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
+                        <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
+                            <AppStoreIcon className="mr-3 h-8 w-8" />
+                            <div className="text-left">
+                                <p className="text-xs">Available on the</p>
+                                <p className="font-heading text-xl">App Store</p>
                             </div>
                         </Button>
                     </Link>
@@ -201,15 +201,6 @@ export default function ProductsPage() {
                 Download Qynko today and take the first step towards a more organized and productive life.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                 <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                    <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
-                        <AppStoreIcon className="mr-3 h-8 w-8" />
-                        <div className="text-left">
-                            <p className="text-xs">Available on the</p>
-                            <p className="font-heading text-xl">App Store</p>
-                        </div>
-                    </Button>
-                 </Link>
                  <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
                     <Button size="lg" variant="super" className="h-16 w-full sm:w-48">
                        <GooglePlayIcon className="mr-3 h-8 w-8" />
@@ -219,6 +210,15 @@ export default function ProductsPage() {
                         </div>
                     </Button>
                 </Link>
+                 <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
+                    <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
+                        <AppStoreIcon className="mr-3 h-8 w-8" />
+                        <div className="text-left">
+                            <p className="text-xs">Available on the</p>
+                            <p className="font-heading text-xl">App Store</p>
+                        </div>
+                    </Button>
+                 </Link>
             </div>
         </div>
       </section>
