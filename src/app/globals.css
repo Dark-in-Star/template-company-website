@@ -206,37 +206,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Water Fill Button Animation */
-@layer components {
-    .btn-water-fill {
-        @apply relative overflow-hidden z-0;
-        background-color: transparent !important;
-        transition: color 0.5s ease-in-out;
-    }
-    .btn-water-fill::before {
-        content: '';
-        @apply absolute inset-0 -z-10;
-        background-color: var(--btn-primary-bg);
-    }
-    .btn-water-fill::after {
-        content: '';
-        @apply absolute -z-10;
-        background-color: var(--btn-primary-bg-hover);
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-        transition: clip-path 0.5s ease-in-out;
-        inset: -1px;
-    }
-    .btn-water-fill:hover::after {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .btn-water-fill::after {
-            transition: none;
-        }
-    }
-}
-
-
 /* Theme Toggle Styles */
 .theme-switch {
   position: relative;
