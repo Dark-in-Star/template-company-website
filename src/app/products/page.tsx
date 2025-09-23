@@ -52,15 +52,19 @@ const howItWorks = [
 ];
 
 const AppStoreIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M12 20.94c1.5 0 2.75-1.06 4-1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/>
-        <path d="M10 2c1 .5 2 2 2 5"/>
+    <svg viewBox="0 0 384 512" fill="currentColor" height="1em" width="1em" {...props}>
+        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C39.2 140.2 0 184.2 0 241.2c0 61.6 31.7 117.4 60.5 153.3 22.9 28.5 50.9 54.2 89.6 54.2 37.1 0 55.5-21.2 88.5-21.2 33.5 0 50.9 21.2 88.5 21.2 37.5 0 63.3-26.3 85.3-53.6-20.1-15.5-34.7-37.5-36.2-64.3zm-97.1 169.5c-13.6 21.2-33.5 44.6-61.5 44.6-28.2 0-48-23.3-61.5-44.6-13.3-21.2-24.3-49.8-17.6-77.8 13.6 21.2 33.5 44.6 61.5 44.6 27.9 0 48-23.3 61.5-44.6 13.3-21.2 24.3-49.8 17.6-77.8z" />
     </svg>
-)
+);
 
 const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" {...props}>
-        <path d="M21.5,12.5L3.9,2.7c-0.9-0.5-2,0.1-2,1.1v16.4c0,1,1.1,1.6,2,1.1l17.6-9.8C22.4,13.2,22.4,11.8,21.5,12.5z M6,17.4V6.6 l8.1,4.5L6,17.4z"/>
+    <svg viewBox="0 0 512 512" height="1em" width="1em" {...props}>
+        <path fill="#4285f4" d="m265 24-207 119v226l207 119 203-116V143z" />
+        <path fill="#66a3ff" d="m265 24-207 119v1l207-120 203 116v-1z" />
+        <path fill="#bbdefb" d="m468 143-203 116 203 116V143z" />
+        <path fill="#4285f4" d="m265 488 203-116V256z" />
+        <path fill="#1e88e5" d="m265 372-207-119v119l207 119z" />
+        <path fill="#66a3ff" d="m58 253 207 119 203-116-207-120z" />
     </svg>
 )
 
