@@ -1,6 +1,7 @@
 
 import { ContactForm } from '@/components/shared/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { ContactInfoItem } from '@/components/shared/ContactInfoItem';
 
 export default function ContactPage() {
   return (
@@ -22,40 +23,22 @@ export default function ContactPage() {
                     </p>
                 </div>
                 <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                            <Mail className="h-6 w-6" />
-                        </div>
-                        <div>
-                            <h3 className="font-heading font-semibold">Email</h3>
-                            <a href="mailto:contact@procellencetechnology.com" className="text-muted-foreground hover:text-primary">
-                                contact@procellencetechnology.com
-                            </a>
-                        </div>
-                    </div>
-                     <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                            <Phone className="h-6 w-6" />
-                        </div>
-                        <div>
-                            <h3 className="font-heading font-semibold">Phone</h3>
-                            <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
-                                (123) 456-7890
-                            </a>
-                        </div>
-                    </div>
-                     <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                            <MapPin className="h-6 w-6" />
-                        </div>
-                        <div>
-                            <h3 className="font-heading font-semibold">Office</h3>
-                            <p className="text-muted-foreground">
-                                123 Innovation Drive<br/>
-                                Tech City, TX 12345
-                            </p>
-                        </div>
-                    </div>
+                    <ContactInfoItem icon={Mail} title="Email">
+                        <a href="mailto:contact@procellencetechnology.com" className="text-muted-foreground hover:text-primary">
+                            contact@procellencetechnology.com
+                        </a>
+                    </ContactInfoItem>
+                     <ContactInfoItem icon={Phone} title="Phone">
+                        <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
+                            (123) 456-7890
+                        </a>
+                    </ContactInfoItem>
+                    <ContactInfoItem icon={MapPin} title="Office">
+                        <p className="text-muted-foreground">
+                            123 Innovation Drive<br/>
+                            Tech City, TX 12345
+                        </p>
+                    </ContactInfoItem>
                 </div>
             </div>
             <div className="lg:col-span-2">

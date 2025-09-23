@@ -1,14 +1,10 @@
 
-
 import Image from "next/image";
-import Link from 'next/link';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, Download } from 'lucide-react';
-import { features } from '@/lib/data';
-import * as LucideIcons from 'lucide-react';
 import { StoreButtons } from '@/components/shared/StoreButtons';
+import { ProductFeature } from '@/components/products/ProductFeature';
+import { HowItWorksStep } from '@/components/products/HowItWorksStep';
 
 
 const productFeatures = [
@@ -56,12 +52,10 @@ export default function ProductsPage() {
   const qynkoHero = placeholderImages.qynkoHero as ImageType;
   const qynkoApp1 = placeholderImages.qynkoApp1 as ImageType;
   const qynkoApp2 = placeholderImages.qynkoApp2 as ImageType;
-  const appleLogo = placeholderImages.appleLogo as ImageType;
-  const androidLogo = placeholderImages.androidLogo as ImageType;
 
   return (
     <>
-      <section className="bg-secondary md:h-screen md:flex md:items-center">
+      <section className="bg-secondary md:flex md:items-center md:h-screen">
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 py-12 md:grid-cols-2 lg:py-24">
             <div className="space-y-6 text-center md:text-left">
                 <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Meet Qynko: Your Ultimate Productivity Companion</h1>
@@ -92,18 +86,9 @@ export default function ProductsPage() {
                 </p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                {productFeatures.map((feature, index) => {
-                    const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
-                    return (
-                        <div key={index} className="flex flex-col items-center text-center">
-                            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                <Icon className="h-8 w-8" />
-                            </div>
-                            <h3 className="font-heading text-xl font-bold">{feature.title}</h3>
-                            <p className="mt-2 text-muted-foreground">{feature.description}</p>
-                        </div>
-                    )
-                })}
+                {productFeatures.map((feature, index) => (
+                    <ProductFeature key={index} {...feature} />
+                ))}
             </div>
         </div>
       </section>
@@ -115,13 +100,7 @@ export default function ProductsPage() {
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                 {howItWorks.map((step) => (
-                    <div key={step.step} className="relative flex flex-col items-center text-center">
-                        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary font-heading text-3xl font-bold text-primary-foreground">
-                            {step.step}
-                        </div>
-                        <h3 className="font-heading text-xl font-bold">{step.title}</h3>
-                        <p className="mt-2 text-muted-foreground">{step.description}</p>
-                    </div>
+                    <HowItWorksStep key={step.step} {...step} />
                 ))}
             </div>
         </div>
