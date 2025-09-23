@@ -52,7 +52,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',
-      author: '',
+      author: 'qynko',
       excerpt: '',
       content: '',
       slug: '',
@@ -89,7 +89,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
         <CardHeader>
             <CardTitle>Blog Post Details</CardTitle>
             <CardDescription>
-                Provide the details for your new blog post. All fields are required.
+                Provide the details for your new blog post. All fields are optional for drafting.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -197,7 +197,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                                     <FormControl>
                                         <Input placeholder="The Future of AI in Business: Trends to Watch" {...field} />
                                     </FormControl>
-                                     <FormDescription>The title that will appear in search engine results.</FormDescription>
+                                     <FormDescription>The title that will appear in search engine results. Recommended: 50-60 characters.</FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -211,6 +211,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                                     <FormControl>
                                         <Textarea placeholder="A concise summary for search engine snippets." {...field} />
                                     </FormControl>
+                                    <FormDescription>Recommended: 150-160 characters.</FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}
