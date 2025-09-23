@@ -1,5 +1,9 @@
 
+'use client';
+import { useState } from 'react';
 import { PostBlogForm } from './PostBlogForm';
+import { BlogPreview } from './BlogPreview';
+import type { BlogPostFormValues } from './PostBlogForm';
 
 export const metadata = {
     title: 'Post a New Blog',
@@ -7,6 +11,8 @@ export const metadata = {
 };
 
 export default function PostBlogPage() {
+    const [previewData, setPreviewData] = useState<Partial<BlogPostFormValues>>({});
+
     return (
         <>
             <section className="bg-secondary">
@@ -20,8 +26,16 @@ export default function PostBlogPage() {
                 </div>
             </section>
             <section>
-                <div className="container mx-auto max-w-3xl">
-                    <PostBlogForm />
+                <div className="container mx-auto">
+                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+                        <div>
+                            <PostBlogForm onFormChange={setPreviewData} />
+                        </div>
+                        <div>
+                            <h2 className="font-heading mb-4 text-2xl font-bold tracking-tighter">Live Preview</h2>
+                            <BlogPreview data={previewData} />
+                        </div>
+                    </div>
                 </div>
             </section>
         </>

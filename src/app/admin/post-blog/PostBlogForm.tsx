@@ -4,6 +4,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -19,20 +21,27 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Send } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
-const formSchema = z.object({
-  title: z.string().min(5, { message: 'Title must be at least 5 characters.' }),
-  author: z.string().min(2, { message: 'Author name must be at least 2 characters.' }),
-  excerpt: z.string().min(20, { message: 'Excerpt must be at least 20 characters.' }),
-  image: z.any().refine(
-      (files) => files?.length === 1, 'Featured Image is required.'
-    ),
-  content: z.string().min(100, { message: 'Content must be at least 100 characters.' }),
+// Dynamically import CKEditor
+const CKEditorComponent = dynamic(() => import('./CKEditorComponent'), {
+    ssr: false,
+    loading: () => <Skeleton className="h-[300px] w-full" />,
 });
 
-export function PostBlogForm() {
+const formSchema = z.object({
+  title: z.string().min(5, { message: 'Title must be at least 5 characters.' }).optional(),
+  author: z.string().min(2, { message: 'Author name must be at least 2 characters.' }).optional(),
+  excerpt: z.string().min(20, { message: 'Excerpt must be at least 20 characters.' }).optional(),
+  image: z.any().optional(),
+  content: z.string().min(100, { message: 'Content must be at least 100 characters.' }).optional(),
+});
+
+export type BlogPostFormValues = z.infer<typeof formSchema>;
+
+export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<BlogPostFormValues>) => void }) {
   const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<BlogPostFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',
@@ -40,20 +49,34 @@ export function PostBlogForm() {
       excerpt: '',
       content: '',
     },
+    mode: 'onChange',
   });
 
   const imageRef = form.register("image");
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you would handle form submission here.
-    // This could involve a server action to save the blog post to a database or CMS.
-    console.log('New Blog Post Data:', values);
+  const watchedValues = form.watch();
+
+  useEffect(() => {
+    const subscription = form.watch((value) => {
+      onFormChange(value);
+    });
+    return () => subscription.unsubscribe();
+  }, [form, onFormChange]);
+
+  function onSubmit(values: BlogPostFormValues) {
+    const imageData = values.image && values.image.length > 0 ? values.image[0] : null;
+    const submissionData = {
+        ...values,
+        image: imageData,
+    }
+    console.log('New Blog Post Data:', submissionData);
 
     toast({
       title: 'Blog Post Submitted!',
       description: "Your new blog post has been submitted for review.",
     });
     form.reset();
+    onFormChange({});
   }
 
   return (
@@ -114,7 +137,19 @@ export function PostBlogForm() {
                         <FormItem>
                             <FormLabel>Featured Image</FormLabel>
                             <FormControl>
-                            <Input type="file" accept="image/*" {...imageRef} />
+                            <Input type="file" accept="image/*" {...imageRef} 
+                                onChange={(e) => {
+                                    field.onChange(e.target.files);
+                                    if (e.target.files && e.target.files.length > 0) {
+                                        const file = e.target.files[0];
+                                        const reader = new FileReader();
+                                        reader.onloadend = () => {
+                                            onFormChange({...watchedValues, image: reader.result as string});
+                                        }
+                                        reader.readAsDataURL(file);
+                                    }
+                                }}
+                            />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -128,7 +163,10 @@ export function PostBlogForm() {
                         <FormItem>
                             <FormLabel>Full Content</FormLabel>
                             <FormControl>
-                                <Textarea placeholder="Write your full blog post content here. Markdown is supported." className="min-h-[300px]" {...field} />
+                                <CKEditorComponent
+                                    value={field.value || ''}
+                                    onChange={(data) => field.onChange(data)}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
