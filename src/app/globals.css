@@ -25,6 +25,8 @@ h1, h2, h3, h4, h5, h6 {
     --primary-hsl: 218, 81%, 50%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 20% 98%;
+    --btn-primary-bg: hsl(var(--primary-hsl));
+    --btn-primary-bg-hover: hsl(218, 81%, 60%);
 
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
@@ -52,15 +54,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .light {
-    --background: 240 50% 96%;
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 98%;
+    --card: 240 50% 98%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary-hsl: 218, 81%, 50%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 40% 98%;
+    --btn-primary-bg: hsl(var(--primary-hsl));
+    --btn-primary-bg-hover: hsl(218, 81%, 60%);
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -279,5 +284,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(var(--parallax-offset)) rotateX(var(--parallax-rotate));
     }
 }
+
+    
 
     
