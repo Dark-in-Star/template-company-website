@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { ContactForm } from './ContactForm';
+import { LeadForm } from './LeadForm';
 
 const FIRST_POPUP_DELAY = 6000; // 6 seconds in milliseconds
 const SUBSEQUENT_POPUP_DELAY = 30000; // 30 seconds in milliseconds
@@ -37,6 +37,8 @@ export function LeadPopup() {
   React.useEffect(() => {
     // Do not show popup on contact or careers page
     if (pathname === '/contact' || pathname === '/careers') {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        setIsOpen(false);
       return;
     }
 
@@ -59,15 +61,15 @@ export function LeadPopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="grid max-h-[80dvh] w-[90vw] max-w-lg grid-rows-[auto_minmax(0,1fr)] p-0">
-        <DialogHeader className="p-6 pb-0">
-          <DialogTitle>Connect With Us</DialogTitle>
+      <DialogContent className="grid w-[90vw] max-w-md grid-rows-[auto_minmax(0,1fr)] p-0">
+        <DialogHeader className="p-6 text-center">
+          <DialogTitle className="text-2xl font-bold">Ready to Innovate?</DialogTitle>
           <DialogDescription>
-            Have a project in mind or want to learn more? Let's talk!
+            Leave your details below and one of our experts will get in touch to discuss how we can help.
           </DialogDescription>
         </DialogHeader>
-        <div className="overflow-y-auto p-6">
-          <ContactForm />
+        <div className="overflow-y-auto p-6 pt-0">
+          <LeadForm />
         </div>
       </DialogContent>
     </Dialog>
