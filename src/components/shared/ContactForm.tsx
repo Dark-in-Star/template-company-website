@@ -100,7 +100,7 @@ export function ContactForm() {
                         <div className="relative">
                             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <FormControl>
-                                <Input placeholder="John Doe" {...field} />
+                                <Input placeholder="John Doe" {...field} className="pl-10" />
                             </FormControl>
                         </div>
                         <FormMessage />
@@ -116,7 +116,7 @@ export function ContactForm() {
                         <div className="relative">
                             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <FormControl>
-                                <Input placeholder="john.doe@example.com" {...field} />
+                                <Input placeholder="john.doe@example.com" {...field} className="pl-10" />
                             </FormControl>
                         </div>
                         <FormMessage />
@@ -135,7 +135,7 @@ export function ContactForm() {
                                     <FormItem className="w-1/3">
                                         <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                                             <FormControl>
-                                                <SelectTrigger className="pl-10">
+                                                <SelectTrigger>
                                                     <SelectValue placeholder="Code" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -156,7 +156,7 @@ export function ContactForm() {
                                 render={({ field }) => (
                                     <FormItem className="flex-1">
                                         <FormControl>
-                                            <Input type="tel" placeholder="123-456-7890" {...field} className="pl-4"/>
+                                            <Input type="tel" placeholder="123-456-7890" {...field} className="pl-10"/>
                                         </FormControl>
                                     </FormItem>
                                 )}
@@ -174,7 +174,7 @@ export function ContactForm() {
                         <div className="relative">
                             <MessageSquare className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
                             <FormControl>
-                                <Textarea placeholder="Your message here..." className="min-h-[150px]" {...field} />
+                                <Textarea placeholder="Your message here..." className="min-h-[150px] pl-10" {...field} />
                             </FormControl>
                         </div>
                         <FormMessage />

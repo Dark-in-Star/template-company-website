@@ -55,7 +55,7 @@ export function LeadForm() {
                         <div className="relative">
                             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <FormControl>
-                                <Input placeholder="Full Name" {...field} />
+                                <Input placeholder="Full Name" {...field} className="pl-10" />
                             </FormControl>
                         </div>
                         <FormMessage />
@@ -70,7 +70,7 @@ export function LeadForm() {
                         <div className="relative">
                             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                             <FormControl>
-                                <Input placeholder="Email Address" {...field} />
+                                <Input placeholder="Email Address" {...field} className="pl-10" />
                             </FormControl>
                         </div>
                         <FormMessage />
