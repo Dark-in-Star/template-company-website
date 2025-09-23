@@ -2,6 +2,7 @@
 import type { Feature } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import * as LucideIcons from 'lucide-react';
 
 export function WhyChooseUsSection({ features }: { features: Feature[] }) {
   return (
@@ -24,19 +25,23 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
             />
           </div>
           <div className="grid grid-cols-1 gap-y-20 gap-x-8 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <div key={feature.title} className={cn("journey-card group", (index === 1 || index === 3) && "md:-translate-y-8")}>
-                <div className="journey-badge-wrapper">
-                  <div className="journey-badge">
-                    <span>{index + 1}</span>
+            {features.map((feature, index) => {
+              const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
+              return (
+                <div key={feature.title} className={cn("journey-card group", (index === 1 || index === 3) && "md:-translate-y-8")}>
+                  <div className="journey-badge-wrapper">
+                    <div className="journey-badge">
+                      <Icon className="h-6 w-6" />
+                      <span className="text-xs">{index + 1}</span>
+                    </div>
+                  </div>
+                  <div className="journey-content">
+                    <h4 className="font-heading text-xl font-bold">{feature.title}</h4>
+                    <p className="mt-2 text-muted-foreground">{feature.description}</p>
                   </div>
                 </div>
-                <div className="journey-content">
-                  <h4 className="font-heading text-xl font-bold">{feature.title}</h4>
-                  <p className="mt-2 text-muted-foreground">{feature.description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

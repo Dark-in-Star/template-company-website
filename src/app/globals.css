@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply absolute -top-8 left-1/2 -translate-x-1/2 z-10;
   }
   .journey-badge {
-    @apply flex h-16 w-16 items-center justify-center rounded-full font-heading text-2xl font-bold text-primary-foreground;
+    @apply flex flex-col h-16 w-16 items-center justify-center rounded-full font-heading text-xl font-bold text-primary-foreground;
     background: var(--chart-1);
     box-shadow: 0 4px 15px hsl(var(--primary-hsl) / 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
     transition: transform 300ms ease;
@@ -408,9 +408,4 @@ h1, h2, h3, h4, h5, h6 {
   .group:hover .journey-badge {
     transform: none;
   }
-  .journey-arrow {
-      animation: none;
-  }
 }
-
-    
