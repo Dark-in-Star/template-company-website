@@ -1,70 +1,46 @@
 
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Feather } from 'lucide-react';
-import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
+import * as LucideIcons from 'lucide-react';
+import type { Feature } from '@/lib/types';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollAnimation } from '../shared/ScrollAnimation';
 
-const trustBadges = [
-    { icon: CheckCircle, text: "Client-Focused" },
-    { icon: CheckCircle, text: "Quality Driven" },
-    { icon: CheckCircle, text: "Innovative Spirit" },
-]
-
-export function WhyChooseUsSection() {
-    const whyChooseUsImage = placeholderImages.whyChooseUs as ImageType;
+export function WhyChooseUsSection({ features }: { features: Feature[] }) {
   return (
-    <section className="bg-background">
+    <section className="bg-primary/5">
         <ScrollAnimation>
             <div className="container mx-auto">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <h2 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
-                            We are more than just a vendor; <span className="relative inline-block"><span className="absolute bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/50"></span><span className="relative">we are your strategic partner</span></span> in innovation and growth.
-                        </h2>
-                        <p className="text-lg text-muted-foreground leading-8">
-                            At Procellence Technology, we don't just build software—we build relationships. Our team integrates with yours, becoming a dedicated extension committed to understanding your challenges and achieving your goals. We thrive on turning complex problems into elegant, effective solutions that drive real results.
-                        </p>
-                        <div className="flex flex-wrap gap-6 mt-6 text-foreground text-base font-medium">
-                            {trustBadges.map((badge) => (
-                                <div key={badge.text} className="flex items-center gap-2">
-                                    <badge.icon className="h-5 w-5 text-primary" />
-                                    <span>{badge.text}</span>
+                <div className="mb-20 text-center">
+                    <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Your Journey to Excellence Starts Here</h2>
+                    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                        We're not just a service provider; we are your dedicated partner, guiding you through every step of your digital transformation with expertise, innovation, and a commitment to quality.
+                    </p>
+                </div>
+                <div className="journey-container grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
+                    {features.map((feature, index) => {
+                        const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
+                        return (
+                            <div key={index} className="group journey-card">
+                                <div className="journey-badge-wrapper">
+                                    <div className="journey-badge">
+                                        {Icon && <Icon className="h-7 w-7" />}
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                        <div className="mt-8 flex flex-wrap gap-4">
-                           <Link href="/about">
-                                <Button size="lg">
-                                    <Feather className="mr-2" />
-                                    Meet the Team
-                                </Button>
-                            </Link>
-                             <Link href="/contact">
-                                <Button size="lg" variant="outline">
-                                    Start a Project
-                                    <ArrowRight className="ml-2" />
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="relative rounded-2xl overflow-hidden shadow-xl group">
-                        <Image 
-                            src={whyChooseUsImage.src}
-                            alt={whyChooseUsImage.hint}
-                            data-ai-hint={whyChooseUsImage.hint}
-                            width={whyChooseUsImage.width}
-                            height={whyChooseUsImage.height}
-                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                        />
-                    </div>
+                                <Card className="journey-content">
+                                    <CardHeader>
+                                        <CardTitle className="text-xl">{feature.title}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p className="text-muted-foreground">{feature.description}</p>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
-        </ScrollAnimation>
+      </ScrollAnimation>
     </section>
   );
 }
