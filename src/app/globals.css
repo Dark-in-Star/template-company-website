@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary-hsl: 210 40% 50%;
+    --primary-hsl: 221.2 83.2% 53.3%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 40% 98%;
 
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary-hsl: 210 40% 50%;
+    --primary-hsl: 221.2 83.2% 53.3%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 40% 98%;
 
@@ -99,5 +99,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   section {
     @apply w-full py-12 md:py-24 lg:py-32;
+  }
+  *, ::before, ::after {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
   }
 }

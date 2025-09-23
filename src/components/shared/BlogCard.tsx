@@ -22,7 +22,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </div>
       }
       footerContent={
-        <Button asChild variant="link" className="p-0">
+        <Button asChild variant="link" className="p-0 relative z-10">
             <Link href={`/blog/${post.slug}`}>
                 Read More <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

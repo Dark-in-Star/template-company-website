@@ -20,17 +20,17 @@ export function HomeServiceCard({ service }: { service: Service }) {
             </CardHeader>
             <CardContent className="flex flex-1 flex-col">
                 <CardTitle className="text-xl">
-                    <Link href={`/services/${service.slug}`}>{service.title}</Link>
+                    <Link href={`/services/${service.slug}`} className="after:absolute after:inset-0">
+                        {service.title}
+                    </Link>
                 </CardTitle>
                 <div className="flex-1">
                     <ExpandableText text={service.shortDescription} />
                 </div>
                 <div className="mt-4">
-                    <Link href={`/services/${service.slug}`}>
-                        <Button variant="link" className="p-0">
-                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                    </Link>
+                    <Button variant="link" className="p-0 relative z-10">
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                 </div>
             </CardContent>
         </Card>

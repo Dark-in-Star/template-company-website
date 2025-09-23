@@ -45,10 +45,10 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           data-ai-hint={member.image.hint}
           width={member.image.width}
           height={member.image.height}
-          className="h-64 w-64 rounded-full object-cover shadow-lg"
+          className="h-64 w-64 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
         />
         {member.socials && (
-          <div className={cn('absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 transition-opacity', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
+          <div className={cn('absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100')}>
             <SocialLink platform="linkedin" url={member.socials.linkedin} />
             <SocialLink platform="twitter" url={member.socials.twitter} />
             <SocialLink platform="github" url={member.socials.github} />
@@ -101,7 +101,7 @@ export default function AboutPage() {
                     return (
                         <div key={index} className={cn("relative mb-12 flex w-full items-center", isLeft ? 'justify-start' : 'justify-end')}>
                             <div className={cn("w-1/2", isLeft ? 'pr-8' : 'pl-8')}>
-                                <Card className="shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                                <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                                     <CardContent className="p-6">
                                         <div className="flex items-center gap-4">
                                             <div>
@@ -147,15 +147,15 @@ export default function AboutPage() {
                   {otherTeamMembers.map((member) => (
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
                     <div className="group block h-full">
-                      <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full">
+                      <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                         <Image
                             src={member.image.src}
                             alt={member.name}
                             data-ai-hint={member.image.hint}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
-                        <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300', isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100')}>
+                        <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100')}>
                             <div className="text-center text-white">
                             <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
                             <p className="text-lg font-medium text-primary">{member.role}</p>

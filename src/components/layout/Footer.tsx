@@ -51,9 +51,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="flex items-center text-gray-400 transition-colors hover:text-white"
+                    className="flex items-center text-gray-400 transition-colors hover:text-white hover:translate-x-1"
                   >
-                    <ChevronRight className="mr-2 h-4 w-4" />
+                    <ChevronRight className="mr-1 h-4 w-4" />
                     {link.label}
                   </Link>
                 </li>
@@ -68,18 +68,18 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="flex items-center text-gray-400 hover:text-white"
+                  className="flex items-center text-gray-400 hover:text-white hover:translate-x-1"
                 >
-                  <ChevronRight className="mr-2 h-4 w-4" />
+                  <ChevronRight className="mr-1 h-4 w-4" />
                   Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
                   href="/terms-of-service"
-                  className="flex items-center text-gray-400 hover:text-white"
+                  className="flex items-center text-gray-400 hover:text-white hover:translate-x-1"
                 >
-                  <ChevronRight className="mr-2 h-4 w-4" />
+                  <ChevronRight className="mr-1 h-4 w-4" />
                   Terms of Service
                 </Link>
               </li>
