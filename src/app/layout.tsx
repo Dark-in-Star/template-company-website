@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { organizationSchema } from '@/lib/schema';
 import { ClientLeadPopup } from '@/components/shared/ClientLeadPopup';
+import { ThemeProvider } from '@/components/shared/ThemeProvider';
 
 
 const roboto = Roboto({
@@ -73,13 +74,20 @@ export default function RootLayout({
           montserrat.variable
         )}
       >
-        <div className="relative flex min-h-dvh flex-col bg-background">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-        <Toaster />
-        <ClientLeadPopup />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-dvh flex-col bg-background">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+          <Toaster />
+          <ClientLeadPopup />
+        </ThemeProvider>
       </body>
     </html>
   );

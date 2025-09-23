@@ -10,6 +10,7 @@ import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/shared/ThemeToggle';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Link href="/contact" className="hidden sm:block">
                 <Button>Contact Us</Button>
             </Link>
