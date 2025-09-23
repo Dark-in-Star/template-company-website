@@ -13,7 +13,7 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
             We are more than just a vendor; we are your strategic partner in innovation and growth.
           </p>
         </div>
-        <div className="journey-container">
+        <div className="journey-container mx-auto max-w-6xl">
           <div className="absolute inset-x-0 top-0 hidden h-full md:block">
             <svg
               viewBox="0 0 1000 120"
