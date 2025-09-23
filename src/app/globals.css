@@ -368,14 +368,66 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-    
+/* Journey Card styles for "Why Choose Us" section */
+@layer components {
+  .journey-card {
+    @apply relative text-center;
+  }
+  .journey-card-badge-wrapper {
+    @apply absolute -top-8 left-1/2 -translate-x-1/2;
+  }
+  .journey-card-badge {
+    @apply flex h-16 w-16 items-center justify-center rounded-full border-4 border-background bg-primary font-heading text-2xl font-bold text-primary-foreground shadow-md transition-all duration-200;
+  }
+  .journey-card-content {
+    @apply h-full rounded-lg border bg-card p-6 pt-12 text-card-foreground shadow-sm transition-all duration-200;
+  }
 
-    
+  .group:hover .journey-card-content,
+  .group:focus-visible .journey-card-content {
+    @apply -translate-y-1.5 scale-[1.02] shadow-xl;
+  }
 
+  .group:hover .journey-card-badge,
+  .group:focus-visible .journey-card-badge {
+    @apply scale-110;
+    animation: pop 0.25s ease-out, glow-pulse 1.5s infinite;
+  }
 
+  /* Add gradient border on hover */
+  .journey-card-content::after {
+    @apply content-[''] absolute inset-0 -z-10 rounded-[inherit] p-px;
+    background: conic-gradient(from 180deg at 50% 50%, hsl(var(--primary-hsl) / 0.1) 0deg, hsl(var(--primary-hsl) / 0.5) 180deg, hsl(var(--primary-hsl) / 0.1) 360deg);
+    -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
 
+  .group:hover .journey-card-content::after,
+  .group:focus-visible .journey-card-content::after {
+    @apply opacity-100;
+  }
+}
 
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1.1); }
+}
 
-    
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px 0px hsl(var(--primary-hsl) / 0.5); }
+  50% { box-shadow: 0 0 20px 5px hsl(var(--primary-hsl) / 0.7); }
+}
 
-
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .journey-card-content,
+  .group:hover .journey-card-badge,
+  .journey-card-badge {
+    animation: none;
+    transform: none;
+  }
+}
