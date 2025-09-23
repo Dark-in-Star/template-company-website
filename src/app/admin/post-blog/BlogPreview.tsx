@@ -15,11 +15,17 @@ interface BlogPreviewProps {
 
 export function BlogPreview({ data }: BlogPreviewProps) {
   const [copied, setCopied] = React.useState(false);
+  const [fullUrl, setFullUrl] = React.useState('');
 
   const authorInitials = data.author
     ? data.author.split(' ').map((n) => n[0]).join('')
     : 'JD';
   const today = new Date().toISOString().split('T')[0];
+
+  React.useEffect(() => {
+    const siteUrl = window.location.origin;
+    setFullUrl(`${siteUrl}/blog/${data.slug || 'your-unique-slug'}`);
+  }, [data.slug]);
 
   const getImageUrl = (image: any) => {
     if (!image) return null;
@@ -32,10 +38,8 @@ export function BlogPreview({ data }: BlogPreviewProps) {
   const featuredImageUrl = getImageUrl(data.image);
   const metaImageUrl = getImageUrl(data.metaImage);
 
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://your-domain.com';
-  const fullUrl = `${siteUrl}/blog/${data.slug || 'your-unique-slug'}`;
-
   const handleCopy = () => {
+    if (!fullUrl) return;
     navigator.clipboard.writeText(fullUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
@@ -89,7 +93,7 @@ export function BlogPreview({ data }: BlogPreviewProps) {
                 <div>
                   <p><strong>Full URL:</strong></p>
                   <div className="flex items-center gap-2 mt-1">
-                      <p className="truncate text-muted-foreground flex-1">{fullUrl}</p>
+                      <p className="truncate text-muted-foreground flex-1">{fullUrl || 'Generating URL...'}</p>
                       <Button variant="ghost" size="icon" onClick={handleCopy} className="h-8 w-8">
                           {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
                       </Button>
