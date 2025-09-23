@@ -60,6 +60,10 @@ export type BlogPost = {
   author: string;
   date: string;
   image: Image,
+  metaTitle?: string;
+  metaDescription?: string;
+  metaImage?: Image;
+  keywords?: string;
 };
 
 export type TimelineEvent = {

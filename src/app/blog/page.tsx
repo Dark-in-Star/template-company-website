@@ -2,6 +2,12 @@
 
 import { blogPosts } from '@/lib/data';
 import { BlogCard } from '@/components/shared/BlogCard';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Blog',
+    description: 'Insights, news, and stories from the team at Procellence Technology.',
+}
 
 export default function BlogPage() {
 

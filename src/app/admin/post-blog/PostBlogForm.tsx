@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -35,6 +36,11 @@ const formSchema = z.object({
   excerpt: z.string().min(20, { message: 'Excerpt must be at least 20 characters.' }).optional(),
   image: z.any().optional(),
   content: z.string().min(100, { message: 'Content must be at least 100 characters.' }).optional(),
+  slug: z.string().min(3, { message: 'Slug must be at least 3 characters.' }).optional(),
+  metaTitle: z.string().min(10, { message: 'Meta title must be at least 10 characters.' }).optional(),
+  metaDescription: z.string().min(20, { message: 'Meta description must be at least 20 characters.' }).optional(),
+  metaImage: z.any().optional(),
+  keywords: z.string().optional(),
 });
 
 export type BlogPostFormValues = z.infer<typeof formSchema>;
@@ -48,13 +54,16 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
       author: '',
       excerpt: '',
       content: '',
+      slug: '',
+      metaTitle: '',
+      metaDescription: '',
+      keywords: '',
     },
     mode: 'onChange',
   });
 
   const imageRef = form.register("image");
-
-  const watchedValues = form.watch();
+  const metaImageRef = form.register("metaImage");
 
   useEffect(() => {
     const subscription = form.watch((value) => {
@@ -64,13 +73,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
   }, [form, onFormChange]);
 
   function onSubmit(values: BlogPostFormValues) {
-    const imageData = values.image && values.image.length > 0 ? values.image[0] : null;
-    const submissionData = {
-        ...values,
-        image: imageData,
-    }
-    console.log('New Blog Post Data:', submissionData);
-
+    console.log('New Blog Post Data:', values);
     toast({
       title: 'Blog Post Submitted!',
       description: "Your new blog post has been submitted for review.",
@@ -132,29 +135,17 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                 <FormField
                     control={form.control}
                     name="image"
-                    render={({ field }) => {
-                        return (
+                    render={({ field }) => (
                         <FormItem>
                             <FormLabel>Featured Image</FormLabel>
                             <FormControl>
                             <Input type="file" accept="image/*" {...imageRef} 
-                                onChange={(e) => {
-                                    field.onChange(e.target.files);
-                                    if (e.target.files && e.target.files.length > 0) {
-                                        const file = e.target.files[0];
-                                        const reader = new FileReader();
-                                        reader.onloadend = () => {
-                                            onFormChange({...watchedValues, image: reader.result as string});
-                                        }
-                                        reader.readAsDataURL(file);
-                                    }
-                                }}
+                                onChange={(e) => field.onChange(e.target.files)}
                             />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        );
-                    }}
+                    )}
                 />
                 <FormField
                     control={form.control}
@@ -172,6 +163,89 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                         </FormItem>
                     )}
                 />
+
+                <Card className="bg-secondary/50">
+                    <CardHeader>
+                        <CardTitle>SEO Details</CardTitle>
+                        <CardDescription>
+                            Fill in the details for search engine optimization.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                        <FormField
+                            control={form.control}
+                            name="slug"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Slug</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="the-future-of-ai" {...field} />
+                                    </FormControl>
+                                    <FormDescription>A unique, URL-friendly version of the title.</FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="metaTitle"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Meta Title</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="The Future of AI in Business: Trends to Watch" {...field} />
+                                    </FormControl>
+                                     <FormDescription>The title that will appear in search engine results.</FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="metaDescription"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Meta Description</FormLabel>
+                                    <FormControl>
+                                        <Textarea placeholder="A concise summary for search engine snippets." {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="metaImage"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Meta Image (for Social Sharing)</FormLabel>
+                                    <FormControl>
+                                        <Input type="file" accept="image/*" {...metaImageRef}
+                                            onChange={(e) => field.onChange(e.target.files)}
+                                        />
+                                    </FormControl>
+                                     <FormDescription>Recommended size: 1200x630 pixels.</FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="keywords"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Keywords</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="AI, business, technology, trends" {...field} />
+                                    </FormControl>
+                                    <FormDescription>Comma-separated keywords for search indexing.</FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </CardContent>
+                </Card>
+
                 <Button type="submit" className="w-full" size="lg">
                     Submit Post
                     <Send className="ml-2 h-4 w-4" />

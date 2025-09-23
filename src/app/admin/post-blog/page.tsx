@@ -15,7 +15,7 @@ export default function PostBlogPage() {
                     <div className="text-center">
                         <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Create a New Blog Post</h1>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                            Fill out the form below to publish a new article to the blog.
+                            Fill out the form below to publish a new article to the blog. The preview will update as you type.
                         </p>
                     </div>
                 </div>
@@ -27,7 +27,6 @@ export default function PostBlogPage() {
                             <PostBlogForm onFormChange={setPreviewData} />
                         </div>
                         <div>
-                            <h2 className="font-heading mb-4 text-2xl font-bold tracking-tighter">Live Preview</h2>
                             <BlogPreview data={previewData} />
                         </div>
                     </div>
