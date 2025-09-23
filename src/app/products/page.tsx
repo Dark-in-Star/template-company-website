@@ -51,6 +51,22 @@ const howItWorks = [
     },
 ];
 
+const AppStoreIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/>
+        <path d="M10 2c1 .5 2 2 2 5"/>
+    </svg>
+)
+
+const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M3 7.2v9.6l7.5 4.35L18 16.8V7.2L10.5 2.85Z"/>
+        <path d="m3 7.2 7.5 4.35 7.5-4.35"/>
+        <path d="M10.5 12.8V21.3"/>
+        <path d="M18 7.2v5.6"/>
+    </svg>
+)
+
 
 export default function ProductsPage() {
   const qynkoHero = placeholderImages.qynkoHero as ImageType;
@@ -68,19 +84,25 @@ export default function ProductsPage() {
                 <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
                     Streamline your workflow, organize your tasks, and achieve your goals with our beautifully designed and powerful application.
                 </p>
-                <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-                    <a href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank" className="download-btn">
-                        <span className="text">Download</span>
-                        <span className="icon">
-                            <Download />
-                        </span>
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank" className="download-btn">
-                        <span className="text">Download</span>
-                        <span className="icon">
-                            <Download />
-                        </span>
-                    </a>
+                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
+                    <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
+                        <Button size="lg" variant="outline" className="h-16 w-full sm:w-auto">
+                            <AppStoreIcon className="mr-3 h-8 w-8" />
+                            <div className="text-left">
+                                <p className="text-xs">Available on the</p>
+                                <p className="font-heading text-xl">App Store</p>
+                            </div>
+                        </Button>
+                    </Link>
+                    <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
+                        <Button size="lg" variant="super" className="h-16 w-full sm:w-auto">
+                           <GooglePlayIcon className="mr-3 h-8 w-8" />
+                           <div className="text-left">
+                                <p className="text-xs">GET IT ON</p>
+                                <p className="font-heading text-xl">Google Play</p>
+                            </div>
+                        </Button>
+                    </Link>
                 </div>
             </div>
             <div className="flex items-center justify-center">
@@ -179,15 +201,21 @@ export default function ProductsPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                  <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                    <Button size="lg" variant="super" className="w-full sm:w-auto">
-                        <Image src={appleLogo.src} alt="Apple Logo" width={24} height={24} className="mr-2 h-6 w-6" />
-                        Download from App Store
+                    <Button size="lg" variant="outline" className="h-16 w-full sm:w-auto">
+                        <AppStoreIcon className="mr-3 h-8 w-8" />
+                        <div className="text-left">
+                            <p className="text-xs">Available on the</p>
+                            <p className="font-heading text-xl">App Store</p>
+                        </div>
                     </Button>
                  </Link>
                  <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                       <Image src={androidLogo.src} alt="Android Logo" width={24} height={24} className="mr-2 h-6 w-6" />
-                        Get it on Google Play
+                    <Button size="lg" variant="super" className="h-16 w-full sm:w-auto">
+                       <GooglePlayIcon className="mr-3 h-8 w-8" />
+                       <div className="text-left">
+                            <p className="text-xs">GET IT ON</p>
+                            <p className="font-heading text-xl">Google Play</p>
+                        </div>
                     </Button>
                 </Link>
             </div>
