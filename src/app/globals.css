@@ -144,6 +144,66 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* New Button Glow Animation */
+@layer components {
+    .btn-glow {
+        position: relative;
+        overflow: hidden;
+        --glow-from: -100%;
+        --glow-to: 200%;
+    }
+
+    .btn-glow::before,
+    .btn-glow::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, hsl(var(--primary-hsl) / 0.5), transparent);
+        transform: skewX(-20deg) translateX(var(--glow-from));
+    }
+
+    .btn-glow::before {
+        animation: glow-left-to-right 2.5s ease-in-out infinite;
+    }
+
+    .btn-glow::after {
+        animation-name: none; /* Initially, no animation */
+        transition: animation-name 0s 0.2s; /* Delay to trigger after hover ends */
+    }
+
+    .btn-glow:hover::before {
+        animation-play-state: paused;
+        background: none;
+    }
+    
+    .btn-glow:hover::after {
+        --glow-from: 200%;
+        --glow-to: -100%;
+        animation-name: glow-right-to-left-out;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in;
+    }
+}
+
+@keyframes glow-left-to-right {
+    0% { transform: skewX(-20deg) translateX(var(--glow-from)); }
+    100% { transform: skewX(-20deg) translateX(var(--glow-to)); }
+}
+
+@keyframes glow-right-to-left-out {
+    0% { 
+        transform: skewX(-20deg) translateX(var(--glow-from)); 
+        opacity: 1;
+    }
+    100% { 
+        transform: skewX(-20deg) translateX(var(--glow-to)); 
+        opacity: 0;
+    }
+}
+
 /* Theme Toggle Styles */
 .theme-switch {
   position: relative;
@@ -317,4 +377,5 @@ h1, h2, h3, h4, h5, h6 {
 
 
     
+
 
