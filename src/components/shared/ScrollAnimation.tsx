@@ -26,7 +26,7 @@ export function ScrollAnimation({ children, className, delay = 0, threshold = 0.
       ref={ref}
       style={style}
       className={cn(
-        'transition-all duration-700 ease-out',
+        'transition-all duration-500 ease-out',
         isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
         className
       )}

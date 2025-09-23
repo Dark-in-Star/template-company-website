@@ -83,38 +83,34 @@ export default function ProductsPage() {
 
       <section>
         <div className="container mx-auto">
-            <div className="mb-12 text-center">
-              <ScrollAnimation>
-                  <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Key Features of Qynko</h2>
-                  <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                      Everything you need to be more productive, packed into one powerful app.
-                  </p>
-              </ScrollAnimation>
-            </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <ScrollAnimation className="mb-12 text-center">
+              <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Key Features of Qynko</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                  Everything you need to be more productive, packed into one powerful app.
+              </p>
+            </ScrollAnimation>
+            <ScrollAnimation className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {productFeatures.map((feature, index) => (
                     <ScrollAnimation key={index} delay={index * 150}>
                         <ProductFeature {...feature} />
                     </ScrollAnimation>
                 ))}
-            </div>
+            </ScrollAnimation>
         </div>
       </section>
 
       <section className="bg-primary/5">
         <div className="container mx-auto">
-             <div className="mb-12 text-center">
-              <ScrollAnimation>
-                  <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">How It Works</h2>
-              </ScrollAnimation>
-            </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+             <ScrollAnimation className="mb-12 text-center">
+                <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">How It Works</h2>
+             </ScrollAnimation>
+            <ScrollAnimation className="grid grid-cols-1 gap-8 md:grid-cols-3">
                 {howItWorks.map((step, index) => (
                     <ScrollAnimation key={step.step} delay={index * 150}>
                         <HowItWorksStep {...step} />
                     </ScrollAnimation>
                 ))}
-            </div>
+            </ScrollAnimation>
         </div>
       </section>
 

@@ -42,13 +42,13 @@ export default function ServicesPage() {
       </ScrollAnimation>
       <section className="pt-0">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-12">
+          <ScrollAnimation className="grid grid-cols-1 gap-12">
             {services.map((service, index) => (
               <ScrollAnimation key={service.slug} delay={index * 150}>
                 <ServiceListItem service={service} align={index % 2 === 0 ? 'right' : 'left'} />
               </ScrollAnimation>
             ))}
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
       <ScrollAnimation>

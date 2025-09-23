@@ -94,10 +94,8 @@ export default function AboutPage() {
 
       <section className="pt-0">
         <div className="container mx-auto space-y-16">
-           <div>
-            <ScrollAnimation>
-                <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
-            </ScrollAnimation>
+           <ScrollAnimation>
+            <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Our Story</h2>
             <div className="relative">
                 <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
                 {timelineEvents.map((event, index) => {
@@ -127,7 +125,7 @@ export default function AboutPage() {
                     );
                 })}
             </div>
-          </div>
+          </ScrollAnimation>
 
           <Separator />
 
@@ -140,10 +138,8 @@ export default function AboutPage() {
 
           <Separator />
 
-            <div>
-                <ScrollAnimation>
-                    <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
-                </ScrollAnimation>
+            <ScrollAnimation>
+                <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Team</h2>
               <Carousel
                   plugins={[plugin.current]}
                   className="w-full"
@@ -189,28 +185,25 @@ export default function AboutPage() {
               <CarouselPrevious className="left-2" />
               <CarouselNext className="right-2" />
               </Carousel>
-          </div>
+          </ScrollAnimation>
 
           <Separator />
 
-            <div>
-                <ScrollAnimation>
-                    <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
-                </ScrollAnimation>
+            <ScrollAnimation>
+                <h2 className="font-heading mb-12 text-center text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
               <div className="mx-auto max-w-3xl">
-                <ScrollAnimation>
-                    <Accordion type="single" collapsible className="w-full">
-                        {displayedFaqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`}>
+                <Accordion type="single" collapsible className="w-full">
+                    {displayedFaqs.map((faq, index) => (
+                        <ScrollAnimation key={index} delay={index * 150}>
+                            <AccordionItem value={`item-${index}`}>
                                 <AccordionTrigger className="font-heading text-left text-lg">{faq.question}</AccordionTrigger>
-
                                 <AccordionContent className="text-base text-muted-foreground">
                                     {faq.answer}
                                 </AccordionContent>
                             </AccordionItem>
-                        ))}
-                    </Accordion>
-                </ScrollAnimation>
+                        </ScrollAnimation>
+                    ))}
+                </Accordion>
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <ScrollAnimation>
                         <>
@@ -241,7 +234,7 @@ export default function AboutPage() {
                     </ScrollAnimation>
                   </div>
               </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
     </>

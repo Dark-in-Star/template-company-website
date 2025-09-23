@@ -22,13 +22,13 @@ export default function BlogPage() {
                   Insights, news, and stories from the team at Procellence Technology.
               </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <ScrollAnimation className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
               <ScrollAnimation key={post.slug} delay={index * 150}>
                 <BlogCard post={post} />
               </ScrollAnimation>
             ))}
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
     </>
