@@ -102,5 +102,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @layer utilities {
+  .download-btn {
+      @apply relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white uppercase transition-all duration-200 bg-gray-900 rounded-md;
+      overflow: hidden;
+  }
 
+  .download-btn .icon {
+      @apply w-6 h-6 mr-2 -ml-2 transition-all duration-200;
+  }
+
+  .download-btn .text {
+      @apply transition-all duration-200;
+  }
+
+  .download-btn:hover .text {
+      @apply translate-x-12;
+  }
+
+  .download-btn:hover .icon {
+      @apply -translate-x-12;
+  }
+  
+  .download-btn:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: hsl(var(--primary-hsl));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: 0;
+  }
+
+  .download-btn:hover:before {
+    width: 120%;
+    height: 300%;
+  }
+
+  .download-btn > * {
+    position: relative;
+    z-index: 1;
+  }
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Download } from 'lucide-react';
 import { features } from '@/lib/data';
 import * as LucideIcons from 'lucide-react';
 
@@ -69,18 +69,18 @@ export default function ProductsPage() {
                     Streamline your workflow, organize your tasks, and achieve your goals with our beautifully designed and powerful application.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-                    <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                        <Button size="lg">
-                             <Image src={appleLogo.src} alt="Apple Logo" width={24} height={24} className="mr-2 h-6 w-6" />
-                            Download for iOS
-                        </Button>
-                    </Link>
-                    <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
-                        <Button size="lg" variant="outline">
-                            <Image src={androidLogo.src} alt="Android Logo" width={24} height={24} className="mr-2 h-6 w-6" />
-                            Download for Android
-                        </Button>
-                    </Link>
+                    <a href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank" className="download-btn">
+                        <span className="text">Download</span>
+                        <span className="icon">
+                            <Download />
+                        </span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank" className="download-btn">
+                        <span className="text">Download</span>
+                        <span className="icon">
+                            <Download />
+                        </span>
+                    </a>
                 </div>
             </div>
             <div className="flex items-center justify-center">
