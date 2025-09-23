@@ -86,8 +86,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="container mx-auto max-w-3xl">
+      <section className="bg-secondary py-12 md:py-24">
+        <div className="container mx-auto max-w-3xl px-4 md:px-6">
           <Comments initialComments={comments} />
         </div>
       </section>
