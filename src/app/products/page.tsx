@@ -60,10 +60,10 @@ const AppStoreIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M3 7.2v9.6l7.5 4.35L18 16.8V7.2L10.5 2.85Z"/>
         <path d="m3 7.2 7.5 4.35 7.5-4.35"/>
         <path d="M10.5 12.8V21.3"/>
-        <path d="M18 7.2v5.6"/>
+        <path d="M18 7.2v5.6l-7.5 4.35-7.5-4.35"/>
+        <path d="M3 16.8V7.2L10.5 2.85 18 7.2v9.6L10.5 21.15Z"/>
     </svg>
 )
 
@@ -86,7 +86,7 @@ export default function ProductsPage() {
                 </p>
                 <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
                     <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                        <Button size="lg" variant="outline" className="h-16 w-full sm:w-auto">
+                        <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
                             <AppStoreIcon className="mr-3 h-8 w-8" />
                             <div className="text-left">
                                 <p className="text-xs">Available on the</p>
@@ -95,7 +95,7 @@ export default function ProductsPage() {
                         </Button>
                     </Link>
                     <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
-                        <Button size="lg" variant="super" className="h-16 w-full sm:w-auto">
+                        <Button size="lg" variant="super" className="h-16 w-full sm:w-48">
                            <GooglePlayIcon className="mr-3 h-8 w-8" />
                            <div className="text-left">
                                 <p className="text-xs">GET IT ON</p>
@@ -201,7 +201,7 @@ export default function ProductsPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                  <Link href="https://apps.apple.com/in/app/qynko/id6739987793" target="_blank">
-                    <Button size="lg" variant="outline" className="h-16 w-full sm:w-auto">
+                    <Button size="lg" variant="outline" className="h-16 w-full sm:w-48">
                         <AppStoreIcon className="mr-3 h-8 w-8" />
                         <div className="text-left">
                             <p className="text-xs">Available on the</p>
@@ -210,7 +210,7 @@ export default function ProductsPage() {
                     </Button>
                  </Link>
                  <Link href="https://play.google.com/store/apps/details?id=com.procellence.qynko&pli=1" target="_blank">
-                    <Button size="lg" variant="super" className="h-16 w-full sm:w-auto">
+                    <Button size="lg" variant="super" className="h-16 w-full sm:w-48">
                        <GooglePlayIcon className="mr-3 h-8 w-8" />
                        <div className="text-left">
                             <p className="text-xs">GET IT ON</p>
