@@ -8,13 +8,7 @@ import type { Image as ImageType } from '@/lib/types';
 import { LeadForm } from '@/components/shared/LeadForm';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
-
-const Comments = dynamic(() => import('@/components/comments/Comments').then(mod => mod.Comments), {
-  loading: () => <Skeleton className="h-[400px] w-full" />,
-  ssr: false,
-});
+import { ClientComments } from '@/components/comments/ClientComments';
 
 
 export async function generateStaticParams() {
@@ -171,7 +165,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       <section className="bg-secondary py-12 md:py-24">
         <div className="container mx-auto max-w-3xl px-4 md:px-6">
-          <Comments initialComments={comments} />
+          <ClientComments initialComments={comments} />
         </div>
       </section>
     </>
