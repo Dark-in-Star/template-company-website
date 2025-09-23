@@ -69,7 +69,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const comments = allComments[params.slug] || [];
   const siteUrl = 'https://procellence.com';
 
-  const jsonLd = {
+  const defaultJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     mainEntityOfPage: {
@@ -93,6 +93,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     },
     datePublished: post.date,
   };
+
+  const jsonLd = post.jsonLd ? JSON.parse(post.jsonLd) : defaultJsonLd;
 
   return (
     <>

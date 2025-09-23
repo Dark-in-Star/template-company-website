@@ -108,6 +108,12 @@ export function BlogPreview({ data }: BlogPreviewProps) {
                         <Image src={metaImageUrl} alt="Meta image preview" width={200} height={100} className="mt-2 rounded-md object-cover" />
                     </div>
                 )}
+                {data.jsonLd && (
+                    <div>
+                        <p><strong>JSON-LD Schema:</strong></p>
+                        <pre className="mt-2 w-full whitespace-pre-wrap rounded-md bg-gray-800 p-2 text-xs text-white">{data.jsonLd}</pre>
+                    </div>
+                )}
             </div>
         </div>
       </CardContent>

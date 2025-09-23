@@ -64,6 +64,7 @@ export type BlogPost = {
   metaDescription?: string;
   metaImage?: Image;
   keywords?: string;
+  jsonLd?: string;
 };
 
 export type TimelineEvent = {

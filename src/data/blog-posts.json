@@ -11,7 +11,8 @@
     "metaTitle": "The Future of AI in Business: 2024 Trends to Watch | Procellence",
     "metaDescription": "Discover the key AI trends reshaping the business landscape in 2024. Learn how predictive analytics, hyper-personalization, and other innovations are driving growth.",
     "metaImage": { "src": "https://picsum.photos/seed/meta-blog1/1200/630", "width": 1200, "height": 630, "hint": "ai business" },
-    "keywords": "AI in business, AI trends 2024, artificial intelligence, machine learning, business technology"
+    "keywords": "AI in business, AI trends 2024, artificial intelligence, machine learning, business technology",
+    "jsonLd": ""
   },
   {
     "slug": "mastering-multi-cloud-strategy",
@@ -24,7 +25,8 @@
     "metaTitle": "A Guide to a Resilient Multi-Cloud Strategy | Procellence",
     "metaDescription": "Learn how to build and manage a resilient and cost-effective multi-cloud strategy to avoid vendor lock-in and enhance flexibility. Best practices included.",
     "metaImage": { "src": "https://picsum.photos/seed/meta-blog2/1200/630", "width": 1200, "height": 630, "hint": "multi cloud" },
-    "keywords": "multi-cloud, cloud strategy, cloud computing, aws, azure, gcp, cloud architecture"
+    "keywords": "multi-cloud, cloud strategy, cloud computing, aws, azure, gcp, cloud architecture",
+    "jsonLd": ""
   },
   {
     "slug": "user-centric-design-principles",
@@ -37,6 +39,7 @@
     "metaTitle": "5 User-Centric Design Principles for Product Success | Procellence",
     "metaDescription": "Discover 5 fundamental user-centric design principles that will help you build products that users love. Improve user experience and drive product success.",
     "metaImage": { "src": "https://picsum.photos/seed/meta-blog3/1200/630", "width": 1200, "height": 630, "hint": "user experience" },
-    "keywords": "user-centric design, ux design, product design, user experience, design principles"
+    "keywords": "user-centric design, ux design, product design, user experience, design principles",
+    "jsonLd": ""
   }
 ]

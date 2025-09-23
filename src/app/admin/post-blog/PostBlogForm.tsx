@@ -41,6 +41,7 @@ const formSchema = z.object({
   metaDescription: z.string().min(20, { message: 'Meta description must be at least 20 characters.' }).optional(),
   metaImage: z.any().optional(),
   keywords: z.string().optional(),
+  jsonLd: z.string().optional(),
 });
 
 export type BlogPostFormValues = z.infer<typeof formSchema>;
@@ -58,6 +59,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
       metaTitle: '',
       metaDescription: '',
       keywords: '',
+      jsonLd: '',
     },
     mode: 'onChange',
   });
@@ -239,6 +241,20 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                                         <Input placeholder="AI, business, technology, trends" {...field} />
                                     </FormControl>
                                     <FormDescription>Comma-separated keywords for search indexing.</FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="jsonLd"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>JSON-LD Schema</FormLabel>
+                                    <FormControl>
+                                        <Textarea placeholder='{ "@context": "https://schema.org", ... }' className="min-h-[150px] font-mono text-xs" {...field} />
+                                    </FormControl>
+                                    <FormDescription>Enter a valid JSON-LD schema for advanced SEO. This will override the default schema.</FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}
