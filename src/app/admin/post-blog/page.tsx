@@ -5,17 +5,12 @@ import { PostBlogForm } from './PostBlogForm';
 import { BlogPreview } from './BlogPreview';
 import type { BlogPostFormValues } from './PostBlogForm';
 
-export const metadata = {
-    title: 'Post a New Blog',
-    description: 'Create and publish a new blog post.',
-};
-
 export default function PostBlogPage() {
     const [previewData, setPreviewData] = useState<Partial<BlogPostFormValues>>({});
 
     return (
         <>
-            <section className="bg-secondary">
+            <section className="bg-secondary py-12 md:py-16">
                 <div className="container mx-auto">
                     <div className="text-center">
                         <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Create a New Blog Post</h1>
