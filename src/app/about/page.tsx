@@ -33,6 +33,8 @@ import { SocialLink } from '@/components/shared/SocialLink';
 import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
 
+const INITIAL_FAQS_COUNT = 3;
+const TEAM_CAROUSEL_AUTOPLAY_DELAY = 2000;
 
 function TeamMemberCard({ member, isFounder = false }: { member: TeamMember, isFounder?: boolean }) {
     const isMobile = useIsMobile();
@@ -69,11 +71,11 @@ export default function AboutPage() {
   const [showAllFaqs, setShowAllFaqs] = React.useState(false);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: TEAM_CAROUSEL_AUTOPLAY_DELAY, stopOnInteraction: true })
   )
     const isMobile = useIsMobile();
 
-  const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 3);
+  const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, INITIAL_FAQS_COUNT);
   const aboutHero = placeholderImages.aboutHero as ImageType;
 
   return (
@@ -195,7 +197,7 @@ export default function AboutPage() {
                       ))}
                   </Accordion>
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                      {faqs.length > 3 && (
+                      {faqs.length > INITIAL_FAQS_COUNT && (
                           <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
                               {showAllFaqs ? (
                                   <>
