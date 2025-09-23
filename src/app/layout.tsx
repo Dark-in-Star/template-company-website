@@ -1,5 +1,5 @@
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Roboto, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
@@ -45,11 +45,12 @@ export const metadata: Metadata = {
     description: 'Innovating the Future of Business with cutting-edge technology solutions.',
     // creator: '@your_twitter_handle', // Replace with your Twitter handle
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
