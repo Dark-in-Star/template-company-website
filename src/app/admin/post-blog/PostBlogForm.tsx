@@ -70,13 +70,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
 
   useEffect(() => {
     const subscription = form.watch((value) => {
-      const { image, metaImage, ...rest } = value;
-      const serializableValue = {
-        ...rest,
-        image: image && image[0] ? image[0].name : undefined,
-        metaImage: metaImage && metaImage[0] ? metaImage[0].name : undefined
-      }
-      onFormChange(serializableValue);
+      onFormChange(value);
     });
     return () => subscription.unsubscribe();
   }, [form, onFormChange]);
@@ -105,7 +99,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
         <CardHeader>
             <CardTitle>Blog Post Details</CardTitle>
             <CardDescription>
-                Provide the details for your new blog post. All fields are required.
+                Provide the details for your new blog post.
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -145,7 +139,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                             <FormLabel>Featured Image</FormLabel>
                             <FormControl>
                             <Input type="file" accept="image/*" {...imageRef} 
-                                onChange={(e) => field.onChange(e.target.files)}
+                                onChange={(e) => field.onChange(e.target.files ? e.target.files[0] : null)}
                             />
                             </FormControl>
                             <FormMessage />
@@ -227,7 +221,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                                     <FormLabel>Meta Image (for Social Sharing)</FormLabel>
                                     <FormControl>
                                         <Input type="file" accept="image/*" {...metaImageRef}
-                                            onChange={(e) => field.onChange(e.target.files)}
+                                            onChange={(e) => field.onChange(e.target.files ? e.target.files[0] : null)}
                                         />
                                     </FormControl>
                                      <FormDescription>Recommended size: 1200x630 pixels.</FormDescription>

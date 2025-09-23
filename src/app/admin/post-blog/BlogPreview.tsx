@@ -28,10 +28,9 @@ export function BlogPreview({ data }: BlogPreviewProps) {
   }, [data.slug]);
 
   const getImageUrl = (image: any) => {
-    if (!image) return null;
-    if (typeof image === 'string') return image;
-    if (image instanceof File) return URL.createObjectURL(image);
-    if (image.length > 0 && image[0] instanceof File) return URL.createObjectURL(image[0]);
+    if (image instanceof File) {
+      return URL.createObjectURL(image);
+    }
     return null;
   }
 
