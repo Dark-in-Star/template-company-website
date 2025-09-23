@@ -5,6 +5,7 @@ import * as LucideIcons from 'lucide-react';
 import type { Feature } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollAnimation } from '../shared/ScrollAnimation';
+import { cn } from '@/lib/utils';
 
 export function WhyChooseUsSection({ features }: { features: Feature[] }) {
   return (
@@ -17,11 +18,11 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
                         We're not just a service provider; we are your dedicated partner, guiding you through every step of your digital transformation with expertise, innovation, and a commitment to quality.
                     </p>
                 </div>
-                <div className="journey-container grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
+                <div className="journey-container grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                     {features.map((feature, index) => {
                         const Icon = LucideIcons[feature.icon as keyof typeof LucideIcons] as React.ElementType;
                         return (
-                            <div key={index} className="group journey-card">
+                            <div key={index} className={cn("group journey-card", index % 2 !== 0 && "stagger-up")}>
                                 <div className="journey-badge-wrapper">
                                     <div className="journey-badge">
                                         {Icon && <Icon className="h-7 w-7" />}
@@ -44,3 +45,4 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
     </section>
   );
 }
+
