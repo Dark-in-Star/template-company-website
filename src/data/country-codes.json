@@ -1,7 +1,6 @@
 
 [
     { "name": "United States", "short": "US", "code": "+1" },
-    { "name": "Canada", "short": "CA", "code": "+1" },
     { "name": "United Kingdom", "short": "UK", "code": "+44" },
     { "name": "Australia", "short": "AU", "code": "+61" },
     { "name": "Germany", "short": "DE", "code": "+49" },
