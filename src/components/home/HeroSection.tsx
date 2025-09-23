@@ -17,7 +17,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/20 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 backdrop-blur-sm" />
       </div>
       <div className="container relative mx-auto flex min-h-[60dvh] flex-col items-center justify-center text-center md:min-h-[70dvh]">
         <div className="space-y-4">
