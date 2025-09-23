@@ -7,21 +7,21 @@ export function BrochureSummarizerSection() {
   return (
     <section>
       <div className="container mx-auto">
-        <div className="rounded-lg bg-gradient-to-r from-primary to-primary/80 p-8 text-primary-foreground md:p-12">
+        <div className="rounded-lg border border-border/20 bg-secondary/20 p-8 shadow-lg backdrop-blur-lg md:p-12">
             <div className="grid grid-cols-1 items-center gap-8 text-center md:grid-cols-3 md:text-left">
                 <div className="flex items-center justify-center gap-4 md:col-span-1">
-                    <Lightbulb className="h-12 w-12" />
-                    <Bot className="hidden h-20 w-20 sm:block" />
+                    <Lightbulb className="h-12 w-12 text-primary" />
+                    <Bot className="hidden h-20 w-20 text-primary sm:block" />
                 </div>
                 <div className="md:col-span-2">
                     <h2 className="font-heading text-2xl font-bold tracking-tighter sm:text-3xl">
                         Discover Our AI-Powered Brochure Summarizer
                     </h2>
-                    <p className="mx-auto mt-4 max-w-[600px] opacity-90 md:mx-0">
+                    <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:mx-0">
                         Have a brochure you want to quickly understand? Paste its URL into our smart tool and get a concise summary of key services and offerings in seconds.
                     </p>
                     <Link href="/summarize-brochure" className="mt-6 inline-block">
-                        <Button variant="secondary" size="lg">Try the AI Tool Now</Button>
+                        <Button size="lg">Try the AI Tool Now</Button>
                     </Link>
                 </div>
             </div>
