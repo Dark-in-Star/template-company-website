@@ -374,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply relative;
   }
   .journey-arrow {
-    @apply absolute top-[10%] right-[5%] h-6 w-6 -translate-y-1/2 translate-x-full text-primary hidden md:block;
+    @apply absolute top-[15%] right-[4%] h-6 w-6 -translate-y-1/2 translate-x-full text-primary hidden md:block;
     animation: pulse 2s infinite ease-in-out;
   }
   .journey-card {
@@ -427,3 +427,5 @@ h1, h2, h3, h4, h5, h6 {
       animation: none;
   }
 }
+
+    
