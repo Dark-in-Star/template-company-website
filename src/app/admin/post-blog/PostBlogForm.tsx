@@ -52,7 +52,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',
-      author: 'qynko',
+      author: 'Procellence',
       excerpt: '',
       content: '',
       slug: '',
@@ -103,19 +103,6 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
                             <FormLabel>Post Title</FormLabel>
                             <FormControl>
                                 <Input placeholder="The Future of AI" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="author"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Author Name</FormLabel>
-                            <FormControl>
-                                <Input placeholder="John Doe" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
