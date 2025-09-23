@@ -5,9 +5,17 @@ import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
 import { ServiceListItem } from '@/components/shared/ServiceListItem';
 import { PageHero } from '@/components/shared/PageHero';
-import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { StatsSection } from '@/components/home/StatsSection';
-import { WhyChooseUsSection } from '@/components/home/WhyChooseUsSection';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const WhyChooseUsSection = dynamic(() => import('@/components/home/WhyChooseUsSection').then(mod => mod.WhyChooseUsSection), {
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const TestimonialsSection = dynamic(() => import('@/components/home/TestimonialsSection').then(mod => mod.TestimonialsSection), {
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+
 
 export default function ServicesPage() {
   const servicesHero = placeholderImages.servicesHero as ImageType;

@@ -1,14 +1,21 @@
 
-import { blogPosts, teamMembers, comments as allComments } from '@/lib/data';
+import { blogPosts, comments as allComments } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';
-import { Comments } from '@/components/comments/Comments';
 import { LeadForm } from '@/components/shared/LeadForm';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const Comments = dynamic(() => import('@/components/comments/Comments').then(mod => mod.Comments), {
+  loading: () => <Skeleton className="h-[400px] w-full" />,
+  ssr: false,
+});
+
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({

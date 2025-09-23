@@ -7,7 +7,8 @@ import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { organizationSchema } from '@/lib/schema';
-import { LeadPopup } from '@/components/shared/LeadPopup';
+import { ClientLeadPopup } from '@/components/shared/ClientLeadPopup';
+
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -77,7 +78,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
-        <LeadPopup />
+        <ClientLeadPopup />
       </body>
     </html>
   );
