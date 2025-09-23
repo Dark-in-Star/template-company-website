@@ -8,5 +8,6 @@
   { "href": "/gallery", "label": "Gallery" },
   { "href": "/careers", "label": "Careers" },
   { "href": "/contact", "label": "Contact" },
-  { "href": "/summarize-brochure", "label": "AI Tool" }
+  { "href": "/summarize-brochure", "label": "AI Tool" },
+  { "href": "/admin/post-blog", "label": "Post Blog" }
 ]
