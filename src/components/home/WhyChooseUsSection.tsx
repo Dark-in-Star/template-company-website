@@ -14,7 +14,28 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
           </p>
         </div>
         <div className="journey-container">
-          <div className="journey-path" />
+          <div className="absolute inset-x-0 top-0 hidden h-full md:block">
+            <svg
+              viewBox="0 0 1000 120"
+              preserveAspectRatio="none"
+              className="h-full w-full"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="journey-gradient" x1="0" y1="60" x2="1000" y2="60" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="hsl(var(--chart-1))" />
+                  <stop offset="1" stopColor="hsl(var(--chart-4))" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M50 80 C 250 120, 350 0, 500 40 C 650 80, 750 0, 950 40"
+                stroke="url(#journey-gradient)"
+                strokeWidth="2"
+                strokeDasharray="4 4"
+              />
+            </svg>
+          </div>
           <div className="grid grid-cols-1 gap-y-20 gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <div key={feature.title} className={cn("journey-card group", (index === 1 || index === 3) && "md:-translate-y-8")}>
