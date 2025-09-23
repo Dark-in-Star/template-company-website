@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   *, ::before, ::after {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    transition-duration: 150ms;
   }
 
   *:not(.theme-switch *) {
@@ -368,66 +368,81 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Journey Card styles for "Why Choose Us" section */
+/* Journey Card V2 styles for "Why Choose Us" section */
 @layer components {
+  .journey-container {
+    @apply relative;
+  }
+  .journey-path {
+    @apply absolute inset-x-0 top-8 h-2 w-full overflow-hidden hidden lg:block;
+  }
+  .journey-path::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20;
+    background-size: 200% 100%;
+    animation: flow 8s linear infinite;
+  }
+  .journey-arrow {
+    @apply absolute top-1/2 -translate-y-1/2 text-primary opacity-80;
+    animation: move-arrow 8s linear infinite;
+  }
   .journey-card {
     @apply relative text-center;
   }
-  .journey-card-badge-wrapper {
-    @apply absolute -top-8 left-1/2 -translate-x-1/2;
+  .journey-badge-wrapper {
+    @apply absolute -top-8 left-1/2 -translate-x-1/2 z-10;
   }
-  .journey-card-badge {
-    @apply flex h-16 w-16 items-center justify-center rounded-full border-4 border-background bg-primary font-heading text-2xl font-bold text-primary-foreground shadow-md transition-all duration-200;
+  .journey-badge {
+    @apply flex h-16 w-16 items-center justify-center rounded-full font-heading text-2xl font-bold text-primary-foreground;
+    background: radial-gradient(circle, hsl(var(--primary-hsl) / 0.9) 0%, hsl(var(--primary-hsl) / 0.7) 100%);
+    box-shadow: 0 4px 15px hsl(var(--primary-hsl) / 0.3);
+    transition: transform 300ms ease;
   }
-  .journey-card-content {
-    @apply h-full rounded-lg border bg-card p-6 pt-12 text-card-foreground shadow-sm transition-all duration-200;
-  }
-
-  .group:hover .journey-card-content,
-  .group:focus-visible .journey-card-content {
-    @apply -translate-y-1.5 scale-[1.02] shadow-xl;
+  .journey-content {
+    @apply h-full rounded-lg border bg-card p-6 pt-12 text-card-foreground shadow-sm transition-all duration-300;
   }
 
-  .group:hover .journey-card-badge,
-  .group:focus-visible .journey-card-badge {
-    @apply scale-110;
-    animation: pop 0.25s ease-out, glow-pulse 1.5s infinite;
+  .group:hover .journey-content {
+    @apply -translate-y-2 scale-105 shadow-xl;
   }
-
-  /* Add gradient border on hover */
-  .journey-card-content::after {
+  
+  .group:hover .journey-badge {
+    transform: scale(1.1);
+  }
+  
+  .journey-content::after {
     @apply content-[''] absolute inset-0 -z-10 rounded-[inherit] p-px;
-    background: conic-gradient(from 180deg at 50% 50%, hsl(var(--primary-hsl) / 0.1) 0deg, hsl(var(--primary-hsl) / 0.5) 180deg, hsl(var(--primary-hsl) / 0.1) 360deg);
-    -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
-    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    background: conic-gradient(from 180deg at 50% 50%, hsl(var(--primary-hsl) / 0) 0deg, hsl(var(--primary-hsl)) 180deg, hsl(var(--primary-hsl) / 0) 360deg);
     opacity: 0;
-    transition: opacity 250ms ease;
+    transition: opacity 300ms ease;
   }
 
-  .group:hover .journey-card-content::after,
-  .group:focus-visible .journey-card-content::after {
+  .group:hover .journey-content::after,
+  .group:focus-visible .journey-content::after {
     @apply opacity-100;
   }
 }
 
-@keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1.1); }
+@keyframes flow {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 10px 0px hsl(var(--primary-hsl) / 0.5); }
-  50% { box-shadow: 0 0 20px 5px hsl(var(--primary-hsl) / 0.7); }
+@keyframes move-arrow {
+  0% { left: 0; transform: translateY(-50%) rotate(0deg); }
+  48% { opacity: 1; }
+  50% { left: 100%; transform: translateY(-50%) rotate(0deg); opacity: 0; }
+  52% { opacity: 0; }
+  100% { left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .group:hover .journey-card-content,
-  .group:hover .journey-card-badge,
-  .journey-card-badge {
+  .journey-path::before,
+  .journey-arrow {
     animation: none;
+  }
+  .group:hover .journey-content,
+  .group:hover .journey-badge {
     transform: none;
   }
 }
