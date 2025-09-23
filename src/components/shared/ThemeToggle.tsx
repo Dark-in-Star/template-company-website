@@ -2,8 +2,10 @@
 "use client"
 
 import * as React from "react"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { cn } from "@/lib/utils"
+
+import { Switch } from "@/components/ui/switch"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -13,51 +15,26 @@ export function ThemeToggle() {
     setIsMounted(true)
   }, [])
 
-  const onThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTheme(e.target.checked ? "dark" : "light")
+  const onThemeChange = (checked: boolean) => {
+    setTheme(checked ? "dark" : "light")
   }
 
   // Avoid rendering until mounted on client
   if (!isMounted) {
-    return <div className="theme-switch-placeholder" />;
+    // Render a placeholder to avoid layout shift
+    return <div className="w-[74px] h-10" />
   }
 
   return (
-    <div className="flex items-center justify-center">
-        <input 
-            id="theme-toggle-input" 
-            type="checkbox" 
-            className="theme-toggle-input"
-            checked={theme === 'dark'}
-            onChange={onThemeChange}
-        />
-        <label htmlFor="theme-toggle-input" className={cn("theme-switch", theme === 'dark' && 'is-dark')}>
-            <div id="circle"></div>
-            <div id="contentwrapper">
-                <div id="stars">
-                    <div className="star"></div>
-                    <div className="star"></div>
-                    <div className="star"></div>
-                </div>
-                <div id="shtngstarwrapper">
-                    <div id="shootingstar"></div>
-                </div>
-                <div className="cloud">
-                    <div className="cloudpart"></div>
-                    <div className="cloudpart"></div>
-                    <div className="cloudpart"></div>
-                </div>
-                <div className="cloud">
-                    <div className="cloudpart"></div>
-                    <div className="cloudpart"></div>
-                </div>
-                <div className="cloud">
-                    <div className="cloudpart"></div>
-                    <div className="cloudpart"></div>
-                    <div className="cloudpart"></div>
-                </div>
-            </div>
-        </label>
+    <div className="flex items-center space-x-2">
+      <Sun className="h-5 w-5" />
+      <Switch
+        id="theme-switch"
+        checked={theme === 'dark'}
+        onCheckedChange={onThemeChange}
+        aria-label="Theme toggle"
+      />
+      <Moon className="h-5 w-5" />
     </div>
   )
 }
