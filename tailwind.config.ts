@@ -20,6 +20,47 @@ export default {
         sans: ['var(--font-roboto)', 'sans-serif'],
         heading: ['var(--font-montserrat)', 'sans-serif'],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            'h2, h3, h4': {
+              'font-family': theme('fontFamily.heading').join(', '),
+              'letter-spacing': theme('letterSpacing.tight'),
+            },
+            p: {
+              'line-height': '1.75',
+              'margin-top': '1.25em',
+              'margin-bottom': '1.25em',
+            },
+            'ul > li::before': {
+              'background-color': theme('colors.primary.DEFAULT'),
+            },
+             blockquote: {
+              'font-style': 'italic',
+              'border-left-color': theme('colors.primary.DEFAULT'),
+              'padding-left': '1.5rem',
+            },
+            'blockquote p:first-of-type::before': {
+              content: 'none',
+            },
+            'blockquote p:last-of-type::after': {
+              content: 'none',
+            },
+          },
+        },
+        invert: {
+           css: {
+            color: theme('colors.gray.300'),
+             'ul > li::before': {
+              'background-color': theme('colors.primary.DEFAULT'),
+            },
+            blockquote: {
+               'border-left-color': theme('colors.primary.DEFAULT'),
+            }
+          }
+        },
+      }),
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
