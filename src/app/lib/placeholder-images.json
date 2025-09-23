@@ -10,5 +10,6 @@
     "qynkoApp1": { "src": "https://picsum.photos/seed/qynko-app1/400/800", "width": 400, "height": 800, "hint": "app screenshot" },
     "qynkoApp2": { "src": "https://picsum.photos/seed/qynko-app2/400/800", "width": 400, "height": 800, "hint": "app screen" },
     "appleLogo": { "src": "https://picsum.photos/seed/apple-logo/50/50", "width": 50, "height": 50, "hint": "apple logo" },
-    "androidLogo": { "src": "https://picsum.photos/seed/android-logo/50/50", "width": 50, "height": 50, "hint": "android logo" }
+    "androidLogo": { "src": "https://picsum.photos/seed/android-logo/50/50", "width": 50, "height": 50, "hint": "android logo" },
+    "whyChooseUs": { "src": "https://picsum.photos/seed/why-us/600/700", "width": 600, "height": 700, "hint": "modern office" }
 }
