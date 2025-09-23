@@ -87,6 +87,12 @@ h1, h2, h3, h4, h5, h6 {
     @apply w-full py-12 md:py-24 lg:py-32;
   }
   *, ::before, ::after {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 2s;
+  }
+
+  *:not(.theme-switch *) {
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
