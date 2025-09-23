@@ -119,13 +119,22 @@ h1, h2, h3, h4, h5, h6 {
     .btn-shine::before {
         content: '';
         @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent;
-        transition: all 0.5s ease-in-out;
+        transform: translateX(-100%);
     }
     .btn-shine:hover::before {
-        @apply left-full;
+        animation: shine 1.5s ease-in-out infinite alternate;
     }
     .btn-super-glow {
       box-shadow: 0 0 5px hsl(var(--primary-hsl)), 0 0 10px hsl(var(--primary-hsl));
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
 
@@ -296,4 +305,5 @@ h1, h2, h3, h4, h5, h6 {
     
 
     
+
 
