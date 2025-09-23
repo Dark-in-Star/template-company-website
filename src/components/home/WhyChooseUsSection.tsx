@@ -13,11 +13,7 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
           </p>
         </div>
         <div className="journey-container">
-          <div className="journey-path">
-            <div className="journey-arrow">
-              <MoveRight className="h-6 w-6" />
-            </div>
-          </div>
+          <div className="journey-path" />
           <div className="grid grid-cols-1 gap-y-20 gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <div key={feature.title} className="journey-card group">
@@ -38,4 +34,5 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
     </section>
   );
 }
+
 

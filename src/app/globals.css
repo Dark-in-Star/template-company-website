@@ -374,17 +374,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply relative;
   }
   .journey-path {
-    @apply absolute inset-x-0 top-8 h-2 w-full overflow-hidden hidden lg:block;
-  }
-  .journey-path::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20;
-    background-size: 200% 100%;
-    animation: flow 8s linear infinite;
-  }
-  .journey-arrow {
-    @apply absolute top-1/2 -translate-y-1/2 text-primary opacity-80;
-    animation: move-arrow 8s linear infinite;
+    @apply absolute top-8 left-0 right-0 h-0.5 w-full bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 hidden md:block;
   }
   .journey-card {
     @apply relative text-center;
@@ -394,8 +384,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   .journey-badge {
     @apply flex h-16 w-16 items-center justify-center rounded-full font-heading text-2xl font-bold text-primary-foreground;
-    background: radial-gradient(circle, hsl(var(--primary-hsl) / 0.9) 0%, hsl(var(--primary-hsl) / 0.7) 100%);
-    box-shadow: 0 4px 15px hsl(var(--primary-hsl) / 0.3);
+    background: radial-gradient(circle, hsl(var(--primary-hsl)) 0%, hsl(var(--primary-hsl) / 0.8) 100%);
+    box-shadow: 0 4px 15px hsl(var(--primary-hsl) / 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
     transition: transform 300ms ease;
   }
   .journey-content {
@@ -403,46 +393,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .group:hover .journey-content {
-    @apply -translate-y-2 scale-105 shadow-xl;
+    @apply -translate-y-2 shadow-xl;
   }
   
   .group:hover .journey-badge {
     transform: scale(1.1);
   }
-  
-  .journey-content::after {
-    @apply content-[''] absolute inset-0 -z-10 rounded-[inherit] p-px;
-    background: conic-gradient(from 180deg at 50% 50%, hsl(var(--primary-hsl) / 0) 0deg, hsl(var(--primary-hsl)) 180deg, hsl(var(--primary-hsl) / 0) 360deg);
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
-
-  .group:hover .journey-content::after,
-  .group:focus-visible .journey-content::after {
-    @apply opacity-100;
-  }
-}
-
-@keyframes flow {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-@keyframes move-arrow {
-  0% { left: 0; transform: translateY(-50%) rotate(0deg); }
-  48% { opacity: 1; }
-  50% { left: 100%; transform: translateY(-50%) rotate(0deg); opacity: 0; }
-  52% { opacity: 0; }
-  100% { left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .journey-path::before,
-  .journey-arrow {
-    animation: none;
-  }
   .group:hover .journey-content,
   .group:hover .journey-badge {
     transform: none;
   }
 }
+
