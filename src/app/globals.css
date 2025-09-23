@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateX(-100%);
     }
     .btn-shine:hover::before {
-        animation: shine 1.5s ease-in-out infinite alternate;
+        animation: shine 0.85s forwards;
     }
     .btn-super-glow {
       box-shadow: 0 0 5px hsl(var(--primary-hsl)), 0 0 10px hsl(var(--primary-hsl));
@@ -130,10 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes shine {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
+    to {
         transform: translateX(100%);
     }
 }
@@ -308,3 +305,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+
+
+    
