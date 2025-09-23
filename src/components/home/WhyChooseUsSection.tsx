@@ -9,9 +9,9 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
     <section className="bg-background">
       <div className="container mx-auto">
         <div className="mb-24 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Why Choose Us?</h2>
+          <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Your Journey to Excellence Starts Here</h2>
           <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground md:text-lg">
-            We are more than just a vendor; we are your strategic partner in innovation and growth.
+            We're not just a service provider; we are your dedicated partner, guiding you through every step of your digital transformation with expertise, innovation, and a commitment to quality.
           </p>
         </div>
         <div className="journey-container mx-auto max-w-6xl">
