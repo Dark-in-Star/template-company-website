@@ -19,9 +19,9 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
-      <div className="container relative mx-auto flex min-h-[70dvh] flex-col items-center justify-center text-center">
+      <div className="container relative mx-auto flex min-h-[60dvh] flex-col items-center justify-center text-center md:min-h-[70dvh]">
         <div className="space-y-4">
-          <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-heading text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Innovating the Future of Business
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
