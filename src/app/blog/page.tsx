@@ -1,24 +1,20 @@
 
 
 import { blogPosts } from '@/lib/data';
-import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
 import { BlogCard } from '@/components/shared/BlogCard';
-import { PageHero } from '@/components/shared/PageHero';
 
 export default function BlogPage() {
-  const blogHero = placeholderImages.blogHero as ImageType;
 
   return (
     <>
-      <PageHero 
-        title="Our Blog"
-        description="Insights, news, and stories from the team at Procellence Technology."
-        image={blogHero}
-      />
-
       <section>
         <div className="container mx-auto">
+          <div className="mb-12 text-center">
+              <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Our Blog</h1>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                  Insights, news, and stories from the team at Procellence Technology.
+              </p>
+          </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
