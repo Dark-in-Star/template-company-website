@@ -23,6 +23,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Send } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { addBlogPost } from './actions';
 
 // Dynamically import CKEditor
 const CKEditorComponent = dynamic(() => import('./CKEditorComponent'), {
@@ -31,16 +32,16 @@ const CKEditorComponent = dynamic(() => import('./CKEditorComponent'), {
 });
 
 const formSchema = z.object({
-  title: z.string().min(5, { message: 'Title must be at least 5 characters.' }).optional(),
-  author: z.string().min(2, { message: 'Author name must be at least 2 characters.' }).optional(),
-  excerpt: z.string().min(20, { message: 'Excerpt must be at least 20 characters.' }).optional(),
-  image: z.any().optional(),
-  content: z.string().min(100, { message: 'Content must be at least 100 characters.' }).optional(),
-  slug: z.string().min(3, { message: 'Slug must be at least 3 characters.' }).optional(),
-  metaTitle: z.string().min(10, { message: 'Meta title must be at least 10 characters.' }).optional(),
-  metaDescription: z.string().min(20, { message: 'Meta description must be at least 20 characters.' }).optional(),
-  metaImage: z.any().optional(),
-  keywords: z.string().optional(),
+  title: z.string().min(5, { message: 'Title must be at least 5 characters.' }),
+  author: z.string().min(2, { message: 'Author name must be at least 2 characters.' }),
+  excerpt: z.string().min(20, { message: 'Excerpt must be at least 20 characters.' }),
+  image: z.any(),
+  content: z.string().min(100, { message: 'Content must be at least 100 characters.' }),
+  slug: z.string().min(3, { message: 'Slug must be at least 3 characters.' }),
+  metaTitle: z.string().min(10, { message: 'Meta title must be at least 10 characters.' }),
+  metaDescription: z.string().min(20, { message: 'Meta description must be at least 20 characters.' }),
+  metaImage: z.any(),
+  keywords: z.string(),
   jsonLd: z.string().optional(),
 });
 
@@ -69,19 +70,34 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
 
   useEffect(() => {
     const subscription = form.watch((value) => {
-      onFormChange(value);
+      const { image, metaImage, ...rest } = value;
+      const serializableValue = {
+        ...rest,
+        image: image && image[0] ? image[0].name : undefined,
+        metaImage: metaImage && metaImage[0] ? metaImage[0].name : undefined
+      }
+      onFormChange(serializableValue);
     });
     return () => subscription.unsubscribe();
   }, [form, onFormChange]);
 
-  function onSubmit(values: BlogPostFormValues) {
-    console.log('New Blog Post Data:', values);
-    toast({
-      title: 'Blog Post Submitted!',
-      description: "Your new blog post has been submitted for review.",
-    });
-    form.reset();
-    onFormChange({});
+  async function onSubmit(values: BlogPostFormValues) {
+    const result = await addBlogPost(values);
+    if (result.success) {
+        console.log('New Blog Post Data:', values);
+        toast({
+          title: 'Blog Post Submitted!',
+          description: "Your new blog post has been submitted for review.",
+        });
+        form.reset();
+        onFormChange({});
+    } else {
+        toast({
+            title: 'Error',
+            description: result.error,
+            variant: 'destructive'
+        })
+    }
   }
 
   return (
@@ -89,7 +105,7 @@ export function PostBlogForm({ onFormChange }: { onFormChange: (data: Partial<Bl
         <CardHeader>
             <CardTitle>Blog Post Details</CardTitle>
             <CardDescription>
-                Provide the details for your new blog post. All fields are optional for drafting.
+                Provide the details for your new blog post. All fields are required.
             </CardDescription>
         </CardHeader>
         <CardContent>
