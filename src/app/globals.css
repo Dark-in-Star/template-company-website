@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 40% 98%;
     --btn-primary-bg: hsl(var(--primary-hsl));
-    --btn-primary-bg-hover: hsl(218, 81%, 60%);
+    --btn-primary-bg-hover: hsl(218, 81%, 45%);
 
     --secondary-hsl: 210 40% 96.1%;
     --secondary: hsl(var(--secondary-hsl));
@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .btn-shine::before {
         content: '';
-        @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent;
+        @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent;
         transition: all 0.5s ease-in-out;
     }
     .btn-shine:hover::before {
@@ -296,3 +296,4 @@ h1, h2, h3, h4, h5, h6 {
     
 
     
+
