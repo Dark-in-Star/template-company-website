@@ -54,13 +54,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="flex items-center text-gray-400 transition-colors hover:text-white hover:translate-x-1"
-                  >
-                    <ChevronRight className="mr-1 h-4 w-4" />
-                    {link.label}
-                  </Link>
+                    <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
+                        <Link href={link.href}>
+                            <ChevronRight className="mr-2 h-4 w-4" />
+                            {link.label}
+                        </Link>
+                    </Button>
                 </li>
               ))}
             </ul>
@@ -71,22 +70,20 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link
-                  href="/privacy-policy"
-                  className="flex items-center text-gray-400 hover:text-white hover:translate-x-1"
-                >
-                  <ChevronRight className="mr-1 h-4 w-4" />
-                  Privacy Policy
-                </Link>
+                <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <Link href="/privacy-policy">
+                        <ChevronRight className="mr-2 h-4 w-4" />
+                        Privacy Policy
+                    </Link>
+                </Button>
               </li>
               <li>
-                <Link
-                  href="/terms-of-service"
-                  className="flex items-center text-gray-400 hover:text-white hover:translate-x-1"
-                >
-                  <ChevronRight className="mr-1 h-4 w-4" />
-                  Terms of Service
-                </Link>
+                <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <Link href="/terms-of-service">
+                        <ChevronRight className="mr-2 h-4 w-4" />
+                        Terms of Service
+                    </Link>
+                </Button>
               </li>
             </ul>
           </div>
