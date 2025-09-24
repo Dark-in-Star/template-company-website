@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import type { Image as ImageType } from '@/lib/types';
+import { AnimatedHeadline } from './AnimatedHeadline';
+
+const dynamicWords = ['Growth', 'Success', 'Innovation', 'Business'];
 
 export function HeroSection({ heroImage }: { heroImage: ImageType }) {
   return (
@@ -22,7 +25,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
       <div className="container relative mx-auto flex min-h-[80vh] flex-col items-center justify-center text-center md:min-h-[90vh] pb-32 sm:pb-0">
         <div className="space-y-4">
           <h1 className="font-heading text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
-            Innovating the Future of Business
+            Innovating the Future of <AnimatedHeadline words={dynamicWords} />
           </h1>
           <p className="mx-auto max-w-[700px] text-gray-200 md:text-xl animate-fade-in-up [animation-delay:200ms]">
             Procellence Technology delivers cutting-edge technology solutions that drive growth, efficiency, and success for your business. Let us be your partner in digital excellence.
@@ -36,7 +39,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
             </Button>
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button size="lg" variant="outline" className="w-full border-gray-400 text-foreground bg-transparent hover:bg-accent hover:text-accent-foreground">
+            <Button size="lg" variant="outline" className="w-full border-gray-400 bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground">
               Get in Touch
             </Button>
           </Link>

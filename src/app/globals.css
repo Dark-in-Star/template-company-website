@@ -456,6 +456,49 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Animated Headline */
+@layer utilities {
+  .animated-word-container {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+  .animated-word {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  .animated-word.animate-in {
+    animation: slide-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  .animated-word.animate-out {
+    animation: slide-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .group:hover .journey-content,
