@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook, Github, Instagram, ChevronRight } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Github, Instagram } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -54,12 +54,9 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                    <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
-                        <Link href={link.href}>
-                            <ChevronRight className="mr-2 h-4 w-4" />
-                            {link.label}
-                        </Link>
-                    </Button>
+                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -70,20 +67,14 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
-                    <Link href="/privacy-policy">
-                        <ChevronRight className="mr-2 h-4 w-4" />
-                        Privacy Policy
-                    </Link>
-                </Button>
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <Button asChild variant="ghost" className="w-full justify-start text-gray-400 hover:bg-gray-800 hover:text-white">
-                    <Link href="/terms-of-service">
-                        <ChevronRight className="mr-2 h-4 w-4" />
-                        Terms of Service
-                    </Link>
-                </Button>
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
               </li>
             </ul>
           </div>
