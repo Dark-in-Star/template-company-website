@@ -19,9 +19,9 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 backdrop-blur-sm" />
       </div>
-      <div className="container relative mx-auto flex min-h-[60dvh] flex-col items-center justify-center text-center md:min-h-[70dvh]">
+      <div className="container relative mx-auto flex min-h-[80vh] flex-col items-center justify-center text-center md:min-h-[90vh]">
         <div className="space-y-4">
-          <h1 className="font-heading text-3xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
+          <h1 className="font-heading text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
             Innovating the Future of Business
           </h1>
           <p className="mx-auto max-w-[700px] text-gray-200 md:text-xl animate-fade-in-up [animation-delay:200ms]">
