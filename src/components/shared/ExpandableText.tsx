@@ -19,7 +19,9 @@ export function ExpandableText({ text }: ExpandableTextProps) {
     return <p className="text-muted-foreground mt-2 flex-1">{text}</p>;
   }
 
-  const toggleExpanded = () => {
+  const toggleExpanded = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
     setIsExpanded(!isExpanded);
   };
 
@@ -28,9 +30,11 @@ export function ExpandableText({ text }: ExpandableTextProps) {
       <p className="text-muted-foreground">
         {isExpanded ? text : `${text.substring(0, maxLength)}...`}
       </p>
-      <Button variant="link" onClick={toggleExpanded} className="p-0 text-sm h-auto mt-2">
-        {isExpanded ? 'Read Less' : 'Read More'}
-      </Button>
+      <div className="pointer-events-none">
+        <Button variant="link" onClick={toggleExpanded} className="p-0 text-sm h-auto mt-2 pointer-events-auto relative z-20">
+            {isExpanded ? 'Read Less' : 'Read More'}
+        </Button>
+      </div>
     </div>
   );
 }
