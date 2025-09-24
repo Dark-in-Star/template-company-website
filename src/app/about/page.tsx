@@ -148,7 +148,6 @@ export default function AboutPage() {
                   onMouseLeave={plugin.current.reset}
                   opts={{
                       align: 'start',
-                      loop: true,
                   }}
               >
               <CarouselContent className="-ml-4">
