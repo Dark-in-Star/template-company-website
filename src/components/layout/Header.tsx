@@ -39,7 +39,7 @@ export function Header() {
         <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link href="/contact" className="hidden sm:block">
-                <Button variant="super">Contact Us</Button>
+                <Button>Contact Us</Button>
             </Link>
             <Button
                 variant="ghost"
