@@ -18,9 +18,11 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (parallaxRef.current) {
-        const yOffset = window.pageYOffset;
-        parallaxRef.current.style.setProperty('--parallax-y', `${yOffset * 0.1}px`);
+      if (parallaxRef.current && window.innerWidth > 768) {
+        const top = parallaxRef.current.getBoundingClientRect().top;
+        const speed = 0.2;
+        const yOffset = -top * speed;
+        parallaxRef.current.style.setProperty('--parallax-y', `${yOffset}px`);
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -32,20 +34,18 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
       ref={ref} 
       className={cn('about-section-v2', isInView && 'is-visible')}
     >
-      <div className="about-image-wrapper">
-        <Image
-          ref={parallaxRef}
-          src={aboutImage.src}
-          alt="Our Team"
-          data-ai-hint={aboutImage.hint}
-          fill
-          className="about-image-parallax"
-        />
-        <div className="about-image-overlay" />
-      </div>
-      <div className="container relative mx-auto grid grid-cols-1 items-center md:grid-cols-2">
-        <div className="md:col-span-1" />
-        <div className="md:col-span-1">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <div className="about-image-wrapper">
+          <Image
+            ref={parallaxRef}
+            src={aboutImage.src}
+            alt="Our Team"
+            data-ai-hint={aboutImage.hint}
+            fill
+            className="about-image-parallax"
+          />
+        </div>
+        <div className="md:col-start-2">
           <Card className="about-content-card bg-card/80 shadow-2xl backdrop-blur-lg">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
