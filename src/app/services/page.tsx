@@ -28,7 +28,7 @@ export default function ServicesPage() {
           image={servicesHero}
           />
         <div className="relative">
-            <div className="container -mt-24 pb-12">
+            <div className="container -mt-24 pb-12 sm:mt-0 sm:pb-0 sm:pt-12">
                 <ScrollAnimation>
                     <StatsSection />
                 </ScrollAnimation>

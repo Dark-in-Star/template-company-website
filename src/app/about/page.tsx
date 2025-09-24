@@ -1,7 +1,6 @@
 
 'use client';
 
-import * as React from 'react';
 import type { Image as ImageType } from '@/lib/types';
 import { PageHero } from '@/components/shared/PageHero';
 import { StatsSection } from '@/components/home/StatsSection';
@@ -24,7 +23,7 @@ export default function AboutPage() {
         image={aboutHero}
       />
       <div id="stats" className="relative">
-        <div className="container -mt-24 pb-12">
+        <div className="container -mt-24 pb-12 sm:mt-0 sm:pb-0 sm:pt-12">
           <ScrollAnimation>
             <StatsSection />
           </ScrollAnimation>
