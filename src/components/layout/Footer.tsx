@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -54,8 +53,9 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 transition-colors hover:text-white">
-                    {link.label}
+                  <Link href={link.href} className="group flex items-center text-gray-400 transition-colors hover:text-white">
+                    <span className="mr-2 opacity-0 transition-all duration-300 group-hover:mr-3 group-hover:opacity-100">&gt;</span>
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -67,13 +67,15 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/privacy-policy" className="text-gray-400 transition-colors hover:text-white">
-                  Privacy Policy
+                <Link href="/privacy-policy" className="group flex items-center text-gray-400 transition-colors hover:text-white">
+                  <span className="mr-2 opacity-0 transition-all duration-300 group-hover:mr-3 group-hover:opacity-100">&gt;</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Privacy Policy</span>
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="text-gray-400 transition-colors hover:text-white">
-                  Terms of Service
+                <Link href="/terms-of-service" className="group flex items-center text-gray-400 transition-colors hover:text-white">
+                  <span className="mr-2 opacity-0 transition-all duration-300 group-hover:mr-3 group-hover:opacity-100">&gt;</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Terms of Service</span>
                 </Link>
               </li>
             </ul>
