@@ -19,7 +19,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 backdrop-blur-sm" />
       </div>
-      <div className="container relative mx-auto flex min-h-[90vh] flex-col items-center justify-center text-center md:min-h-[90vh]">
+      <div className="container relative mx-auto flex min-h-[80vh] flex-col items-center justify-center text-center md:min-h-[90vh]">
         <div className="space-y-4">
           <h1 className="font-heading text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
             Innovating the Future of Business
@@ -36,7 +36,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
             </Button>
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button size="lg" variant="outline" className="w-full border-gray-400 text-white hover:bg-white hover:text-black dark:text-white dark:hover:text-black">
+            <Button size="lg" variant="outline" className="w-full border-gray-400 text-white hover:bg-white/90 hover:text-black dark:text-white dark:hover:bg-white/90 dark:hover:text-black">
               Get in Touch
             </Button>
           </Link>
