@@ -437,6 +437,18 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Blog Card v2 */
+@layer components {
+    .author-badge {
+        transition: all 0.3s ease-in-out;
+    }
+    .group:hover .author-badge {
+        transform: translateY(-8px) scale(1.05);
+        background-color: hsl(var(--primary-hsl));
+        border-color: hsl(var(--primary-foreground) / 0.5);
+    }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .group:hover .journey-content,
