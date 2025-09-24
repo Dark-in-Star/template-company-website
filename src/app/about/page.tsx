@@ -149,32 +149,29 @@ export default function AboutPage() {
               >
               <CarouselContent className="-ml-4">
                   {otherTeamMembers.map((member, index) => (
-                  <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
+                  <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/3">
                     <ScrollAnimation delay={index * 150}>
-                        <div className="group block h-full">
-                        <Card className="group relative w-full overflow-hidden pt-[125%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <Image
-                                src={member.image.src}
-                                alt={member.name}
-                                data-ai-hint={member.image.hint}
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className={cn('absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100')}>
-                                <div className="text-center text-white">
-                                <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-                                <p className="text-lg font-medium text-primary">{member.role}</p>
-                                </div>
-                                {member.socials && (
-                                <div className="mt-4 flex gap-2">
-                                    <SocialLink platform="linkedin" url={member.socials.linkedin} />
-                                    <SocialLink platform="twitter" url={member.socials.twitter} />
-                                    <SocialLink platform="github" url={member.socials.github} />
-                                </div>
-                                )}
-                            </div>
-                        </Card>
+                      <Card className="group relative w-full overflow-hidden transition-all duration-300 hover:shadow-xl">
+                        <Image
+                          src={member.image.src}
+                          alt={member.name}
+                          data-ai-hint={member.image.hint}
+                          width={400}
+                          height={500}
+                          className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                          <div className="p-6 text-white transition-all duration-300 group-hover:-translate-y-10">
+                            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+                            <p className="text-base text-primary">{member.role}</p>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                            <SocialLink platform="linkedin" url={member.socials?.linkedin} />
+                            <SocialLink platform="twitter" url={member.socials?.twitter} />
+                            <SocialLink platform="github" url={member.socials?.github} />
+                          </div>
                         </div>
+                      </Card>
                     </ScrollAnimation>
                   </CarouselItem>
                   ))}
