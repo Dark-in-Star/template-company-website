@@ -1,4 +1,5 @@
 
+'use client';
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -6,13 +7,17 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import type { BlogPost } from '@/lib/types';
 import { BlogCard } from '@/components/shared/BlogCard';
+import * as React from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+import { TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 
 export function BlogSection({ posts }: { posts: BlogPost[] }) {
+    const plugin = React.useRef(
+        Autoplay({ delay: TEAM_CAROUSEL_AUTOPLAY_DELAY, stopOnInteraction: true })
+    );
 
   return (
     <section className="bg-background">
@@ -24,10 +29,14 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
           </p>
         </div>
         <Carousel
+          plugins={[plugin.current]}
           opts={{
             align: 'start',
+            loop: true,
           }}
           className="w-full"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {posts.map((post) => (
@@ -38,8 +47,6 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
         <div className="mt-12 text-center">
             <Link href="/blog">

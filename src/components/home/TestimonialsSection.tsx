@@ -1,16 +1,23 @@
 
+'use client';
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import type { Testimonial } from '@/lib/types';
+import * as React from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+import { TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 
 export function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
+    const plugin = React.useRef(
+        Autoplay({ delay: TEAM_CAROUSEL_AUTOPLAY_DELAY, stopOnInteraction: true })
+    );
+
   return (
     <section className="bg-primary/5">
       <div className="container mx-auto">
@@ -21,11 +28,14 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
           </p>
         </div>
         <Carousel
+          plugins={[plugin.current]}
           opts={{
             align: 'start',
             loop: true,
           }}
           className="mx-auto w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
@@ -54,8 +64,6 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
       </div>
     </section>

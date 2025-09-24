@@ -1,8 +1,9 @@
+
 // src/lib/constants.ts
 
 // About Page
 export const INITIAL_FAQS_COUNT = 3;
-export const TEAM_CAROUSEL_AUTOPLAY_DELAY = 2000;
+export const TEAM_CAROUSEL_AUTOPLAY_DELAY = 4000;
 
 // ExpandableText Component
 export const DEFAULT_MAX_LENGTH = 100;
