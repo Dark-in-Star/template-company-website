@@ -37,34 +37,34 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   const isMobile = useIsMobile();
   return (
     <div className="relative mt-8 md:mt-0">
-        <div className="relative md:flex md:items-end">
-            <div className="relative z-10 w-full rounded-lg md:w-1/2">
-                <Card className="overflow-hidden shadow-xl">
-                    <Image
-                        src={member.image.src}
-                        alt={member.name}
-                        data-ai-hint={member.image.hint}
-                        width={member.image.width}
-                        height={member.image.height}
-                        className="h-full w-full object-cover"
-                    />
-                </Card>
-            </div>
-            <div className="w-full md:w-2/3 md:-ml-16">
-                 <Card className="relative -mt-8 rounded-lg border bg-card p-6 shadow-lg md:mt-0 md:p-10">
-                    <CardContent className="p-0">
-                        <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-                        <p className="text-lg font-medium text-primary">{member.role}</p>
-                        <p className="mt-4 flex-1 text-muted-foreground">{member.bio}</p>
-                        <div className="mt-6 flex gap-2">
-                            <SocialLink platform="linkedin" url={member.socials?.linkedin} />
-                            <SocialLink platform="twitter" url={member.socials?.twitter} />
-                            <SocialLink platform="github" url={member.socials?.github} />
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
+      <div className="relative flex flex-col md:flex-row md:items-center">
+        <div className="md:w-1/2 lg:w-5/12">
+          <Card className="overflow-hidden shadow-xl">
+            <Image
+              src={member.image.src}
+              alt={member.name}
+              data-ai-hint={member.image.hint}
+              width={member.image.width}
+              height={member.image.height}
+              className="h-full w-full object-cover"
+            />
+          </Card>
         </div>
+        <div className="w-full md:w-1/2 lg:w-7/12">
+          <Card className="relative -mt-8 rounded-lg border bg-card p-6 shadow-lg md:-ml-16 md:mt-0 md:p-10">
+            <CardContent className="p-0">
+              <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+              <p className="text-lg font-medium text-primary">{member.role}</p>
+              <p className="mt-4 text-muted-foreground">{member.bio}</p>
+              <div className="mt-6 flex gap-2">
+                <SocialLink platform="linkedin" url={member.socials?.linkedin} />
+                <SocialLink platform="twitter" url={member.socials?.twitter} />
+                <SocialLink platform="github" url={member.socials?.github} />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
