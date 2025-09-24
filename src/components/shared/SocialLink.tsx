@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -21,7 +22,7 @@ export function SocialLink({ platform, url }: { platform: keyof NonNullable<Team
 
   return (
     <Link href={url} target="_blank" rel="noopener noreferrer">
-      <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 hover:text-white">
+      <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent hover:text-accent-foreground">
         {icons[platform]}
         <span className="sr-only">{platform}</span>
       </Button>
