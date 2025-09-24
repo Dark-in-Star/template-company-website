@@ -24,10 +24,27 @@ export default {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            '--tw-prose-body': theme('colors.foreground / 0.8'),
+            '--tw-prose-headings': theme('colors.foreground'),
+            '--tw-prose-lead': theme('colors.foreground / 0.9'),
+            '--tw-prose-links': theme('colors.primary.DEFAULT'),
+            '--tw-prose-bold': theme('colors.foreground'),
+            '--tw-prose-counters': theme('colors.muted.foreground'),
+            '--tw-prose-bullets': 'hsl(var(--primary-hsl))',
+            '--tw-prose-hr': theme('colors.border'),
+            '--tw-prose-quotes': theme('colors.foreground'),
+            '--tw-prose-quote-borders': theme('colors.border'),
+            '--tw-prose-captions': theme('colors.muted.foreground'),
+            '--tw-prose-code': theme('colors.foreground'),
+            '--tw-prose-pre-code': theme('colors.foreground'),
+            '--tw-prose-pre-bg': theme('colors.background'),
+            '--tw-prose-th-borders': theme('colors.border'),
+            '--tw-prose-td-borders': theme('colors.border'),
+            color: 'var(--tw-prose-body)',
             'h2, h3, h4': {
               'font-family': theme('fontFamily.heading').join(', '),
               'letter-spacing': theme('letterSpacing.tight'),
+              color: 'var(--tw-prose-headings)',
             },
             p: {
               'line-height': '1.75',
@@ -35,11 +52,11 @@ export default {
               'margin-bottom': '1.25em',
             },
             'ul > li::before': {
-              'background-color': theme('colors.primary.DEFAULT'),
+              'background-color': 'var(--tw-prose-bullets)',
             },
              blockquote: {
               'font-style': 'italic',
-              'border-left-color': theme('colors.primary.DEFAULT'),
+              'border-left-color': 'hsl(var(--primary-hsl))',
               'padding-left': '1.5rem',
             },
             'blockquote p:first-of-type::before': {
@@ -51,15 +68,24 @@ export default {
           },
         },
         invert: {
-           css: {
-            color: theme('colors.gray.300'),
-             'ul > li::before': {
-              'background-color': theme('colors.primary.DEFAULT'),
-            },
-            blockquote: {
-               'border-left-color': theme('colors.primary.DEFAULT'),
-            }
-          }
+          css: {
+            '--tw-prose-body': 'hsl(var(--foreground) / 0.8)',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-lead': 'hsl(var(--foreground) / 0.9)',
+            '--tw-prose-links': 'hsl(var(--primary-hsl))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            '--tw-prose-counters': 'hsl(var(--muted-foreground))',
+            '--tw-prose-bullets': 'hsl(var(--primary-hsl))',
+            '--tw-prose-hr': 'hsl(var(--border))',
+            '--tw-prose-quotes': 'hsl(var(--foreground))',
+            '--tw-prose-quote-borders': 'hsl(var(--border))',
+            '--tw-prose-captions': 'hsl(var(--muted-foreground))',
+            '--tw-prose-code': 'hsl(var(--foreground))',
+            '--tw-prose-pre-code': 'hsl(var(--foreground))',
+            '--tw-prose-pre-bg': 'hsl(var(--background))',
+            '--tw-prose-th-borders': 'hsl(var(--border))',
+            '--tw-prose-td-borders': 'hsl(var(--border))',
+           }
         },
       }),
       colors: {
@@ -154,9 +180,9 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in-down': 'fade-in-down 2s ease-out forwards',
-        'fade-in-up': 'fade-in-up 2s ease-out forwards',
-        'pulse': 'pulse 1s ease-in-out',
+        'fade-in-down': 'fade-in-down 0.6s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

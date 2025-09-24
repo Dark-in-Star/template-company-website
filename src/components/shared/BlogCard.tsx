@@ -35,7 +35,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
                 {post.title}
             </Link>
             </CardTitle>
-            <CardDescription className="mt-2 text-sm text-muted-foreground">{post.excerpt}</CardDescription>
+            <CardDescription className="mt-2 text-sm">{post.excerpt}</CardDescription>
         </div>
       </CardContent>
       <CardFooter className="p-6 pt-0">
