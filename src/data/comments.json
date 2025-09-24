@@ -5,7 +5,7 @@
       "id": "comment-1",
       "author": {
         "name": "John Doe",
-        "avatar": "https://picsum.photos/seed/user1/40/40"
+        "avatar": "/img/user1.webp"
       },
       "date": "2024-06-01T10:00:00Z",
       "content": "This is a great article on the future of AI. The trends discussed here are very relevant to what we are seeing in the industry. I'm particularly interested in how hyper-personalization will evolve with more advanced AI models.",
@@ -14,7 +14,7 @@
           "id": "reply-1-1",
           "author": {
             "name": "Aria Chen",
-            "avatar": "https://picsum.photos/seed/product/40/40"
+            "avatar": "/img/product.webp"
           },
           "date": "2024-06-01T11:30:00Z",
           "content": "Thanks, John! We're excited about hyper-personalization too. The ability to create truly unique customer experiences at scale is a game-changer.",
@@ -26,7 +26,7 @@
       "id": "comment-2",
       "author": {
         "name": "Jane Smith",
-        "avatar": "https://picsum.photos/seed/user2/40/40"
+        "avatar": "/img/user2.webp"
       },
       "date": "2024-06-02T14:15:00Z",
       "content": "I have a question about the ethics of AI in business. While the potential is huge, how can companies ensure they are using AI responsibly and avoiding bias in their algorithms? It would be great to see a follow-up post on this topic.",

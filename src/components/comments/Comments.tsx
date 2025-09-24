@@ -15,7 +15,7 @@ interface CommentsProps {
 // Mock current user - in a real app, this would come from an auth context
 const currentUser = {
   name: 'Current User',
-  avatar: 'https://picsum.photos/seed/current-user/40/40',
+  avatar: '/img/current-user.webp',
 };
 
 export function Comments({ initialComments }: CommentsProps) {

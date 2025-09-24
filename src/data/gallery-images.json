@@ -1,11 +1,11 @@
 
 [
-  { "src": "https://picsum.photos/seed/gallery1/600/400", "alt": "Gallery Image 1", "hint": "abstract architecture" },
-  { "src": "https://picsum.photos/seed/gallery2/600/800", "alt": "Gallery Image 2", "hint": "nature landscape" },
-  { "src": "https://picsum.photos/seed/gallery3/800/600", "alt": "Gallery Image 3", "hint": "city skyline" },
-  { "src": "https://picsum.photos/seed/gallery4/600/400", "alt": "Gallery Image 4", "hint": "technology design" },
-  { "src": "https://picsum.photos/seed/gallery5/800/600", "alt": "Gallery Image 5", "hint": "team working" },
-  { "src": "https://picsum.photos/seed/gallery6/600/800", "alt": "Gallery Image 6", "hint": "modern office" },
-  { "src": "https://picsum.photos/seed/gallery7/600/400", "alt": "Gallery Image 7", "hint": "data visualization" },
-  { "src": "https://picsum.photos/seed/gallery8/800/600", "alt": "Gallery Image 8", "hint": "innovation concept" }
+  { "src": "/img/gallery1.webp", "alt": "Gallery Image 1", "hint": "abstract architecture" },
+  { "src": "/img/gallery2.webp", "alt": "Gallery Image 2", "hint": "nature landscape" },
+  { "src": "/img/gallery3.webp", "alt": "Gallery Image 3", "hint": "city skyline" },
+  { "src": "/img/gallery4.webp", "alt": "Gallery Image 4", "hint": "technology design" },
+  { "src": "/img/gallery5.webp", "alt": "Gallery Image 5", "hint": "team working" },
+  { "src": "/img/gallery6.webp", "alt": "Gallery Image 6", "hint": "modern office" },
+  { "src": "/img/gallery7.webp", "alt": "Gallery Image 7", "hint": "data visualization" },
+  { "src": "/img/gallery8.webp", "alt": "Gallery Image 8", "hint": "innovation concept" }
 ]
