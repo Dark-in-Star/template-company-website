@@ -156,7 +156,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-down': 'fade-in-down 2s ease-out forwards',
         'fade-in-up': 'fade-in-up 2s ease-out forwards',
-        'pulse': 'pulse 1s ease-in-out',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
