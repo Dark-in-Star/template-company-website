@@ -1,8 +1,8 @@
 
-
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { galleryImages } from '@/lib/data';
+import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 export default function GalleryPage() {
   return (
@@ -10,27 +10,29 @@ export default function GalleryPage() {
       <section>
         <div className="container mx-auto">
             <div className="mb-12 text-center">
-                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">Our Gallery</h1>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl animate-fade-in-down">Our Gallery</h1>
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground animate-fade-in-up [animation-delay:200ms]">
                     A glimpse into our world. See our team, our projects, and our culture in action.
                 </p>
             </div>
-          <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4">
-            {galleryImages.map((image, index) => (
-              <Card key={index} className="mb-4 break-inside-avoid overflow-hidden">
-                <CardContent className="p-0">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    data-ai-hint={image.hint}
-                    width={800}
-                    height={600}
-                    className="h-auto w-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+            <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4">
+                {galleryImages.map((image, index) => (
+                    <ScrollAnimation key={index} delay={index * 100} className="mb-4 break-inside-avoid">
+                        <Card className="overflow-hidden">
+                            <CardContent className="p-0">
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                data-ai-hint={image.hint}
+                                width={800}
+                                height={600}
+                                className="h-auto w-full object-cover transition-transform duration-300 hover:scale-105"
+                            />
+                            </CardContent>
+                        </Card>
+                    </ScrollAnimation>
+                ))}
+            </div>
         </div>
       </section>
     </>

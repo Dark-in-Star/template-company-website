@@ -45,4 +45,3 @@ export function WhyChooseUsSection({ features }: { features: Feature[] }) {
     </section>
   );
 }
-

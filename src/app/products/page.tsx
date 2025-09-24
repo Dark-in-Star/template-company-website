@@ -1,5 +1,4 @@
 
-
 import Image from "next/image";
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image as ImageType } from '@/lib/types';

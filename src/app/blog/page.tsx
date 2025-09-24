@@ -1,5 +1,4 @@
 
-
 import { blogPosts } from '@/lib/data';
 import { BlogCard } from '@/components/shared/BlogCard';
 import type { Metadata } from 'next';
