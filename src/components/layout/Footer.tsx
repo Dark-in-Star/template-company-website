@@ -55,7 +55,7 @@ export function Footer() {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                    <ArrowRight className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -69,13 +69,13 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/privacy-policy" className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                  <ArrowRight className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
                   <span>Privacy Policy</span>
                 </Link>
               </li>
               <li>
                 <Link href="/terms-of-service" className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                  <ArrowRight className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
                   <span>Terms of Service</span>
                 </Link>
               </li>
