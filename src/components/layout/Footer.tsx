@@ -40,6 +40,11 @@ export function Footer() {
                 <Github className="h-5 w-5" />
             </a>
           </div>
+          <div className="mt-2">
+            <Link href="/contact">
+                <Button variant="super" size="sm">Request App Demo</Button>
+            </Link>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm md:col-span-2 md:grid-cols-3">
           <div>
@@ -59,11 +64,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4">
-                <Link href="/contact">
-                    <Button variant="super" size="sm">Request App Demo</Button>
-                </Link>
-            </div>
           </div>
           <div>
             <h3 className="font-semibold tracking-wider text-white">
