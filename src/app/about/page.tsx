@@ -12,8 +12,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import {
   Accordion,
@@ -185,8 +183,6 @@ export default function AboutPage() {
                   </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
               </Carousel>
           </ScrollAnimation>
 

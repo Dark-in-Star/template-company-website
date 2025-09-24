@@ -6,8 +6,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import type { BlogPost } from '@/lib/types';
 import { BlogCard } from '@/components/shared/BlogCard';
@@ -38,8 +36,6 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
         <div className="mt-12 text-center">
             <Link href="/blog">
