@@ -74,19 +74,20 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
 
   return (
     <section 
-      ref={ref} 
-      className={cn('relative', isInView && 'is-visible')}
+      ref={ref}
+      className={cn('about-section-v2', isInView && 'is-visible')}
     >
-      <Image
-        src="https://picsum.photos/seed/aboutbg/1200/800"
-        alt="About us background"
-        data-ai-hint="modern office background"
-        fill
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-      <div className="container relative mx-auto grid grid-cols-1 items-center">
-        <div className="mx-auto max-w-2xl lg:max-w-3xl">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <div className="about-image-wrapper hidden md:block">
+            <Image
+                src={aboutImage.src}
+                alt="About Procellence Technology"
+                data-ai-hint={aboutImage.hint}
+                fill
+                className="about-image-parallax object-cover"
+            />
+        </div>
+        <div>
           <Card className="about-content-card bg-card/80 shadow-2xl">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
