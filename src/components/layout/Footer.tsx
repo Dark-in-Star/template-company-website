@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook, Github, Instagram, Send } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Github, Instagram, Rocket } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import { navLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -44,7 +44,7 @@ export function Footer() {
             <Link href="/contact">
                 <Button size="sm" className="group/button">
                     Request App Demo
-                    <Send className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                    <Rocket className="ml-2 h-4 w-4 animate-pulse" />
                 </Button>
             </Link>
           </div>
