@@ -35,7 +35,7 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
       className={cn('about-section-v2', isInView && 'is-visible')}
     >
       <div className="container mx-auto grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-        <div className="about-image-wrapper">
+        <div className="about-image-wrapper hidden md:block">
           <Image
             ref={parallaxRef}
             src={aboutImage.src}
@@ -45,7 +45,7 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
             className="about-image-parallax"
           />
         </div>
-        <div className="md:col-start-2">
+        <div className="md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-2">
           <Card className="about-content-card bg-card/80 shadow-2xl backdrop-blur-lg">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
