@@ -59,6 +59,11 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <div className="mt-4">
+                <Link href="/contact">
+                    <Button variant="super" size="sm">Request App Demo</Button>
+                </Link>
+            </div>
           </div>
           <div>
             <h3 className="font-semibold tracking-wider text-white">
