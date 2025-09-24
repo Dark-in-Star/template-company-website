@@ -7,7 +7,7 @@ export function BrochureSummarizerSection() {
   return (
     <section>
       <div className="container mx-auto">
-        <div className="rounded-lg border border-border/20 bg-secondary/20 p-8 shadow-lg backdrop-blur-lg md:p-12">
+        <div className="rounded-lg border border-border/20 bg-gradient-to-br from-primary/10 via-background to-secondary/20 p-8 shadow-lg backdrop-blur-lg md:p-12">
             <div className="grid grid-cols-1 items-center gap-8 text-center md:grid-cols-3 md:text-left">
                 <div className="flex items-center justify-center gap-4 md:col-span-1">
                     <Lightbulb className="h-12 w-12 text-primary" />
