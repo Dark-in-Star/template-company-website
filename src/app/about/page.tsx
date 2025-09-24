@@ -32,35 +32,33 @@ import { cn } from '@/lib/utils';
 import { StatsSection } from '@/components/home/StatsSection';
 import { INITIAL_FAQS_COUNT, TEAM_CAROUSEL_AUTOPLAY_DELAY } from '@/lib/constants';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
-import { InteractiveCard } from '@/components/shared/InteractiveCard';
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
-    const isMobile = useIsMobile();
+  const isMobile = useIsMobile();
   return (
-    <div className='flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left'>
-      <div className='relative group flex justify-center'>
-        <Image
-          src={member.image.src}
-          alt={member.name}
-          data-ai-hint={member.image.hint}
-          width={member.image.width}
-          height={member.image.height}
-          className="h-64 w-64 rounded-full object-cover shadow-lg transition-transform duration-300 group-hover:scale-105"
-        />
-        {member.socials && (
-          <div className={cn('absolute inset-0 flex items-center justify-center gap-2 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100')}>
-            <SocialLink platform="linkedin" url={member.socials.linkedin} />
-            <SocialLink platform="twitter" url={member.socials.twitter} />
-            <SocialLink platform="github" url={member.socials.github} />
-          </div>
-        )}
-      </div>
-      <div className="flex-1">
-        <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-        <p className="text-lg font-medium text-primary">{member.role}</p>
-        <p className="mt-4 text-muted-foreground">{member.bio}</p>
-      </div>
-    </div>
+    <Card className="group relative w-full overflow-hidden transition-all duration-300 hover:shadow-xl md:flex md:items-stretch">
+        <div className="relative md:w-2/5">
+            <Image
+                src={member.image.src}
+                alt={member.name}
+                data-ai-hint={member.image.hint}
+                width={member.image.width}
+                height={member.image.height}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:bg-gradient-to-r" />
+        </div>
+        <div className="relative flex flex-col p-6 md:w-3/5 md:p-8">
+            <div className="absolute -top-5 right-5 z-20 flex gap-1 rounded-full border border-border bg-background/70 p-1 backdrop-blur-sm">
+                <SocialLink platform="linkedin" url={member.socials?.linkedin} />
+                <SocialLink platform="twitter" url={member.socials?.twitter} />
+                <SocialLink platform="github" url={member.socials?.github} />
+            </div>
+            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+            <p className="text-lg font-medium text-primary">{member.role}</p>
+            <p className="mt-4 flex-1 text-muted-foreground">{member.bio}</p>
+        </div>
+    </Card>
   );
 }
 
@@ -129,11 +127,9 @@ export default function AboutPage() {
           <Separator />
 
           <ScrollAnimation>
-            <div>
-                <h2 className="font-heading mb-8 text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
-                 <InteractiveCard>
-                    <TeamMemberCard member={founder} />
-                </InteractiveCard>
+            <div className="space-y-8">
+                <h2 className="font-heading text-center text-3xl font-bold tracking-tighter">Meet the Founder</h2>
+                <TeamMemberCard member={founder} />
             </div>
           </ScrollAnimation>
 
