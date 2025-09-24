@@ -152,7 +152,7 @@ export default function AboutPage() {
                   <CarouselItem key={member.name} className="basis-full pl-4 md:basis-1/2 lg:basis-1/4">
                     <ScrollAnimation delay={index * 150}>
                         <div className="group block h-full">
-                        <Card className="group relative w-full overflow-hidden pt-[133.33%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <Card className="group relative w-full overflow-hidden pt-[100%] h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <Image
                                 src={member.image.src}
                                 alt={member.name}
