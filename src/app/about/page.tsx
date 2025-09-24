@@ -36,19 +36,18 @@ import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 function TeamMemberCard({ member }: { member: TeamMember }) {
   const isMobile = useIsMobile();
   return (
-    <Card className="group relative w-full overflow-hidden transition-all duration-300 hover:shadow-xl md:flex md:items-stretch">
-        <div className="relative md:w-2/5">
+    <Card className="group w-full transition-all duration-300 md:flex md:items-stretch overflow-hidden border shadow-lg hover:shadow-xl hover:-translate-y-1">
+        <div className="relative md:w-1/3">
             <Image
                 src={member.image.src}
                 alt={member.name}
                 data-ai-hint={member.image.hint}
                 width={member.image.width}
                 height={member.image.height}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:bg-gradient-to-r" />
         </div>
-        <div className="relative flex flex-col p-6 md:w-3/5 md:p-8">
+        <div className="relative flex flex-col p-6 md:w-2/3 md:p-8">
             <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
             <p className="text-lg font-medium text-primary">{member.role}</p>
             <p className="mt-4 flex-1 text-muted-foreground">{member.bio}</p>
