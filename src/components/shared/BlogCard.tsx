@@ -5,14 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/types';
-import { Card as ShadcnCard, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card as ShadcnCard, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <ShadcnCard className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       <CardHeader className="relative h-56 w-full p-0">
-        <Link href={`/blog/${post.slug}`} className="block h-full w-full overflow-hidden">
+        <Link href={`/blog/${post.slug}`} className="block h-full w-full overflow-hidden" aria-label={post.title}>
           <Image
             src={post.image.src}
             alt={post.title}
@@ -29,17 +29,20 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </div>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col p-6">
-        <CardTitle className="text-xl">
-          <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:z-0">
-            {post.title}
-          </Link>
-        </CardTitle>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
+        <div className="flex-1">
+            <CardTitle className="text-xl">
+            <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:z-0">
+                {post.title}
+            </Link>
+            </CardTitle>
+            <CardDescription className="mt-2 text-sm text-muted-foreground">{post.excerpt}</CardDescription>
+        </div>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-         <Button asChild variant="link" className="p-0 relative z-10">
+         <Button asChild variant="link" className="p-0 relative z-10 text-primary group/link">
             <Link href={`/blog/${post.slug}`}>
-                Read More <ArrowRight className="ml-2 h-4 w-4" />
+                Read More 
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
             </Link>
         </Button>
       </CardFooter>
