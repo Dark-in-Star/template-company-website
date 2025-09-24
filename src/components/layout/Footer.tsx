@@ -54,9 +54,8 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
-                    <span>{link.label}</span>
+                  <Link href={link.href} className="text-gray-400 transition-colors hover:text-white">
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -68,15 +67,13 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/privacy-policy" className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
-                  <span>Privacy Policy</span>
+                <Link href="/privacy-policy" className="text-gray-400 transition-colors hover:text-white">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="group flex items-center text-gray-400 transition-colors hover:text-white">
-                    <span className="mr-2 inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
-                  <span>Terms of Service</span>
+                <Link href="/terms-of-service" className="text-gray-400 transition-colors hover:text-white">
+                  Terms of Service
                 </Link>
               </li>
             </ul>
