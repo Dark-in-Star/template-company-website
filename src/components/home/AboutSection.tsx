@@ -78,7 +78,7 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
       className={cn('about-section-v2', isInView && 'is-visible')}
     >
       <div className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div className="about-image-wrapper hidden lg:block">
+        <div className="about-image-wrapper hidden lg:block h-full min-h-[480px] max-h-[640px]">
             <Image
                 src={aboutImage.src}
                 alt="About Procellence Technology"
@@ -88,7 +88,7 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
             />
         </div>
         <div>
-          <Card className="about-content-card bg-card/80 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 lg:bg-card/100 lg:shadow-none lg:backdrop-blur-none">
+          <Card className="about-content-card bg-card/80 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 lg:bg-card/100 lg:shadow-none lg:backdrop-blur-none">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
               <div>
