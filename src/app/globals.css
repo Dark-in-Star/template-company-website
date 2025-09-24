@@ -22,11 +22,11 @@ h1, h2, h3, h4, h5, h6 {
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
 
-    --primary-hsl: 180, 100%, 25.1%;
+    --primary-hsl: 231, 65%, 41%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 20% 98%;
     --btn-primary-bg: hsl(var(--primary-hsl));
-    --btn-primary-bg-hover: hsl(180, 100%, 30.1%);
+    --btn-primary-bg-hover: hsl(231, 65%, 46%);
 
     --secondary-hsl: 215, 27.9%, 16.9%;
     --secondary: hsl(var(--secondary-hsl));
@@ -65,11 +65,11 @@ h1, h2, h3, h4, h5, h6 {
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     
-    --primary-hsl: 180, 100%, 25.1%;
+    --primary-hsl: 231, 65%, 41%;
     --primary: hsl(var(--primary-hsl));
     --primary-foreground: 210 40% 98%;
     --btn-primary-bg: hsl(var(--primary-hsl));
-    --btn-primary-bg-hover: hsl(180, 100%, 20.1%);
+    --btn-primary-bg-hover: hsl(231, 65%, 36%);
 
     --secondary-hsl: 210 40% 96.1%;
     --secondary: hsl(var(--secondary-hsl));
