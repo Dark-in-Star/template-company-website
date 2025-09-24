@@ -36,7 +36,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
             </Button>
           </Link>
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button size="lg" variant="outline" className="w-full border-gray-400 text-white hover:bg-white/10 dark:hover:bg-white/10">
+            <Button size="lg" variant="outline" className="w-full border-gray-400 text-foreground bg-transparent hover:bg-accent hover:text-accent-foreground">
               Get in Touch
             </Button>
           </Link>
