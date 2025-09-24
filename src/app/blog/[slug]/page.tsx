@@ -129,9 +129,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       
       <section className="py-0">
         <div className="container mx-auto">
-           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-             <div className="lg:col-span-2">
-                <article className="prose max-w-none dark:prose-invert">
+           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 xl:grid-cols-4">
+             <div className="lg:col-span-2 xl:col-span-3">
+                <article className="prose max-w-none dark:prose-invert 2xl:prose-xl mx-auto">
                     <Image
                         src={post.image.src}
                         alt={post.title}
@@ -144,7 +144,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 </article>
               </div>
-            <aside className="lg:col-span-1">
+            <aside className="lg:col-span-1 xl:col-span-1">
                 <div className="sticky top-24">
                     <Card>
                         <CardHeader>

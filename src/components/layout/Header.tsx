@@ -21,7 +21,7 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Logo />
         
-        <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium xl:space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}

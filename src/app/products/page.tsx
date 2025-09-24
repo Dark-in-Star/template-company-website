@@ -56,7 +56,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <section className="bg-secondary md:flex md:items-center md:h-screen overflow-hidden">
+      <section className="bg-secondary md:flex md:items-center md:min-h-screen overflow-hidden">
         <div className="container mx-auto grid grid-cols-1 items-center gap-12 py-12 md:grid-cols-2 lg:py-24">
             <div className="space-y-6 text-center md:text-left">
                 <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl animate-fade-in-down">Meet Qynko: Your Ultimate Productivity Companion</h1>
