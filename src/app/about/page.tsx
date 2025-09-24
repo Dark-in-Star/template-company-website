@@ -39,7 +39,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
     <div className="relative mt-8 md:mt-0">
       <div className="relative flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/2 lg:w-5/12">
-          <Card className="overflow-hidden shadow-xl">
+          <Card className="overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
             <Image
               src={member.image.src}
               alt={member.name}
@@ -51,7 +51,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           </Card>
         </div>
         <div className="w-full md:w-1/2 lg:w-7/12">
-          <Card className="relative -mt-8 rounded-lg border bg-card p-6 shadow-lg md:-ml-16 md:mt-0 md:p-10">
+          <Card className="relative -mt-8 rounded-lg border bg-card p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 md:-ml-16 md:mt-0 md:p-10">
             <CardContent className="p-0">
               <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
               <p className="text-lg font-medium text-primary">{member.role}</p>
