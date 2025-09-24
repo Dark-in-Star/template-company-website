@@ -49,14 +49,14 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:bg-gradient-to-r" />
         </div>
         <div className="relative flex flex-col p-6 md:w-3/5 md:p-8">
-            <div className="absolute -top-5 right-5 z-20 flex gap-1 rounded-full border border-border bg-background/70 p-1 backdrop-blur-sm">
+            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
+            <p className="text-lg font-medium text-primary">{member.role}</p>
+            <p className="mt-4 flex-1 text-muted-foreground">{member.bio}</p>
+            <div className="mt-6 flex gap-2">
                 <SocialLink platform="linkedin" url={member.socials?.linkedin} />
                 <SocialLink platform="twitter" url={member.socials?.twitter} />
                 <SocialLink platform="github" url={member.socials?.github} />
             </div>
-            <h3 className="font-heading text-2xl font-bold">{member.name}</h3>
-            <p className="text-lg font-medium text-primary">{member.role}</p>
-            <p className="mt-4 flex-1 text-muted-foreground">{member.bio}</p>
         </div>
     </Card>
   );
