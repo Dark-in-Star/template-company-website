@@ -42,7 +42,7 @@ export function Footer() {
           </div>
           <div className="mt-2">
             <Link href="/contact">
-                <Button variant="super" size="sm">Request App Demo</Button>
+                <Button size="sm">Request App Demo</Button>
             </Link>
           </div>
         </div>
