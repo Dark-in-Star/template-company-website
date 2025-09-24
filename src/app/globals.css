@@ -449,6 +449,13 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Brochure Summarizer Card Gradient */
+@layer components {
+  .brochure-summarizer-card {
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--primary-hsl) / 0.1), hsl(var(--secondary-hsl) / 0.2));
+  }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .group:hover .journey-content,
