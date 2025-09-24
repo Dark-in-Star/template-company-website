@@ -31,6 +31,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
           plugins={[plugin.current]}
           opts={{
             align: 'start',
+            loop: true,
           }}
           className="mx-auto w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl"
           onMouseEnter={plugin.current.stop}

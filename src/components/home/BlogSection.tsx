@@ -32,6 +32,7 @@ export function BlogSection({ posts }: { posts: BlogPost[] }) {
           plugins={[plugin.current]}
           opts={{
             align: 'start',
+            loop: true,
           }}
           className="w-full"
           onMouseEnter={plugin.current.stop}
