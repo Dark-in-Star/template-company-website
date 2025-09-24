@@ -63,7 +63,7 @@ export function BlogPreview({ data }: BlogPreviewProps) {
           </h2>
           <div className="mt-4 flex items-center gap-4">
             <Avatar>
-              <AvatarImage src="/img/avatar.webp" />
+              <AvatarImage src="https://picsum.photos/seed/avatar/100/100" />
               <AvatarFallback>{authorInitials}</AvatarFallback>
             </Avatar>
             <div>
