@@ -409,6 +409,39 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* About Section v2 */
+@layer components {
+    .about-section-v2 {
+        @apply relative py-24;
+        min-height: 70vh;
+    }
+    .about-image-wrapper {
+        @apply absolute inset-0 overflow-hidden;
+    }
+    .about-image-parallax {
+        @apply h-full w-full object-cover;
+        transform: translateY(var(--parallax-y, 0px));
+        transition: transform 0.1s ease-out;
+    }
+    .about-image-overlay {
+        @apply absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent;
+    }
+    .about-content-card {
+        @apply transition-all duration-500 ease-out;
+    }
+    @media (min-width: 768px) {
+        .about-content-card {
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        .about-section-v2.is-visible .about-content-card {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .group:hover .journey-content,
   .group:hover .journey-badge {

@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 const AboutSection = dynamic(() => import('@/components/home/AboutSection').then(mod => mod.AboutSection), {
-  loading: () => <Skeleton className="h-[400px] w-full" />,
+  loading: () => <Skeleton className="h-[500px] w-full" />,
 });
 const ServicesSection = dynamic(() => import('@/components/home/ServicesSection').then(mod => mod.ServicesSection), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
@@ -29,7 +29,7 @@ const BrochureSummarizerSection = dynamic(() => import('@/components/home/Brochu
 
 
 export default function Home() {
-  const aboutImage = placeholderImages.about as Image;
+  const aboutImage = placeholderImages.aboutV2 as Image;
   const heroImage = placeholderImages.hero as Image;
   
   return (
@@ -42,9 +42,7 @@ export default function Home() {
             </ScrollAnimation>
         </div>
       </div>
-      <ScrollAnimation>
-        <AboutSection aboutImage={aboutImage} />
-      </ScrollAnimation>
+      <AboutSection aboutImage={aboutImage} />
       <ScrollAnimation>
         <ServicesSection services={services.slice(0, 4)} />
       </ScrollAnimation>
