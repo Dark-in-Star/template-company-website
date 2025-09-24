@@ -70,40 +70,24 @@ function CollapsibleAboutPoints() {
 export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const { isInView } = useScrollAnimation({ ref, threshold: 0.2, triggerOnce: true });
-  const parallaxRef = React.useRef<HTMLImageElement>(null);
   const [isExpanded, setIsExpanded] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current && window.innerWidth > 768) {
-        const top = parallaxRef.current.getBoundingClientRect().top;
-        const speed = 0.2;
-        const yOffset = -top * speed;
-        parallaxRef.current.style.setProperty('--parallax-y', `${yOffset}px`);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section 
       ref={ref} 
-      className={cn('about-section-v2', isInView && 'is-visible')}
+      className={cn('relative', isInView && 'is-visible')}
     >
-      <div className="container mx-auto grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-        <div className="about-image-wrapper hidden md:block">
-          <Image
-            ref={parallaxRef}
-            src={aboutImage.src}
-            alt="Our Team"
-            data-ai-hint={aboutImage.hint}
-            fill
-            className="about-image-parallax"
-          />
-        </div>
-        <div className="md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-2">
-          <Card className="about-content-card bg-card/80 shadow-2xl backdrop-blur-lg">
+      <Image
+        src="https://picsum.photos/seed/aboutbg/1200/800"
+        alt="About us background"
+        data-ai-hint="modern office background"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="container relative mx-auto grid grid-cols-1 items-center">
+        <div className="mx-auto max-w-2xl lg:max-w-3xl">
+          <Card className="about-content-card bg-card/80 shadow-2xl">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
               <div>
