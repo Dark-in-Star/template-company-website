@@ -88,7 +88,7 @@ export function AboutSection({ aboutImage }: { aboutImage: ImageType }) {
             />
         </div>
         <div>
-          <Card className="about-content-card bg-card/80 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 lg:bg-card/100 lg:shadow-none lg:backdrop-blur-none">
+          <Card className="about-content-card bg-card/80 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 lg:bg-card lg:shadow-none lg:backdrop-blur-none">
             <CardContent className="p-8 md:p-12">
               <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">About Procellence Technology</h2>
               <div>
