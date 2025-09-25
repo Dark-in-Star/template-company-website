@@ -57,8 +57,14 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
   }, [api]);
 
   return (
-    <section className="bg-primary/5 pt-0 pb-12 md:pb-24 lg:pb-32 -mt-16">
+    <section className="bg-primary/5 pt-12 md:pt-24 lg:pt-32 -mt-16">
       <div className="container mx-auto">
+        <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">The Procellence Customer Platform</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+                Connected data and tools make it easier to know, do, and connect everything across your business.
+            </p>
+        </div>
         <Carousel 
             setApi={setApi} 
             plugins={[plugin.current]}
@@ -69,12 +75,12 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
           <CarouselContent>
             {slides.map((slide, index) => (
               <CarouselItem key={index}>
-                <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-                  <div className="space-y-4 text-center md:text-left">
-                    <h2 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{slide.title}</h2>
+                <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
+                  <div className="space-y-4 text-center md:text-left order-2 md:order-1">
+                    <h3 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{slide.title}</h3>
                     <p className="max-w-md text-lg text-muted-foreground mx-auto md:mx-0">{slide.description}</p>
                   </div>
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center order-1 md:order-2">
                     <Image
                       src={slide.image.src}
                       alt={slide.title}
