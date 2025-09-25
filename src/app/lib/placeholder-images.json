@@ -11,5 +11,6 @@
     "qynkoApp1": { "src": "/img/qynko-app1.webp", "width": 400, "height": 800, "hint": "app screenshot" },
     "qynkoApp2": { "src": "/img/qynko-app2.webp", "width": 400, "height": 800, "hint": "app screen" },
     "appleLogo": { "src": "/img/apple-logo.webp", "width": 50, "height": 50, "hint": "apple logo" },
-    "androidLogo": { "src": "/img/android-logo.webp", "width": 50, "height": 50, "hint": "android logo" }
+    "androidLogo": { "src": "/img/android-logo.webp", "width": 50, "height": 50, "hint": "android logo" },
+    "videoThumbnail": { "src": "https://picsum.photos/seed/trust/400/300", "width": 400, "height": 300, "hint": "team meeting" }
 }
