@@ -19,6 +19,24 @@ interface SmartCrmSectionProps {
   slides: SmartCrmSlide[];
 }
 
+function SlideDescription({ text }: { text: string }) {
+    const [isExpanded, setIsExpanded] = React.useState(false);
+
+    return (
+        <div>
+            <p className={cn("max-w-md text-lg text-muted-foreground mx-auto md:mx-0", !isExpanded && "line-clamp-2")}>
+                {text}
+            </p>
+            {/* A rough-but-good-enough check to see if text is long enough to need expansion */}
+            {text.length > 120 && (
+                <Button variant="link" size="sm" className="p-0 h-auto" onClick={() => setIsExpanded(!isExpanded)}>
+                    {isExpanded ? 'Read Less' : 'Read More'}
+                </Button>
+            )}
+        </div>
+    )
+}
+
 export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
@@ -57,7 +75,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
   }, [api]);
 
   return (
-    <section className="bg-primary/5 pt-12 md:pt-24 lg:pt-32 -mt-16">
+    <section className="bg-primary/5 pt-12 md:pt-24 lg:pt-32 -mt-16 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
             <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">The Procellence Customer Platform</h2>
@@ -78,7 +96,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
                 <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
                   <div className="space-y-4 text-center md:text-left order-2 md:order-1">
                     <h3 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl">{slide.title}</h3>
-                    <p className="max-w-md text-lg text-muted-foreground mx-auto md:mx-0">{slide.description}</p>
+                    <SlideDescription text={slide.description} />
                   </div>
                   <div className="flex items-center justify-center order-1 md:order-2">
                     <Image
