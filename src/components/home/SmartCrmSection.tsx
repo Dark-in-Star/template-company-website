@@ -57,7 +57,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
   }, [api]);
 
   return (
-    <section className="bg-primary/5">
+    <section className="bg-primary/5 pt-0 pb-12 md:pb-24 lg:pb-32 -mt-16">
       <div className="container mx-auto">
         <Carousel 
             setApi={setApi} 

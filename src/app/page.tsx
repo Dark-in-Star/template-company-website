@@ -38,14 +38,14 @@ export default function Home() {
   return (
     <>
       <HeroSection heroImage={heroImage} />
-      <SmartCrmSection slides={smartCrmSlides} />
-       <div className="relative">
-        <div className="container -mt-24 pb-12">
+       <div className="relative bg-primary/5">
+        <div className="container -translate-y-16">
             <ScrollAnimation>
                 <StatsSection />
             </ScrollAnimation>
         </div>
       </div>
+      <SmartCrmSection slides={smartCrmSlides} />
       <AboutSection aboutImage={aboutImage} />
       <ScrollAnimation>
         <ServicesSection services={services.slice(0, 4)} />
