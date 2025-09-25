@@ -126,7 +126,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110"
+                    className="h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110 hover:bg-primary hover:text-primary-foreground hover:border-primary"
                     onClick={scrollPrev}
                 >
                     <ChevronLeft className="h-6 w-6" />
@@ -148,7 +148,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110"
+                    className="h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110 hover:bg-primary hover:text-primary-foreground hover:border-primary"
                     onClick={scrollNext}
                 >
                     <ChevronRight className="h-6 w-6" />
