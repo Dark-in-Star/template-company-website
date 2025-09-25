@@ -22,7 +22,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80 backdrop-blur-[1px]" />
       </div>
-      <div className="container relative mx-auto flex min-h-[80vh] flex-col items-center justify-center text-center md:min-h-[90vh] pb-32 sm:pb-0">
+      <div className="container relative mx-auto flex min-h-[70vh] flex-col items-center justify-center text-center">
         <div className="space-y-4">
           <h1 className="font-heading text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-down">
             Innovating the Future of <AnimatedHeadline words={dynamicWords} />

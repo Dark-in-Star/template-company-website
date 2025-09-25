@@ -40,8 +40,8 @@ export default function Home() {
     <>
       <HeroSection heroImage={heroImage} />
       <TrustSection />
-       <div className="relative bg-primary/5">
-        <div className="container -translate-y-16">
+       <div className="relative bg-background pt-16">
+        <div className="container">
             <ScrollAnimation>
                 <StatsSection />
             </ScrollAnimation>
