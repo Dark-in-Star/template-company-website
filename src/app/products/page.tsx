@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { StoreButtons } from '@/components/shared/StoreButtons';
 import { ProductFeature } from '@/components/products/ProductFeature';
 import { HowItWorksStep } from '@/components/products/HowItWorksStep';

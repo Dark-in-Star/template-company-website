@@ -7,7 +7,7 @@ export type NavLink = {
   label: string;
 };
 
-export type Image = {
+export type ImageType = {
   src: string;
   width: number;
   height: number;
@@ -21,11 +21,11 @@ export type Service = {
   shortDescription: string;
   mediumDescription: string;
   longDescription: string;
-  image: Image,
+  image: ImageType,
   projects?: {
     title: string;
     description: string;
-    image: Image;
+    image: ImageType;
   }[];
   industries: string[];
 };
@@ -33,7 +33,7 @@ export type Service = {
 export type TeamMember = {
   name: string;
   role: string;
-  image: Image,
+  image: ImageType,
   bio: string;
   socials?: {
     linkedin?: string;
@@ -49,7 +49,7 @@ export type Testimonial = {
   name: string;
   company: string;
   comment: string;
-  image: Image,
+  image: ImageType,
 };
 
 export type BlogPost = {
@@ -59,10 +59,10 @@ export type BlogPost = {
   content: string;
   author: string;
   date: string;
-  image: Image,
+  image: ImageType,
   metaTitle?: string;
   metaDescription?: string;
-  metaImage?: Image;
+  metaImage?: ImageType;
   keywords?: string;
   jsonLd?: string;
 };
@@ -72,7 +72,7 @@ export type TimelineEvent = {
     date: string;
     title: string;
     description: string;
-    image: Image;
+    image: ImageType;
 };
 
 export type FAQ = {
@@ -113,5 +113,5 @@ export type Comment = {
 export type SmartCrmSlide = {
   title: string;
   description: string;
-  image: Image;
+  image: ImageType;
 };

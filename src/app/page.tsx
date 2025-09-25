@@ -2,7 +2,7 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { services, blogPosts, testimonials, features, smartCrmSlides } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image } from '@/lib/types';
+import type { ImageType } from '@/lib/types';
 import { StatsSection } from '@/components/home/StatsSection';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -32,8 +32,8 @@ const BrochureSummarizerSection = dynamic(() => import('@/components/home/Brochu
 
 
 export default function Home() {
-  const aboutImage = placeholderImages.aboutV2 as Image;
-  const heroImage = placeholderImages.hero as Image;
+  const aboutImage = placeholderImages.aboutV2 as ImageType;
+  const heroImage = placeholderImages.hero as ImageType;
   
   return (
     <>

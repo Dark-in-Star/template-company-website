@@ -6,7 +6,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { Award, Handshake, Users, ChevronDown } from 'lucide-react';

@@ -1,7 +1,7 @@
 
 'use client';
 
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { PageHero } from '@/components/shared/PageHero';
 import { StatsSection } from '@/components/home/StatsSection';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';

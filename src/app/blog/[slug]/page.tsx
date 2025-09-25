@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { LeadForm } from '@/components/shared/LeadForm';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';

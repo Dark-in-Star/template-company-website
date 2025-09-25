@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType } from '@/lib/types';
 import { AnimatedHeadline } from './AnimatedHeadline';
 
 const dynamicWords = ['Growth', 'Success', 'Innovation', 'Business'];
@@ -20,7 +20,7 @@ export function HeroSection({ heroImage }: { heroImage: ImageType }) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80 backdrop-blur-[1px]" />
       </div>
       <div className="container relative mx-auto flex min-h-[80vh] flex-col items-center justify-center text-center md:min-h-[90vh] pb-32 sm:pb-0">
         <div className="space-y-4">

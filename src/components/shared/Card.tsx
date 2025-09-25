@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card as ShadcnCard, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExpandableText } from '@/components/shared/ExpandableText';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 interface CardProps {

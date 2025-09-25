@@ -388,9 +388,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 300ms ease;
   }
   .journey-card:nth-child(1) .journey-badge { background-color: var(--chart-1); }
-  .journey-card:nth-child(2) .journey-badge { background-color: var(--chart-2); }
-  .journey-card:nth-child(3) .journey-badge { background-color: var(--chart-3); }
-  .journey-card:nth-child(4) .journey-badge { background-color: var(--chart-4); }
+  .journey-card:nth-child(2) .journey-badge { background-color: var(--chart-1); }
+  .journey-card:nth-child(3) .journey-badge { background-color: var(--chart-1); }
+  .journey-card:nth-child(4) .journey-badge { background-color: var(--chart-1); }
 
   .journey-content {
     @apply h-full rounded-lg border bg-card p-6 pt-12 text-card-foreground shadow-sm transition-all duration-300;

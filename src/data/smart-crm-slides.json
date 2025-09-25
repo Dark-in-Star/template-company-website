@@ -3,16 +3,16 @@
   {
     "title": "A CRM that's really smart.",
     "description": "Our Smart CRM is the single source of truth that connects all your business data, providing actionable insights.",
-    "image": { "src": "/img/crm-slide1.webp", "width": 600, "height": 400, "hint": "crm dashboard" }
+    "image": { "src": "/assets/image/home/about_1.png", "width": 600, "height": 400, "hint": "crm dashboard" }
   },
   {
     "title": "Automate Your Sales Process.",
     "description": "From lead capture to deal closing, automate repetitive tasks and let your sales team focus on selling.",
-    "image": { "src": "/img/crm-slide2.webp", "width": 600, "height": 400, "hint": "sales automation" }
+    "image": { "src": "/assets/image/home/about_2.png", "width": 600, "height": 400, "hint": "sales automation" }
   },
   {
     "title": "Personalize Customer Journeys.",
     "description": "Engage with your customers at the right time with the right message, creating experiences they'll love.",
-    "image": { "src": "/img/crm-slide3.webp", "width": 600, "height": 400, "hint": "customer journey" }
+    "image": { "src": "/assets/image/home/about_3.png", "width": 600, "height": 400, "hint": "customer journey" }
   }
 ]

@@ -1,7 +1,7 @@
 
 import { services, testimonials, features } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { ServiceListItem } from '@/components/shared/ServiceListItem';
 import { PageHero } from '@/components/shared/PageHero';
 import { StatsSection } from '@/components/home/StatsSection';

@@ -12,7 +12,7 @@ export function HomeServiceCard({ service }: { service: Service }) {
     const Icon = LucideIcons[service.icon as keyof typeof LucideIcons] as React.ElementType;
 
     return (
-        <Card className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+        <Card className="group flex flex-col text-center transform-gpu transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
             <CardHeader className="items-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="h-8 w-8" />

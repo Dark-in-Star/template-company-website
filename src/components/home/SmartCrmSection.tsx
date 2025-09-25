@@ -122,7 +122,7 @@ export function SmartCrmSection({ slides }: SmartCrmSectionProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="mt-8 flex items-center justify-center gap-4">
+          <div className="mt-2 flex items-center justify-center gap-4">
                 <Button
                     variant="outline"
                     size="icon"

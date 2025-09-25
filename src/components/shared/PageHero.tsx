@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 
 interface PageHeroProps {
     title: string;

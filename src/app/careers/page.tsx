@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CareerForm } from './CareerForm';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
-import type { Image as ImageType } from '@/lib/types';
+import type { ImageType as ImageType } from '@/lib/types';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
 
