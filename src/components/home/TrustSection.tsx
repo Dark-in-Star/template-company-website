@@ -17,7 +17,7 @@ export function TrustSection() {
         <>
             <section className="bg-background -mt-32 pb-16 relative z-10">
                 <div className="container mx-auto">
-                    <Card className="bg-card text-card-foreground p-4 shadow-2xl rounded-3xl">
+                    <Card className="bg-gradient-to-br from-card to-secondary/20 text-card-foreground p-4 shadow-2xl rounded-3xl">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div className="lg:col-span-2 flex flex-col justify-center items-center md:items-start text-center md:text-left p-6">
                                 <h2 className="font-heading text-3xl font-bold tracking-tighter sm:text-4xl">Trusted By 250,000+ Business</h2>
