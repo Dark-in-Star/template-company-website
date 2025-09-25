@@ -21,14 +21,24 @@ interface SmartCrmSectionProps {
 
 function SlideDescription({ text }: { text: string }) {
     const [isExpanded, setIsExpanded] = React.useState(false);
+    const [isLongText, setIsLongText] = React.useState(false);
+    const pRef = React.useRef<HTMLParagraphElement>(null);
+
+    React.useEffect(() => {
+      if (pRef.current) {
+        // Check if the text is long enough to be clamped (i.e., it's taller than two lines)
+        if (pRef.current.scrollHeight > pRef.current.clientHeight) {
+          setIsLongText(true);
+        }
+      }
+    }, [text]);
 
     return (
         <div>
-            <p className={cn("max-w-md text-lg text-muted-foreground mx-auto md:mx-0", !isExpanded && "line-clamp-2")}>
+            <p ref={pRef} className={cn("max-w-md text-lg text-muted-foreground mx-auto md:mx-0", !isExpanded && "line-clamp-2")}>
                 {text}
             </p>
-            {/* A rough-but-good-enough check to see if text is long enough to need expansion */}
-            {text.length > 120 && (
+            {isLongText && (
                 <Button variant="link" size="sm" className="p-0 h-auto" onClick={() => setIsExpanded(!isExpanded)}>
                     {isExpanded ? 'Read Less' : 'Read More'}
                 </Button>
