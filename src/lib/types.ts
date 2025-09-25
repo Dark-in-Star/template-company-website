@@ -109,3 +109,9 @@ export type Comment = {
   replies?: Comment[];
   replyingTo?: string;
 };
+
+export type SmartCrmSlide = {
+  title: string;
+  description: string;
+  image: Image;
+};

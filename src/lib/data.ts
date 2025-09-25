@@ -1,6 +1,6 @@
 
 
-import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature, CountryCode, GalleryImage, Comment } from './types';
+import type { Service, TeamMember, Testimonial, BlogPost, NavLink, TimelineEvent, FAQ, Feature, CountryCode, GalleryImage, Comment, SmartCrmSlide } from './types';
 
 import navLinksData from '@/data/nav-links.json';
 import servicesData from '@/data/services.json';
@@ -13,6 +13,7 @@ import featuresData from '@/data/features.json';
 import galleryImagesData from '@/data/gallery-images.json';
 import countryCodesData from '@/data/country-codes.json';
 import commentsData from '@/data/comments.json';
+import smartCrmSlidesData from '@/data/smart-crm-slides.json';
 
 
 export const navLinks: NavLink[] = navLinksData;
@@ -26,3 +27,4 @@ export const features: Feature[] = featuresData;
 export const galleryImages: GalleryImage[] = galleryImagesData;
 export const countryCodes: CountryCode[] = countryCodesData;
 export const comments: Record<string, Comment[]> = commentsData;
+export const smartCrmSlides: SmartCrmSlide[] = smartCrmSlidesData;

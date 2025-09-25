@@ -1,6 +1,6 @@
 
 import { HeroSection } from '@/components/home/HeroSection';
-import { services, blogPosts, testimonials, features } from '@/lib/data';
+import { services, blogPosts, testimonials, features, smartCrmSlides } from '@/lib/data';
 import * as placeholderImages from '@/app/lib/placeholder-images.json';
 import type { Image } from '@/lib/types';
 import { StatsSection } from '@/components/home/StatsSection';
@@ -8,6 +8,9 @@ import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 
+const SmartCrmSection = dynamic(() => import('@/components/home/SmartCrmSection').then(mod => mod.SmartCrmSection), {
+  loading: () => <Skeleton className="h-[500px] w-full" />,
+});
 const AboutSection = dynamic(() => import('@/components/home/AboutSection').then(mod => mod.AboutSection), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
 });
@@ -35,6 +38,7 @@ export default function Home() {
   return (
     <>
       <HeroSection heroImage={heroImage} />
+      <SmartCrmSection slides={smartCrmSlides} />
        <div className="relative">
         <div className="container -mt-24 pb-12">
             <ScrollAnimation>
