@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import type { ImageType } from '@/lib/types';
 import { AnimatedHeadline } from './AnimatedHeadline';
+import { TrustSection } from '@/components/home/TrustSection';
+
 
 const dynamicWords = ['Growth', 'Success', 'Innovation', 'Business'];
 

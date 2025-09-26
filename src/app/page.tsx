@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ScrollAnimation } from '@/components/shared/ScrollAnimation';
 import { TrustSection } from '@/components/home/TrustSection';
 
+
 const SmartCrmSection = dynamic(() => import('@/components/home/SmartCrmSection').then(mod => mod.SmartCrmSection), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
 });
@@ -40,13 +41,6 @@ export default function Home() {
     <>
       <HeroSection heroImage={heroImage} />
       <TrustSection />
-       <div className="relative bg-background pt-16">
-        <div className="container">
-            <ScrollAnimation>
-                <StatsSection />
-            </ScrollAnimation>
-        </div>
-      </div>
       <SmartCrmSection slides={smartCrmSlides} />
       <AboutSection aboutImage={aboutImage} />
       <ScrollAnimation>
